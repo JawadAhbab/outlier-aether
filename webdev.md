@@ -39,3 +39,63 @@ Here's the expected workflow for production tasks:
 4. **Optionally** upload page assets (e.g., logos, backgrounds, hero images, or other media you want embedded directly in the final site).
 5. **Select the target resolution**.
 6. **Submit**.
+
+# PRD Outline
+
+Your PRD should describe the visual identity, page-by-page breakdown, animation specs, and technical requirements. Include both the visual ambition and the underlying application logic.
+
+## Core Requirements
+
+### 🎨 Visual Identity
+
+- **Typography:** named fonts, weights, sizes, roles
+- **Colors:** hex values with assigned purpose
+- **Spacing:** padding, borders, radius
+
+### 📄 Pages & Interactions
+
+- **Each page:** what's on it, where elements sit
+- **Each interaction:** what the user does $\rightarrow$ what happens
+
+### 🐇 Animation & Motion
+
+- **Every animation:** duration in ms, named easing curve
+- **Multi-step transitions:** ordered steps with timing
+
+### 🛠️ Technical Requirements
+
+- **Named libraries:** connected to specific features
+- **3D:** camera, lights, materials with property values
+- **SVG:** technique named, animation approach defined
+
+### ⚙️ Application Logic
+
+- **Data model:** entities with fields and relationships
+- **Auth:** method, provider, what changes when logged in
+- **Flows:** at least 2 features walked through step by step
+
+### 📱 Responsive Behavior
+
+- **Named breakpoints:** with specific changes per tier
+- **Heavy visuals:** how 3D/SVG scale down on mobile
+
+### ⚡ Performance & Accessibility
+
+- **Metrics:** At least one number (FPS, asset budget, load time)
+- **Techniques:** At least one named technique (Draco, KTX2, etc.)
+- **Accessibility:** `prefers-reduced-motion`: what specifically changes
+
+---
+
+## Quick Tips
+
+### ✅ Keep these in mind
+
+- **Be specific:** e.g., "3-column card grid with 16px gap" instead of "some cards"
+- **Detail the flow:** Describe interactive flows step by step
+- **Use concrete values:** e.g., hex colors, font names, pixel sizes
+
+### ❌ Avoid the following
+
+- **Vagueness:** "modern UX" tells an AI nothing
+- **Filler:** Don't pad with filler; quality over word count
