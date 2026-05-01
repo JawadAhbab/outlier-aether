@@ -99,3 +99,15 @@ Your PRD should describe the visual identity, page-by-page breakdown, animation 
 
 - **Vagueness:** "modern UX" tells an AI nothing
 - **Filler:** Don't pad with filler; quality over word count
+
+# What to Include
+
+Write a detailed PRD covering both visual ambition and app logic:
+
+- **Visual identity** — typography, layout, color, spacing philosophy
+- **Page-by-page breakdown** with interaction specs
+- **Animation and transition specifications** with timing/easing
+- **Technical requirements** (Three.js, SVG, WebGL, etc.)
+- **User roles, auth flows, data model**
+- **Responsive behavior** across breakpoints
+- **Performance considerations** for heavy visual effects
