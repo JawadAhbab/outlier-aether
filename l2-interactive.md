@@ -1,9 +1,9 @@
 > Read the source file, you will get directions, follow the rules and complete the task
 
-- Title: Public Utility
-- Description: Essential service platform, utility billing, school enrolement, library catalogs, transit schedules, and public health information
+- Title:
+- Description:
 - Words limit: 1500 [VERY IMPORTANT]
-- Think of sites like: Education bureaus, library systems
+- Think of sites like:
 
 **You have to write a detailed requirements description. Describe all pages, navigation, interactive elements, forms, and animations. More detail is better — be thorough.**
 
@@ -22,10 +22,7 @@
 
 ### For specifically:
 
-- Account dashboard with billing history
-- Service outage map or status page
-- Online payment enrollment forms
-- Transit schedules, library catalogue search
+-
 
 ### Quick tips
 
