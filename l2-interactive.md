@@ -1,9 +1,9 @@
 > Read the source file, you will get directions, follow the rules and complete the task
 
-- Title:
-- Description:
+- Title: Services
+- Description: Platforms for discovering, comparing, and booking professional services like healthcare, legal, or insurance with appointment flows
 - Words limit: 1500 [VERY IMPORTANT]
-- Think of sites like:
+- Think of sites like: Insurance portals, healthcare booking
 
 **You have to write a detailed requirements description. Describe all pages, navigation, interactive elements, forms, and animations. More detail is better — be thorough.**
 
@@ -22,7 +22,10 @@
 
 ### For specifically:
 
--
+- Service catalog or plan comparison tables
+- Appointment calendar with time slots
+- Quote request forms with validation
+- Provider profiles, credentials display
 
 ### Quick tips
 
