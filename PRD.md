@@ -9,17 +9,17 @@
 - Caption: 14px / line-height 1.4
 
 ### Color Palette
-- Primary: #2563EB (Blue 600)
-- Primary Hover: #1D4ED8 (Blue 700)
-- Secondary: #10B981 (Emerald 500)
-- Accent: #F59E0B (Amber 500)
-- Background: #FFFFFF
-- Surface: #F8FAFC (Slate 50)
-- Border: #E2E8F0 (Slate 200)
-- Text Primary: #0F172A (Slate 900)
-- Text Secondary: #64748B (Slate 500)
-- Error: #EF4444 (Red 500)
-- Success: #22C55E (Green 500)
+- Primary: #2563EB (Blue 600) - Buttons, links, active states, calendar highlights
+- Primary Hover: #1D4ED8 (Blue 700) - Button hover states, focus rings
+- Secondary: #10B981 (Emerald 500) - Success messages, confirm actions, available badges
+- Accent: #F59E0B (Amber 500) - Warnings, featured labels, attention-grabbing elements
+- Background: #FFFFFF - Page backgrounds, card backgrounds
+- Surface: #F8FAFC (Slate 50) - Section backgrounds, input fields, hover states
+- Border: #E2E8F0 (Slate 200) - Card borders, dividers, input borders
+- Text Primary: #0F172A (Slate 900) - Headings, body text, primary labels
+- Text Secondary: #64748B (Slate 500) - Captions, helper text, placeholders
+- Error: #EF4444 (Red 500) - Error messages, invalid states, destructive actions
+- Success: #22C55E (Green 500) - Success confirmations, completed status badges
 
 ### Spacing System
 - Base unit: 4px
