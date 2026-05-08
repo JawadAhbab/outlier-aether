@@ -4,9 +4,13 @@
 
 ### Typography
 - Primary Font: Inter (Google Fonts), weights 400, 500, 600, 700
-- Heading sizes: H1: 48px / line-height 1.1, H2: 36px / line-height 1.2, H3: 24px / line-height 1.3
-- Body text: 16px / line-height 1.6
-- Caption: 14px / line-height 1.4
+- H1: 48px / line-height 1.1 / weight 700 - Page titles, hero headlines
+- H2: 36px / line-height 1.2 / weight 600 - Section headings, card titles
+- H3: 24px / line-height 1.3 / weight 600 - Subsection headings, modal titles
+- Body text: 16px / line-height 1.6 / weight 400 - Paragraphs, descriptions, form labels
+- Caption: 14px / line-height 1.4 / weight 400 - Helper text, timestamps, metadata
+- Button text: 16px / weight 600 - All button labels
+- Input text: 16px / weight 400 - Form field values (prevents iOS zoom)
 
 ### Color Palette
 - Primary: #2563EB (Blue 600) - Buttons, links, active states, calendar highlights
