@@ -5,7 +5,6 @@ In this project, you’ll be **creating training data** for an AI agent that bui
 As part of the onboarding process, you’ll be evaluated on your ability to create **high-quality Product Requirements Documents (PRDs)** that align with customer expectations. After completing this screening, successful contributors will move on to the next phase, where you’ll finish the remaining setup steps and begin working on production tasks.
 
 > **Important:** Please review the task outline carefully and ensure your submissions reflect a **strong understanding of the requirements**.
->
 > **High-quality, detailed work is essential for passing this stage!**
 
 ---
@@ -55,7 +54,7 @@ Your PRD should describe the visual identity, page-by-page breakdown, animation 
 ### 📄 Pages & Interactions
 
 - **Each page:** what's on it, where elements sit
-- **Each interaction:** what the user does $\rightarrow$ what happens
+- **Each interaction:** what the user does -> what happens
 
 ### 🐇 Animation & Motion
 
