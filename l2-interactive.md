@@ -1,9 +1,9 @@
 > Read the source file, you will get directions, follow the rules and complete the task
 
-- Title:
-- Description:
+- Title: News
+- Description: News portals that publish articles, breaking stories, and editorial content organized by topic with navigation, search, and category filtering
 - Words limit: 1500 [VERY IMPORTANT]
-- Think of sites like:
+- Think of sites like: CNN, BBC, NYTimes, The Guardian
 
 **You have to write a detailed requirements description. Describe all pages, navigation, interactive elements, forms, and animations. More detail is better — be thorough.**
 
@@ -22,7 +22,10 @@
 
 ### For specifically:
 
--
+- Article listing layouts (featured story, grid, sidebar)
+- Category navigation (World, Politics, Sports…)
+- Breaking news banners, live indicators
+- Byline, publish date, reading time metadata
 
 ### Quick tips
 
