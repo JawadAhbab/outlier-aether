@@ -79,20 +79,10 @@ A feature-rich online retail platform where consumers can browse products, compa
 
 ### Authentication Flow
 
-```
-[User visits site]
-       |
-       v
-[Check session cookie]
-       |
-   +---+---+
-   |       |
-Logged In  Not Logged In
-   |       |
-   v       v
-[Show user  [Show login/register UI]
-dashboard]
-```
+1. User visits site
+2. System checks session cookie
+3. If logged in: Show user dashboard
+4. If not logged in: Show login/register UI
 
 ### Session Management
 - JWT tokens stored in httpOnly cookies
