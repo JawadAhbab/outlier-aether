@@ -22,52 +22,44 @@ A feature-rich online retail platform where consumers can browse products, compa
 
 ### Typography
 
-| Element | Font Family | Weight | Size | Line Height |
-|---------|-------------|--------|------|-------------|
-| Headings H1 | Inter | 700 (Bold) | 48px | 1.2 |
-| Headings H2 | Inter | 600 (Semibold) | 36px | 1.25 |
-| Headings H3 | Inter | 600 (Semibold) | 24px | 1.3 |
-| Body Text | Inter | 400 (Regular) | 16px | 1.5 |
-| Caption | Inter | 400 (Regular) | 14px | 1.4 |
-| Button | Inter | 500 (Medium) | 16px | 1 |
-| Price | Inter | 700 (Bold) | 20px | 1 |
+- Headings H1: Inter, 700 (Bold), 48px, line-height 1.2
+- Headings H2: Inter, 600 (Semibold), 36px, line-height 1.25
+- Headings H3: Inter, 600 (Semibold), 24px, line-height 1.3
+- Body Text: Inter, 400 (Regular), 16px, line-height 1.5
+- Caption: Inter, 400 (Regular), 14px, line-height 1.4
+- Button: Inter, 500 (Medium), 16px, line-height 1
+- Price: Inter, 700 (Bold), 20px, line-height 1
 
 ### Color Palette
 
-| Purpose | Hex Code | Usage |
-|---------|----------|-------|
-| Primary | #2563EB | CTAs, links, active states |
-| Primary Dark | #1D4ED8 | Hover states |
-| Secondary | #64748B | Secondary text, icons |
-| Accent | #F59E0B | Sale badges, highlights |
-| Success | #10B981 | Confirmations, in-stock |
-| Error | #EF4444 | Error messages, out-of-stock |
-| Background | #FFFFFF | Page background |
-| Surface | #F8FAFC | Cards, elevated surfaces |
-| Border | #E2E8F0 | Dividers, borders |
-| Text Primary | #0F172A | Headings, body |
-| Text Secondary | #64748B | Captions, metadata |
+- Primary: #2563EB - CTAs, links, active states
+- Primary Dark: #1D4ED8 - Hover states
+- Secondary: #64748B - Secondary text, icons
+- Accent: #F59E0B - Sale badges, highlights
+- Success: #10B981 - Confirmations, in-stock
+- Error: #EF4444 - Error messages, out-of-stock
+- Background: #FFFFFF - Page background
+- Surface: #F8FAFC - Cards, elevated surfaces
+- Border: #E2E8F0 - Dividers, borders
+- Text Primary: #0F172A - Headings, body
+- Text Secondary: #64748B - Captions, metadata
 
 ### Spacing System
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| xs | 4px | Tight gaps, inline spacing |
-| sm | 8px | Icon gaps, compact padding |
-| md | 16px | Standard padding, gaps |
-| lg | 24px | Section padding |
-| xl | 32px | Card padding |
-| 2xl | 48px | Section margins |
+- xs: 4px - Tight gaps, inline spacing
+- sm: 8px - Icon gaps, compact padding
+- md: 16px - Standard padding, gaps
+- lg: 24px - Section padding
+- xl: 32px - Card padding
+- 2xl: 48px - Section margins
 
 ### Border Radius
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| sm | 4px | Badges, tags |
-| md | 8px | Buttons, inputs |
-| lg | 12px | Cards |
-| xl | 16px | Modals, drawers |
-| full | 9999px | Pills, avatars |
+- sm: 4px - Badges, tags
+- md: 8px - Buttons, inputs
+- lg: 12px - Cards
+- xl: 16px - Modals, drawers
+- full: 9999px - Pills, avatars
 
 ---
 
