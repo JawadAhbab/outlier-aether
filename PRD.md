@@ -18,50 +18,7 @@ A feature-rich online retail platform where consumers can browse products, compa
 
 ---
 
-## 2. User Roles and Authentication
-
-### User Roles
-
-| Role | Description | Access Level |
-|------|-------------|--------------|
-| Guest | Unauthenticated browser | Product browsing, cart management, limited checkout |
-| Registered User | Authenticated shopper | Full browsing, order history, saved addresses, wishlist |
-| Admin | Store administrator | Product management, order management, user management, analytics |
-
-### Authentication Methods
-
-| Method | Type | Implementation |
-|--------|------|----------------|
-| Email/Password | Standard | Email verification required |
-| Google OAuth | Social Login | One-tap sign-in via Google |
-| Apple Sign-In | Social Login | Face ID / Touch ID integration |
-
-### Authentication Flow
-
-```
-[User visits site]
-       |
-       v
-[Check session cookie]
-       |
-   +---+---+
-   |       |
-Logged In  Not Logged In
-   |       |
-   v       v
-[Show user  [Show login/register UI]
-dashboard]
-```
-
-### Session Management
-- JWT tokens stored in httpOnly cookies
-- Access token: 15-minute expiry with silent refresh
-- Refresh token: 7-day expiry with rotation on use
-- Persistent cart: localStorage + server sync for logged-in users
-
----
-
-## 3. Visual Identity
+## 2. Visual Identity
 
 ### Typography
 
@@ -111,6 +68,49 @@ dashboard]
 | lg | 12px | Cards |
 | xl | 16px | Modals, drawers |
 | full | 9999px | Pills, avatars |
+
+---
+
+## 3. User Roles and Authentication
+
+### User Roles
+
+| Role | Description | Access Level |
+|------|-------------|--------------|
+| Guest | Unauthenticated browser | Product browsing, cart management, limited checkout |
+| Registered User | Authenticated shopper | Full browsing, order history, saved addresses, wishlist |
+| Admin | Store administrator | Product management, order management, user management, analytics |
+
+### Authentication Methods
+
+| Method | Type | Implementation |
+|--------|------|----------------|
+| Email/Password | Standard | Email verification required |
+| Google OAuth | Social Login | One-tap sign-in via Google |
+| Apple Sign-In | Social Login | Face ID / Touch ID integration |
+
+### Authentication Flow
+
+```
+[User visits site]
+       |
+       v
+[Check session cookie]
+       |
+   +---+---+
+   |       |
+Logged In  Not Logged In
+   |       |
+   v       v
+[Show user  [Show login/register UI]
+dashboard]
+```
+
+### Session Management
+- JWT tokens stored in httpOnly cookies
+- Access token: 15-minute expiry with silent refresh
+- Refresh token: 7-day expiry with rotation on use
+- Persistent cart: localStorage + server sync for logged-in users
 
 ---
 
