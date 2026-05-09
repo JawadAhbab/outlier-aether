@@ -67,19 +67,15 @@ A feature-rich online retail platform where consumers can browse products, compa
 
 ### User Roles
 
-| Role | Description | Access Level |
-|------|-------------|--------------|
-| Guest | Unauthenticated browser | Product browsing, cart management, limited checkout |
-| Registered User | Authenticated shopper | Full browsing, order history, saved addresses, wishlist |
-| Admin | Store administrator | Product management, order management, user management, analytics |
+- Guest: Unauthenticated browser - Product browsing, cart management, limited checkout
+- Registered User: Authenticated shopper - Full browsing, order history, saved addresses, wishlist
+- Admin: Store administrator - Product management, order management, user management, analytics
 
 ### Authentication Methods
 
-| Method | Type | Implementation |
-|--------|------|----------------|
-| Email/Password | Standard | Email verification required |
-| Google OAuth | Social Login | One-tap sign-in via Google |
-| Apple Sign-In | Social Login | Face ID / Touch ID integration |
+- Email/Password: Standard - Email verification required
+- Google OAuth: Social Login - One-tap sign-in via Google
+- Apple Sign-In: Social Login - Face ID / Touch ID integration
 
 ### Authentication Flow
 
