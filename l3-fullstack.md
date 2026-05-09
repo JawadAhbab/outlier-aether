@@ -1,9 +1,9 @@
 > Read the source file, you will get directions, follow the rules and complete the task
 
-- Title: Public Utility
-- Description: Essential service platforms — utility billing, school enrollment, library catalogs, transit schedules, and public health information
+- Title: Community
+- Description: Forums and social platforms where users post content, discuss topics, vote, and build reputation through threaded conversations
 - Words limit: 5000 [VERY IMPORTANT]
-- Think of sites like: Education bureaus, library systems
+- Think of sites like: Reddit, StackOverflow, Discord forums
 
 **You have to write a Write a comprehensive Product Requirements Document (~6,500 tokens). Describe user roles, auth flows, core features as user flows, data model, API design, and error handling. Be as detailed as possible — thorough PRDs produce better results.**
 
@@ -22,10 +22,10 @@
 
 ### For specifically:
 
-- Account dashboard with billing history
-- Service outage map or status page
-- Online payment enrollment forms
-- Transit schedules, library catalog search
+- Thread/post listing with votes and replies
+- User profiles with reputation/karma
+- Category/tag filtering, sort by new/hot/top
+- Comment nesting, moderation indicators, badges
 
 ### Quick tips
 
