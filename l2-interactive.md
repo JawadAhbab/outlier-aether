@@ -1,9 +1,9 @@
 > Read the source file, you will get directions, follow the rules and complete the task
 
-- Title: ERP
-- Description: Enterprise tools combining project management boards, documentation wikis, KPI dashboards, and system integration panels
+- Title:
+- Description:
 - Words limit: 1500 [VERY IMPORTANT]
-- Think of sites like: Jira, Confluence, SAP, NetSuite
+- Think of sites like:
 
 **You have to write a detailed requirements description. Describe all pages, navigation, interactive elements, forms, and animations. More detail is better — be thorough.**
 
@@ -22,10 +22,7 @@
 
 ### For specifically:
 
-- Project boards, sprint planning views
-- Wiki/docs with nested navigation
-- Dashboard tiles with KPIs
-- Integration settings, webhook panels
+-
 
 ### Quick tips
 
