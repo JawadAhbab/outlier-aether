@@ -709,19 +709,17 @@ PromoCodes
 
 ### HTTP Status Codes
 
-| Code | Usage |
-|------|-------|
-| 200 | Successful GET, PUT |
-| 201 | Successful POST (created) |
-| 204 | Successful DELETE |
-| 400 | Bad request, validation error |
-| 401 | Unauthorized, not logged in |
-| 403 | Forbidden, insufficient permissions |
-| 404 | Resource not found |
-| 409 | Conflict (e.g., duplicate email) |
-| 422 | Unprocessable entity |
-| 429 | Rate limited |
-| 500 | Internal server error |
+- 200: Successful GET, PUT
+- 201: Successful POST (created)
+- 204: Successful DELETE
+- 400: Bad request, validation error
+- 401: Unauthorized, not logged in
+- 403: Forbidden, insufficient permissions
+- 404: Resource not found
+- 409: Conflict (e.g., duplicate email)
+- 422: Unprocessable entity
+- 429: Rate limited
+- 500: Internal server error
 
 ### Error Response Format
 
@@ -746,25 +744,21 @@ PromoCodes
 
 ### Client-Side Error Handling
 
-| Scenario | User Feedback |
-|----------|---------------|
-| Network error | Toast: "Connection error. Please check your internet." |
-| 401 Unauthorized | Modal: "Please log in to continue" with login button |
-| 403 Forbidden | Toast: "You do not have permission to perform this action" |
-| 404 Product | Page: "Product not found" with continue shopping CTA |
-| 422 Validation | Inline field errors, form highlight |
-| 500 Server Error | Toast: "Something went wrong. Please try again." |
-| Cart item out of stock | Toast: "Item is no longer available", remove from cart |
+- Network error: Toast: "Connection error. Please check your internet."
+- 401 Unauthorized: Modal: "Please log in to continue" with login button
+- 403 Forbidden: Toast: "You do not have permission to perform this action"
+- 404 Product: Page: "Product not found" with continue shopping CTA
+- 422 Validation: Inline field errors, form highlight
+- 500 Server Error: Toast: "Something went wrong. Please try again."
+- Cart item out of stock: Toast: "Item is no longer available", remove from cart
 
 ### Empty States
 
-| Page | Empty State Message | Action |
-|------|-------------------|--------|
-| Search results | "No products match your search" | Show suggestions, clear filters link |
-| Cart | "Your cart is empty" | Continue Shopping CTA |
-| Wishlist | "Your wishlist is empty" | Browse Products CTA |
-| Orders | "You have not placed any orders yet" | Start Shopping CTA |
-| Reviews | "No reviews yet" | Be the first to review CTA |
+- Search results: "No products match your search" - Show suggestions, clear filters link
+- Cart: "Your cart is empty" - Continue Shopping CTA
+- Wishlist: "Your wishlist is empty" - Browse Products CTA
+- Orders: "You have not placed any orders yet" - Start Shopping CTA
+- Reviews: "No reviews yet" - Be the first to review CTA
 
 ---
 
@@ -772,12 +766,10 @@ PromoCodes
 
 ### Breakpoint Definitions
 
-| Name | Min Width | Max Width | Layout |
-|------|-----------|-----------|--------|
-| Mobile | 0px | 639px | Single column, bottom nav |
-| Tablet | 640px | 1023px | Two columns, sidebar collapsible |
-| Desktop | 1024px | 1279px | Full layout, 3-column grid |
-| Wide | 1280px+ | - | Max-width container, 4-column grid |
+- Mobile: 0px - 639px - Single column, bottom nav
+- Tablet: 640px - 1023px - Two columns, sidebar collapsible
+- Desktop: 1024px - 1279px - Full layout, 3-column grid
+- Wide: 1280px+ - Max-width container, 4-column grid
 
 ### Responsive Changes Per Tier
 
