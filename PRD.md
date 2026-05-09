@@ -26,32 +26,28 @@ Desktop browsers (primary), tablet and mobile browsers (responsive)
 
 ### Color Palette
 
-| Color | Hex | Purpose |
-|-------|-----|---------|
-| Primary | #2563EB | Buttons, links, active states |
-| Primary Dark | #1D4ED8 | Hover states for primary |
-| Secondary | #64748B | Secondary text, icons |
-| Background | #0F172A | Main background (dark mode) |
-| Surface | #1E293B | Cards, panels, elevated surfaces |
-| Surface Light | #334155 | Borders, dividers |
-| Text Primary | #F8FAFC | Main text color |
-| Text Secondary | #94A3B8 | Muted text, metadata |
-| Accent Success | #10B981 | Upvotes, success states |
-| Accent Danger | #EF4444 | Downvotes, error states, destructive actions |
-| Accent Warning | #F59E0B | Warnings, pending states |
-| Accent Gold | #FBBF24 | Badges, achievements, highlights |
+- Primary: #2563EB (Buttons, links, active states)
+- Primary Dark: #1D4ED8 (Hover states for primary)
+- Secondary: #64748B (Secondary text, icons)
+- Background: #0F172A (Main background - dark mode)
+- Surface: #1E293B (Cards, panels, elevated surfaces)
+- Surface Light: #334155 (Borders, dividers)
+- Text Primary: #F8FAFC (Main text color)
+- Text Secondary: #94A3B8 (Muted text, metadata)
+- Accent Success: #10B981 (Upvotes, success states)
+- Accent Danger: #EF4444 (Downvotes, error states, destructive actions)
+- Accent Warning: #F59E0B (Warnings, pending states)
+- Accent Gold: #FBBF24 (Badges, achievements, highlights)
 
 ### Typography
 
-| Element | Font Family | Weight | Size | Line Height |
-|---------|-------------|--------|------|-------------|
-| Heading 1 | Inter | 700 | 32px | 1.2 |
-| Heading 2 | Inter | 600 | 24px | 1.3 |
-| Heading 3 | Inter | 600 | 20px | 1.4 |
-| Body | Inter | 400 | 16px | 1.6 |
-| Small | Inter | 400 | 14px | 1.5 |
-| Caption | Inter | 400 | 12px | 1.4 |
-| Monospace | JetBrains Mono | 400 | 14px | 1.5 |
+- Heading 1: Inter, 700 weight, 32px, line-height 1.2
+- Heading 2: Inter, 600 weight, 24px, line-height 1.3
+- Heading 3: Inter, 600 weight, 20px, line-height 1.4
+- Body: Inter, 400 weight, 16px, line-height 1.6
+- Small: Inter, 400 weight, 14px, line-height 1.5
+- Caption: Inter, 400 weight, 12px, line-height 1.4
+- Monospace: JetBrains Mono, 400 weight, 14px, line-height 1.5
 
 ### Spacing System
 
