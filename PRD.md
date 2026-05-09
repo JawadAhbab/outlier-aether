@@ -14,16 +14,16 @@ A premium news portal delivering breaking stories, investigative journalism, and
 - Font roles: Headlines for article titles, subheadlines for section headers, body for article content
 
 ### Colors
-- Background: #FAFAFA
-- Surface: #FFFFFF
-- Primary Text: #1A1A1A
-- Secondary Text: #6B7280
-- Accent: #DC2626 (breaking news, CTAs)
-- Accent Hover: #B91C1C
-- Link: #2563EB
-- Link Hover: #1D4ED8
-- Border: #E5E7EB
-- Breaking Banner: #DC2626
+- Background: #FAFAFA - page background, light neutral base
+- Surface: #FFFFFF - cards, modals, elevated surfaces
+- Primary Text: #1A1A1A - headlines, body copy, main content
+- Secondary Text: #6B7280 - metadata, captions, supporting text
+- Accent: #DC2626 - breaking news labels, primary CTAs, urgent indicators
+- Accent Hover: #B91C1C - button/link hover states for accent color
+- Link: #2563EB - inline article links, interactive text
+- Link Hover: #1D4ED8 - link hover states
+- Border: #E5E7EB - dividers, card borders, input outlines
+- Breaking Banner: #DC2626 - breaking news ticker background
 
 ### Spacing
 - Page max-width: 1280px
