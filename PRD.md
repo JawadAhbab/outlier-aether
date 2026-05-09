@@ -23,30 +23,26 @@ This platform eliminates the need for citizens to navigate multiple separate age
 
 ### 2.1 Typography
 
-| Role | Font Family | Weight | Size |
-|------|-------------|--------|------|
-| Headings H1 | Source Sans Pro | 700 | 32px |
-| Headings H2 | Source Sans Pro | 600 | 24px |
-| Headings H3 | Source Sans Pro | 600 | 20px |
-| Body Text | Source Sans Pro | 400 | 16px |
-| Captions | Source Sans Pro | 400 | 14px |
-| Buttons | Source Sans Pro | 600 | 16px |
+- Headings H1: Source Sans Pro, weight 700, size 32px
+- Headings H2: Source Sans Pro, weight 600, size 24px
+- Headings H3: Source Sans Pro, weight 600, size 20px
+- Body Text: Source Sans Pro, weight 400, size 16px
+- Captions: Source Sans Pro, weight 400, size 14px
+- Buttons: Source Sans Pro, weight 600, size 16px
 
 ### 2.2 Color Palette
 
-| Purpose | Hex Value |
-|---------|-----------|
-| Primary Blue | #1E3A5F |
-| Secondary Teal | #2A9D8F |
-| Accent Orange | #E76F51 |
-| Success Green | #4CAF50 |
-| Warning Amber | #FF9800 |
-| Error Red | #E53935 |
-| Background Light | #F5F7FA |
-| Background White | #FFFFFF |
-| Text Primary | #212121 |
-| Text Secondary | #757575 |
-| Border Gray | #E0E0E0 |
+- Primary Blue: #1E3A5F
+- Secondary Teal: #2A9D8F
+- Accent Orange: #E76F51
+- Success Green: #4CAF50
+- Warning Amber: #FF9800
+- Error Red: #E53935
+- Background Light: #F5F7FA
+- Background White: #FFFFFF
+- Text Primary: #212121
+- Text Secondary: #757575
+- Border Gray: #E0E0E0
 
 ### 2.3 Spacing System
 
