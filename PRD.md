@@ -857,26 +857,14 @@ PromoCodes
 - Escape: Close modals, dropdowns
 - Arrow keys: Navigate within menus, carousels
 
-### Reduced Motion Support
+### Reduced Motion Behavior
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-```
-
-| Animation | Reduced Motion Behavior |
-|-----------|------------------------|
-| Page transitions | Instant switch, no fade |
-| Product image zoom | No zoom on hover |
-| Scroll animations | Disable parallax, show all content |
-| Loading spinners | Static loading indicator |
-| Toast notifications | Instant appear/disappear |
-| Cart drawer | Instant open/close |
+- Page transitions: Instant switch, no fade
+- Product image zoom: No zoom on hover
+- Scroll animations: Disable parallax, show all content
+- Loading spinners: Static loading indicator
+- Toast notifications: Instant appear/disappear
+- Cart drawer: Instant open/close
 
 ---
 
