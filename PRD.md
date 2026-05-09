@@ -810,36 +810,30 @@ PromoCodes
 
 ### Core Web Vitals Targets
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| LCP (Largest Contentful Paint) | < 2.5s | 75th percentile |
-| FID (First Input Delay) | < 100ms | 75th percentile |
-| CLS (Cumulative Layout Shift) | < 0.1 | 75th percentile |
-| INP (Interaction to Next Paint) | < 200ms | 75th percentile |
+- LCP (Largest Contentful Paint): < 2.5s - 75th percentile
+- FID (First Input Delay): < 100ms - 75th percentile
+- CLS (Cumulative Layout Shift): < 0.1 - 75th percentile
+- INP (Interaction to Next Paint): < 200ms - 75th percentile
 
 ### Asset Budget
 
-| Asset Type | Budget | Format |
-|------------|--------|--------|
-| HTML | < 100KB | Minified |
-| CSS | < 50KB | Minified, critical inline |
-| JavaScript | < 200KB | Minified, code-split |
-| Product Images | < 100KB each | WebP, lazy-loaded |
-| Hero Images | < 300KB | WebP with fallback |
-| Icons | < 20KB total | SVG sprite |
+- HTML: < 100KB - Minified
+- CSS: < 50KB - Minified, critical inline
+- JavaScript: < 200KB - Minified, code-split
+- Product Images: < 100KB each - WebP, lazy-loaded
+- Hero Images: < 300KB - WebP with fallback
+- Icons: < 20KB total - SVG sprite
 
 ### Performance Techniques
 
-| Technique | Implementation |
-|-----------|---------------|
-| Image optimization | WebP with JPEG fallback, responsive srcset |
-| Lazy loading | Native loading="lazy" + Intersection Observer |
-| Code splitting | Route-based chunks with dynamic imports |
-| CDN | Static assets served from Edge CDN |
-| Caching | Service Worker for offline support, stale-while-revalidate |
-| Prefetching | Prefetch linked pages on hover |
-| Compression | Brotli for text assets |
-| Font optimization | Font-display: swap, subset fonts |
+- Image optimization: WebP with JPEG fallback, responsive srcset
+- Lazy loading: Native loading="lazy" + Intersection Observer
+- Code splitting: Route-based chunks with dynamic imports
+- CDN: Static assets served from Edge CDN
+- Caching: Service Worker for offline support, stale-while-revalidate
+- Prefetching: Prefetch linked pages on hover
+- Compression: Brotli for text assets
+- Font optimization: Font-display: swap, subset fonts
 
 ---
 
@@ -847,25 +841,21 @@ PromoCodes
 
 ### WCAG 2.1 AA Compliance
 
-| Requirement | Implementation |
-|-------------|----------------|
-| Color contrast | 4.5:1 for text, 3:1 for UI elements |
-| Focus indicators | Visible focus ring, 2px offset |
-| Keyboard navigation | Full site accessible via Tab, Enter, Escape |
-| Screen reader | Semantic HTML, ARIA labels, live regions |
-| Form labels | Associated labels for all inputs |
-| Error identification | Error messages linked to inputs |
+- Color contrast: 4.5:1 for text, 3:1 for UI elements
+- Focus indicators: Visible focus ring, 2px offset
+- Keyboard navigation: Full site accessible via Tab, Enter, Escape
+- Screen reader: Semantic HTML, ARIA labels, live regions
+- Form labels: Associated labels for all inputs
+- Error identification: Error messages linked to inputs
 
 ### Keyboard Navigation
 
-| Key | Action |
-|-----|--------|
-| Tab | Move to next focusable element |
-| Shift+Tab | Move to previous focusable element |
-| Enter | Activate buttons, links, form submissions |
-| Space | Activate checkboxes, radio buttons |
-| Escape | Close modals, dropdowns |
-| Arrow keys | Navigate within menus, carousels |
+- Tab: Move to next focusable element
+- Shift+Tab: Move to previous focusable element
+- Enter: Activate buttons, links, form submissions
+- Space: Activate checkboxes, radio buttons
+- Escape: Close modals, dropdowns
+- Arrow keys: Navigate within menus, carousels
 
 ### Reduced Motion Support
 
