@@ -713,13 +713,11 @@ Users 1..* ModerationLog (as moderator)
 
 ### Notification Types
 
-| Type | Trigger | Content |
-|------|---------|---------|
-| reply | Someone replies to your post or comment | "{username} replied to your {type}" |
-| mention | Username mentioned in post/comment | "{username} mentioned you" |
-| vote | Post/comment reaches vote threshold | "Your {type} reached {n} upvotes" |
-| mod_action | Moderator action on your content | "Your post was {action} for {reason}" |
-| badge | New badge earned | "You earned the {badge_name} badge!" |
+- reply: Someone replies to your post or comment - "{username} replied to your {type}"
+- mention: Username mentioned in post/comment - "{username} mentioned you"
+- vote: Post/comment reaches vote threshold - "Your {type} reached {n} upvotes"
+- mod_action: Moderator action on your content - "Your post was {action} for {reason}"
+- badge: New badge earned - "You earned the {badge_name} badge!"
 
 ### Notification Preferences (User Settings)
 - Enable/disable each notification type
