@@ -542,15 +542,13 @@ Users 1..* ModerationLog (as moderator)
 
 ### Client-Side Error States
 
-| State | UI Treatment |
-|-------|--------------|
-| Network Error | Toast: "Connection failed. Check your internet and try again." with Retry button |
-| 401 Error | Redirect to login page, toast: "Please sign in to continue" |
-| 403 Error | Toast: "You don't have permission to perform this action" |
-| 404 Error | Dedicated 404 page with search bar and popular posts |
-| 422 Error | Inline field errors highlighted in red below inputs |
-| 429 Error | Toast: "Too many requests. Please wait X seconds." with countdown |
-| 500 Error | Toast: "Something went wrong. Our team has been notified." with Report button |
+- Network Error: Toast: "Connection failed. Check your internet and try again." with Retry button
+- 401 Error: Redirect to login page, toast: "Please sign in to continue"
+- 403 Error: Toast: "You don't have permission to perform this action"
+- 404 Error: Dedicated 404 page with search bar and popular posts
+- 422 Error: Inline field errors highlighted in red below inputs
+- 429 Error: Toast: "Too many requests. Please wait X seconds." with countdown
+- 500 Error: Toast: "Something went wrong. Our team has been notified." with Report button
 
 ### Rate Limiting
 
@@ -623,23 +621,19 @@ Users 1..* ModerationLog (as moderator)
 
 ### Breakpoints
 
-| Name | Width | Description |
-|------|-------|-------------|
-| mobile | < 640px | Phones |
-| tablet | 640px - 1024px | Tablets, small laptops |
-| desktop | > 1024px | Standard desktops |
+- mobile: < 640px (Phones)
+- tablet: 640px - 1024px (Tablets, small laptops)
+- desktop: > 1024px (Standard desktops)
 
 ### Mobile-Specific Changes
 
-| Element | Desktop | Mobile |
-|---------|---------|--------|
-| Navigation | Full header with text links | Hamburger menu, slide-out drawer |
-| Sidebar | Always visible | Collapsed, accessible via tab |
-| Post layout | 70/30 split | Single column |
-| Comment nesting | Full width tree | Indented with left border |
-| Vote buttons | Horizontal (left of post) | Fixed bottom bar |
-| Create post | Modal or separate page | Full screen form |
-| Images | Displayed in-post | Lightbox on tap |
+- Navigation: Full header with text links on desktop, hamburger menu with slide-out drawer on mobile
+- Sidebar: Always visible on desktop, collapsed on mobile (accessible via tab)
+- Post layout: 70/30 split on desktop, single column on mobile
+- Comment nesting: Full width tree on desktop, indented with left border on mobile
+- Vote buttons: Horizontal (left of post) on desktop, fixed bottom bar on mobile
+- Create post: Modal or separate page on desktop, full screen form on mobile
+- Images: Displayed in-post on desktop, lightbox on tap on mobile
 
 ### Heavy Visual Handling (Images/Videos)
 
