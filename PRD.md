@@ -23,26 +23,26 @@ This platform eliminates the need for citizens to navigate multiple separate age
 
 ### 2.1 Typography
 
-- Headings H1: Source Sans Pro, weight 700, size 32px
-- Headings H2: Source Sans Pro, weight 600, size 24px
-- Headings H3: Source Sans Pro, weight 600, size 20px
-- Body Text: Source Sans Pro, weight 400, size 16px
-- Captions: Source Sans Pro, weight 400, size 14px
-- Buttons: Source Sans Pro, weight 600, size 16px
+- Headings H1: Source Sans Pro, weight 700, size 32px - page titles and primary headings
+- Headings H2: Source Sans Pro, weight 600, size 24px - section titles and major subsections
+- Headings H3: Source Sans Pro, weight 600, size 20px - card titles and subsection headings
+- Body Text: Source Sans Pro, weight 400, size 16px - paragraph content and descriptions
+- Captions: Source Sans Pro, weight 400, size 14px - helper text, timestamps, and metadata
+- Buttons: Source Sans Pro, weight 600, size 16px - button labels and form inputs
 
 ### 2.2 Color Palette
 
-- Primary Blue: #1E3A5F
-- Secondary Teal: #2A9D8F
-- Accent Orange: #E76F51
-- Success Green: #4CAF50
-- Warning Amber: #FF9800
-- Error Red: #E53935
-- Background Light: #F5F7FA
-- Background White: #FFFFFF
-- Text Primary: #212121
-- Text Secondary: #757575
-- Border Gray: #E0E0E0
+- Primary Blue: #1E3A5F - Used for headers, primary buttons, links, and key interactive elements
+- Secondary Teal: #2A9D8F - Used for secondary buttons, success states, and accent highlights
+- Accent Orange: #E76F51 - Used for call-to-action buttons, important notifications, and emphasis
+- Success Green: #4CAF50 - Used for success messages, confirmations, and positive status indicators
+- Warning Amber: #FF9800 - Used for warning messages, pending states, and caution alerts
+- Error Red: #E53935 - Used for error messages, validation errors, and critical alerts
+- Background Light: #F5F7FA - Used for page backgrounds and card containers
+- Background White: #FFFFFF - Used for content areas and modal overlays
+- Text Primary: #212121 - Used for main body text and headings
+- Text Secondary: #757575 - Used for captions, helper text, and metadata
+- Border Gray: #E0E0E0 - Used for dividers, card borders, and input borders
 
 ### 2.3 Spacing System
 
@@ -68,11 +68,11 @@ This platform eliminates the need for citizens to navigate multiple separate age
 
 ### 3.1 Authentication Methods
 
-| Method | Description |
-|--------|-------------|
-| Email/Password | Standard login with email verification |
-| Government ID | Citizen ID number for identity verification |
-| Social Login | Google and Apple integration |
+| Method         | Description                                 |
+| -------------- | ------------------------------------------- |
+| Email/Password | Standard login with email verification      |
+| Government ID  | Citizen ID number for identity verification |
+| Social Login   | Google and Apple integration                |
 
 ### 3.2 Auth Flow
 
@@ -105,26 +105,26 @@ This platform eliminates the need for citizens to navigate multiple separate age
 
 ### 4.1 Role Definitions
 
-| Role | Access Level |
-|------|--------------|
-| Guest | Public information only |
-| Citizen | Personal account and services |
+| Role          | Access Level                   |
+| ------------- | ------------------------------ |
+| Guest         | Public information only        |
+| Citizen       | Personal account and services  |
 | Service Admin | Department-specific management |
-| System Admin | Full platform access |
+| System Admin  | Full platform access           |
 
 ### 4.2 Permission Matrix
 
-| Feature | Guest | Citizen | Service Admin | System Admin |
-|---------|-------|---------|---------------|--------------|
-| View Service Status | Yes | Yes | Yes | Yes |
-| Search Library Catalog | Yes | Yes | Yes | Yes |
-| View Transit Schedules | Yes | Yes | Yes | Yes |
-| Manage Billing | No | Yes | Yes | Yes |
-| Submit Enrollment | No | Yes | Yes | Yes |
-| Process Payments | No | Yes | Yes | Yes |
-| Manage Outages | No | No | Yes | Yes |
-| User Management | No | No | No | Yes |
-| System Configuration | No | No | No | Yes |
+| Feature                | Guest | Citizen | Service Admin | System Admin |
+| ---------------------- | ----- | ------- | ------------- | ------------ |
+| View Service Status    | Yes   | Yes     | Yes           | Yes          |
+| Search Library Catalog | Yes   | Yes     | Yes           | Yes          |
+| View Transit Schedules | Yes   | Yes     | Yes           | Yes          |
+| Manage Billing         | No    | Yes     | Yes           | Yes          |
+| Submit Enrollment      | No    | Yes     | Yes           | Yes          |
+| Process Payments       | No    | Yes     | Yes           | Yes          |
+| Manage Outages         | No    | No      | Yes           | Yes          |
+| User Management        | No    | No      | No            | Yes          |
+| System Configuration   | No    | No      | No            | Yes          |
 
 ---
 
@@ -134,173 +134,173 @@ This platform eliminates the need for citizens to navigate multiple separate age
 
 #### Users Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| email | VARCHAR(255) | UNIQUE, NOT NULL |
-| password_hash | VARCHAR(255) | NOT NULL |
-| government_id | VARCHAR(50) | UNIQUE |
-| first_name | VARCHAR(100) | NOT NULL |
-| last_name | VARCHAR(100) | NOT NULL |
-| phone | VARCHAR(20) | |
-| role | ENUM | DEFAULT 'citizen' |
-| created_at | TIMESTAMP | DEFAULT NOW() |
-| updated_at | TIMESTAMP | DEFAULT NOW() |
-| last_login | TIMESTAMP | |
+| Field         | Type         | Constraints       |
+| ------------- | ------------ | ----------------- |
+| id            | UUID         | PRIMARY KEY       |
+| email         | VARCHAR(255) | UNIQUE, NOT NULL  |
+| password_hash | VARCHAR(255) | NOT NULL          |
+| government_id | VARCHAR(50)  | UNIQUE            |
+| first_name    | VARCHAR(100) | NOT NULL          |
+| last_name     | VARCHAR(100) | NOT NULL          |
+| phone         | VARCHAR(20)  |                   |
+| role          | ENUM         | DEFAULT 'citizen' |
+| created_at    | TIMESTAMP    | DEFAULT NOW()     |
+| updated_at    | TIMESTAMP    | DEFAULT NOW()     |
+| last_login    | TIMESTAMP    |                   |
 
 #### Addresses Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| user_id | UUID | FOREIGN KEY (users) |
-| street_address | VARCHAR(255) | NOT NULL |
-| city | VARCHAR(100) | NOT NULL |
-| state | VARCHAR(50) | NOT NULL |
-| zip_code | VARCHAR(20) | NOT NULL |
-| is_primary | BOOLEAN | DEFAULT FALSE |
+| Field          | Type         | Constraints         |
+| -------------- | ------------ | ------------------- |
+| id             | UUID         | PRIMARY KEY         |
+| user_id        | UUID         | FOREIGN KEY (users) |
+| street_address | VARCHAR(255) | NOT NULL            |
+| city           | VARCHAR(100) | NOT NULL            |
+| state          | VARCHAR(50)  | NOT NULL            |
+| zip_code       | VARCHAR(20)  | NOT NULL            |
+| is_primary     | BOOLEAN      | DEFAULT FALSE       |
 
 #### Utility Accounts Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| user_id | UUID | FOREIGN KEY (users) |
-| account_number | VARCHAR(50) | UNIQUE, NOT NULL |
-| service_type | ENUM('water', 'electric', 'gas', 'waste') | NOT NULL |
-| status | ENUM('active', 'inactive', 'pending') | DEFAULT 'pending' |
-| service_address | UUID | FOREIGN KEY (addresses) |
-| balance | DECIMAL(10,2) | DEFAULT 0.00 |
-| created_at | TIMESTAMP | DEFAULT NOW() |
+| Field           | Type                                      | Constraints             |
+| --------------- | ----------------------------------------- | ----------------------- |
+| id              | UUID                                      | PRIMARY KEY             |
+| user_id         | UUID                                      | FOREIGN KEY (users)     |
+| account_number  | VARCHAR(50)                               | UNIQUE, NOT NULL        |
+| service_type    | ENUM('water', 'electric', 'gas', 'waste') | NOT NULL                |
+| status          | ENUM('active', 'inactive', 'pending')     | DEFAULT 'pending'       |
+| service_address | UUID                                      | FOREIGN KEY (addresses) |
+| balance         | DECIMAL(10,2)                             | DEFAULT 0.00            |
+| created_at      | TIMESTAMP                                 | DEFAULT NOW()           |
 
 #### Billing History Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| account_id | UUID | FOREIGN KEY (utility_accounts) |
-| billing_period | VARCHAR(20) | NOT NULL |
-| amount | DECIMAL(10,2) | NOT NULL |
-| due_date | DATE | NOT NULL |
-| status | ENUM('pending', 'paid', 'overdue') | DEFAULT 'pending' |
-| paid_at | TIMESTAMP | |
-| payment_method | VARCHAR(50) | |
-| created_at | TIMESTAMP | DEFAULT NOW() |
+| Field          | Type                               | Constraints                    |
+| -------------- | ---------------------------------- | ------------------------------ |
+| id             | UUID                               | PRIMARY KEY                    |
+| account_id     | UUID                               | FOREIGN KEY (utility_accounts) |
+| billing_period | VARCHAR(20)                        | NOT NULL                       |
+| amount         | DECIMAL(10,2)                      | NOT NULL                       |
+| due_date       | DATE                               | NOT NULL                       |
+| status         | ENUM('pending', 'paid', 'overdue') | DEFAULT 'pending'              |
+| paid_at        | TIMESTAMP                          |                                |
+| payment_method | VARCHAR(50)                        |                                |
+| created_at     | TIMESTAMP                          | DEFAULT NOW()                  |
 
 #### Payments Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| user_id | UUID | FOREIGN KEY (users) |
-| account_id | UUID | FOREIGN KEY (utility_accounts) |
-| billing_id | UUID | FOREIGN KEY (billing_history) |
-| amount | DECIMAL(10,2) | NOT NULL |
-| payment_type | ENUM('full', 'partial') | NOT NULL |
-| transaction_id | VARCHAR(100) | UNIQUE |
-| payment_method | VARCHAR(50) | NOT NULL |
-| status | ENUM('processing', 'completed', 'failed') | DEFAULT 'processing' |
-| processed_at | TIMESTAMP | |
-| created_at | TIMESTAMP | DEFAULT NOW() |
+| Field          | Type                                      | Constraints                    |
+| -------------- | ----------------------------------------- | ------------------------------ |
+| id             | UUID                                      | PRIMARY KEY                    |
+| user_id        | UUID                                      | FOREIGN KEY (users)            |
+| account_id     | UUID                                      | FOREIGN KEY (utility_accounts) |
+| billing_id     | UUID                                      | FOREIGN KEY (billing_history)  |
+| amount         | DECIMAL(10,2)                             | NOT NULL                       |
+| payment_type   | ENUM('full', 'partial')                   | NOT NULL                       |
+| transaction_id | VARCHAR(100)                              | UNIQUE                         |
+| payment_method | VARCHAR(50)                               | NOT NULL                       |
+| status         | ENUM('processing', 'completed', 'failed') | DEFAULT 'processing'           |
+| processed_at   | TIMESTAMP                                 |                                |
+| created_at     | TIMESTAMP                                 | DEFAULT NOW()                  |
 
 #### Service Outages Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| service_type | ENUM('water', 'electric', 'gas', 'waste', 'transit') | NOT NULL |
-| title | VARCHAR(255) | NOT NULL |
-| description | TEXT | |
-| affected_area | GEOMETRY | |
-| latitude | DECIMAL(10,8) | |
-| longitude | DECIMAL(11,8) | |
-| status | ENUM('investigating', 'confirmed', 'resolved') | DEFAULT 'investigating' |
-| reported_at | TIMESTAMP | |
-| resolved_at | TIMESTAMP | |
-| created_at | TIMESTAMP | DEFAULT NOW() |
+| Field         | Type                                                 | Constraints             |
+| ------------- | ---------------------------------------------------- | ----------------------- |
+| id            | UUID                                                 | PRIMARY KEY             |
+| service_type  | ENUM('water', 'electric', 'gas', 'waste', 'transit') | NOT NULL                |
+| title         | VARCHAR(255)                                         | NOT NULL                |
+| description   | TEXT                                                 |                         |
+| affected_area | GEOMETRY                                             |                         |
+| latitude      | DECIMAL(10,8)                                        |                         |
+| longitude     | DECIMAL(11,8)                                        |                         |
+| status        | ENUM('investigating', 'confirmed', 'resolved')       | DEFAULT 'investigating' |
+| reported_at   | TIMESTAMP                                            |                         |
+| resolved_at   | TIMESTAMP                                            |                         |
+| created_at    | TIMESTAMP                                            | DEFAULT NOW()           |
 
 #### School Enrollments Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| user_id | UUID | FOREIGN KEY (users) |
-| student_first_name | VARCHAR(100) | NOT NULL |
-| student_last_name | VARCHAR(100) | NOT NULL |
-| date_of_birth | DATE | NOT NULL |
-| grade_level | INTEGER | NOT NULL |
-| school_id | UUID | FOREIGN KEY (schools) |
-| status | ENUM('draft', 'submitted', 'under_review', 'approved', 'rejected') | DEFAULT 'draft' |
-| submitted_at | TIMESTAMP | |
-| created_at | TIMESTAMP | DEFAULT NOW() |
+| Field              | Type                                                               | Constraints           |
+| ------------------ | ------------------------------------------------------------------ | --------------------- |
+| id                 | UUID                                                               | PRIMARY KEY           |
+| user_id            | UUID                                                               | FOREIGN KEY (users)   |
+| student_first_name | VARCHAR(100)                                                       | NOT NULL              |
+| student_last_name  | VARCHAR(100)                                                       | NOT NULL              |
+| date_of_birth      | DATE                                                               | NOT NULL              |
+| grade_level        | INTEGER                                                            | NOT NULL              |
+| school_id          | UUID                                                               | FOREIGN KEY (schools) |
+| status             | ENUM('draft', 'submitted', 'under_review', 'approved', 'rejected') | DEFAULT 'draft'       |
+| submitted_at       | TIMESTAMP                                                          |                       |
+| created_at         | TIMESTAMP                                                          | DEFAULT NOW()         |
 
 #### Schools Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| name | VARCHAR(255) | NOT NULL |
-| address | UUID | FOREIGN KEY (addresses) |
-| district | VARCHAR(255) | |
-| grade_levels | VARCHAR(50) | |
-| enrollment_capacity | INTEGER | |
-| current_enrollment | INTEGER | |
+| Field               | Type         | Constraints             |
+| ------------------- | ------------ | ----------------------- |
+| id                  | UUID         | PRIMARY KEY             |
+| name                | VARCHAR(255) | NOT NULL                |
+| address             | UUID         | FOREIGN KEY (addresses) |
+| district            | VARCHAR(255) |                         |
+| grade_levels        | VARCHAR(50)  |                         |
+| enrollment_capacity | INTEGER      |                         |
+| current_enrollment  | INTEGER      |                         |
 
 #### Library Holdings Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| title | VARCHAR(255) | NOT NULL |
-| author | VARCHAR(255) | |
-| isbn | VARCHAR(20) | UNIQUE |
-| publisher | VARCHAR(255) | |
-| publication_year | INTEGER | |
-| format | ENUM('book', 'ebook', 'audiobook', 'dvd', 'magazine') | NOT NULL |
-| category | VARCHAR(100) | |
-| total_copies | INTEGER | DEFAULT 1 |
-| available_copies | INTEGER | DEFAULT 1 |
-| cover_image_url | VARCHAR(500) | |
+| Field            | Type                                                  | Constraints |
+| ---------------- | ----------------------------------------------------- | ----------- |
+| id               | UUID                                                  | PRIMARY KEY |
+| title            | VARCHAR(255)                                          | NOT NULL    |
+| author           | VARCHAR(255)                                          |             |
+| isbn             | VARCHAR(20)                                           | UNIQUE      |
+| publisher        | VARCHAR(255)                                          |             |
+| publication_year | INTEGER                                               |             |
+| format           | ENUM('book', 'ebook', 'audiobook', 'dvd', 'magazine') | NOT NULL    |
+| category         | VARCHAR(100)                                          |             |
+| total_copies     | INTEGER                                               | DEFAULT 1   |
+| available_copies | INTEGER                                               | DEFAULT 1   |
+| cover_image_url  | VARCHAR(500)                                          |             |
 
 #### Library Borrows Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| user_id | UUID | FOREIGN KEY (users) |
-| holding_id | UUID | FOREIGN KEY (library_holdings) |
-| borrow_date | DATE | NOT NULL |
-| due_date | DATE | NOT NULL |
-| return_date | DATE | |
-| status | ENUM('borrowed', 'returned', 'overdue') | DEFAULT 'borrowed' |
+| Field       | Type                                    | Constraints                    |
+| ----------- | --------------------------------------- | ------------------------------ |
+| id          | UUID                                    | PRIMARY KEY                    |
+| user_id     | UUID                                    | FOREIGN KEY (users)            |
+| holding_id  | UUID                                    | FOREIGN KEY (library_holdings) |
+| borrow_date | DATE                                    | NOT NULL                       |
+| due_date    | DATE                                    | NOT NULL                       |
+| return_date | DATE                                    |                                |
+| status      | ENUM('borrowed', 'returned', 'overdue') | DEFAULT 'borrowed'             |
 
 #### Transit Schedules Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| route_name | VARCHAR(100) | NOT NULL |
-| route_number | VARCHAR(20) | |
-| service_type | ENUM('bus', 'rail', 'ferry', 'subway') | NOT NULL |
-| direction | ENUM('inbound', 'outbound') | NOT NULL |
-| stop_name | VARCHAR(255) | NOT NULL |
-| stop_latitude | DECIMAL(10,8) | |
-| stop_longitude | DECIMAL(11,8) | |
-| arrival_time | TIME | NOT NULL |
-| day_type | ENUM('weekday', 'saturday', 'sunday') | NOT NULL |
+| Field          | Type                                   | Constraints |
+| -------------- | -------------------------------------- | ----------- |
+| id             | UUID                                   | PRIMARY KEY |
+| route_name     | VARCHAR(100)                           | NOT NULL    |
+| route_number   | VARCHAR(20)                            |             |
+| service_type   | ENUM('bus', 'rail', 'ferry', 'subway') | NOT NULL    |
+| direction      | ENUM('inbound', 'outbound')            | NOT NULL    |
+| stop_name      | VARCHAR(255)                           | NOT NULL    |
+| stop_latitude  | DECIMAL(10,8)                          |             |
+| stop_longitude | DECIMAL(11,8)                          |             |
+| arrival_time   | TIME                                   | NOT NULL    |
+| day_type       | ENUM('weekday', 'saturday', 'sunday')  | NOT NULL    |
 
 #### Notifications Table
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PRIMARY KEY |
-| user_id | UUID | FOREIGN KEY (users) |
-| type | ENUM('billing', 'outage', 'enrollment', 'library', 'transit') | NOT NULL |
-| title | VARCHAR(255) | NOT NULL |
-| message | TEXT | NOT NULL |
-| is_read | BOOLEAN | DEFAULT FALSE |
-| action_url | VARCHAR(500) | |
-| created_at | TIMESTAMP | DEFAULT NOW() |
+| Field      | Type                                                          | Constraints         |
+| ---------- | ------------------------------------------------------------- | ------------------- |
+| id         | UUID                                                          | PRIMARY KEY         |
+| user_id    | UUID                                                          | FOREIGN KEY (users) |
+| type       | ENUM('billing', 'outage', 'enrollment', 'library', 'transit') | NOT NULL            |
+| title      | VARCHAR(255)                                                  | NOT NULL            |
+| message    | TEXT                                                          | NOT NULL            |
+| is_read    | BOOLEAN                                                       | DEFAULT FALSE       |
+| action_url | VARCHAR(500)                                                  |                     |
+| created_at | TIMESTAMP                                                     | DEFAULT NOW()       |
 
 ### 5.2 Entity Relationships
 
@@ -327,17 +327,20 @@ Service Outages: Geographic clustering
 ### 6.1 Landing Page (Public)
 
 **Layout Structure:**
+
 - Hero section with service category cards (full-width)
 - Quick action buttons for common tasks
 - Service status summary banner
 - Footer with contact information and links
 
 **Key Elements:**
+
 - Service category grid: 3 columns on desktop, 1 column on mobile
 - Status indicator pills showing active/outage services
 - "Sign In" button in header, "Register" button prominent
 
 **Interactions:**
+
 - Click category card -> Navigate to service hub
 - Click status indicator -> Expand service status panel
 - Scroll triggers subtle parallax on hero background
@@ -345,17 +348,20 @@ Service Outages: Geographic clustering
 ### 6.2 User Dashboard
 
 **Layout Structure:**
+
 - Welcome header with user name and account summary
 - Quick action cards for each service category
 - Recent notifications panel
 - Payment due summary widget
 
 **Key Elements:**
+
 - 4-card grid layout for service categories
 - Notification list with unread count badge
 - Balance due prominent display with "Pay Now" CTA
 
 **Interactions:**
+
 - Click notification -> Mark as read and navigate to related service
 - Click service card -> Navigate to detailed service view
 - Click "Pay All" -> Process payment for all outstanding balances
@@ -363,17 +369,20 @@ Service Outages: Geographic clustering
 ### 6.3 Billing Dashboard
 
 **Layout Structure:**
+
 - Account selector dropdown (if multiple accounts)
 - Current balance card with due date
 - Payment history timeline
 - Payment form section
 
 **Key Elements:**
+
 - Balance card: amount due, due date, minimum payment
 - Transaction table: sortable by date, filterable by status
 - Payment form: amount input, method selection, confirmation
 
 **User Flow - Pay a Bill:**
+
 1. User navigates to Billing Dashboard
 2. System displays all linked utility accounts
 3. User selects account from dropdown
@@ -391,18 +400,21 @@ Service Outages: Geographic clustering
 ### 6.4 Service Outage Map
 
 **Layout Structure:**
+
 - Interactive map (full-width, 70vh height)
 - Filter sidebar with service type toggles
 - Active outage list panel (collapsible)
 - Legend for map markers
 
 **Key Elements:**
+
 - Map markers color-coded by service type and status
 - Cluster markers when zoomed out
 - Detail popup on marker click
 - Filter checkboxes for each service type
 
 **User Flow - View Outage:**
+
 1. User navigates to Outage Map
 2. System loads map centered on user's area
 3. System displays all active outages as markers
@@ -415,6 +427,7 @@ Service Outages: Geographic clustering
 ### 6.5 Payment Enrollment Form
 
 **Layout Structure:**
+
 - Multi-step form wizard
 - Progress indicator (4 steps)
 - Form sections that animate between steps
@@ -423,24 +436,29 @@ Service Outages: Geographic clustering
 **Steps:**
 
 **Step 1 - Service Selection:**
+
 - Checkbox list of available services at user's address
 - Address confirmation or correction
 
 **Step 2 - Account Verification:**
+
 - Input field for existing account number (optional)
 - Option to create new account
 
 **Step 3 - Payment Method:**
+
 - Saved payment methods dropdown
 - Add new card/bank account form
 - Set as default payment method checkbox
 
 **Step 4 - Review and Confirm:**
+
 - Summary of all entered information
 - Terms and conditions checkbox
 - Submit button
 
 **User Flow - Enroll in Auto-Pay:**
+
 1. User navigates to Payment Enrollment
 2. User selects services to enroll
 3. User verifies or updates service address
@@ -456,18 +474,21 @@ Service Outages: Geographic clustering
 ### 6.6 Transit Schedule Search
 
 **Layout Structure:**
+
 - Search bar with route/stop autocomplete
 - Filter panel: service type, day of week, time range
 - Results list with real-time countdown
 - Map view toggle
 
 **Key Elements:**
+
 - Search input with typeahead suggestions
 - Filter chips showing active filters
 - Route cards with next arrival times
 - "Favorites" star icon on each route
 
 **User Flow - Find Next Bus:**
+
 1. User enters stop name or route number in search
 2. System provides autocomplete suggestions
 3. User selects stop or route from list
@@ -480,18 +501,21 @@ Service Outages: Geographic clustering
 ### 6.7 Library Catalog Search
 
 **Layout Structure:**
+
 - Search bar with advanced search toggle
 - Faceted filter sidebar: format, availability, category
 - Results grid: 4 columns desktop, 2 columns tablet, 1 column mobile
 - Pagination with 20 items per page
 
 **Key Elements:**
+
 - Search input with genre suggestions
 - Filter checkboxes with result counts
 - Item cards with cover image, title, author, availability badge
 - "Borrow" button on each card
 
 **User Flow - Borrow a Book:**
+
 1. User searches by title, author, or ISBN
 2. System displays matching results with availability
 3. User filters by format (e.g., audiobook)
@@ -510,82 +534,82 @@ Service Outages: Geographic clustering
 
 ### 7.1 Authentication Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/v1/auth/register | Create new user account |
-| POST | /api/v1/auth/login | Authenticate user |
-| POST | /api/v1/auth/logout | Invalidate session |
-| POST | /api/v1/auth/refresh | Refresh access token |
-| POST | /api/v1/auth/forgot-password | Send password reset email |
-| POST | /api/v1/auth/reset-password | Reset password with token |
-| GET | /api/v1/auth/me | Get current user profile |
+| Method | Endpoint                     | Description               |
+| ------ | ---------------------------- | ------------------------- |
+| POST   | /api/v1/auth/register        | Create new user account   |
+| POST   | /api/v1/auth/login           | Authenticate user         |
+| POST   | /api/v1/auth/logout          | Invalidate session        |
+| POST   | /api/v1/auth/refresh         | Refresh access token      |
+| POST   | /api/v1/auth/forgot-password | Send password reset email |
+| POST   | /api/v1/auth/reset-password  | Reset password with token |
+| GET    | /api/v1/auth/me              | Get current user profile  |
 
 ### 7.2 Billing Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/v1/accounts | Get user's utility accounts |
-| GET | /api/v1/accounts/{id} | Get account details |
-| GET | /api/v1/accounts/{id}/billing | Get billing history |
-| GET | /api/v1/billing/{id} | Get specific bill details |
-| POST | /api/v1/payments | Process new payment |
-| GET | /api/v1/payments | Get payment history |
-| GET | /api/v1/payments/{id} | Get payment details |
-| POST | /api/v1/enrollments | Create payment enrollment |
-| DELETE | /api/v1/enrollments/{id} | Cancel auto-pay enrollment |
+| Method | Endpoint                      | Description                 |
+| ------ | ----------------------------- | --------------------------- |
+| GET    | /api/v1/accounts              | Get user's utility accounts |
+| GET    | /api/v1/accounts/{id}         | Get account details         |
+| GET    | /api/v1/accounts/{id}/billing | Get billing history         |
+| GET    | /api/v1/billing/{id}          | Get specific bill details   |
+| POST   | /api/v1/payments              | Process new payment         |
+| GET    | /api/v1/payments              | Get payment history         |
+| GET    | /api/v1/payments/{id}         | Get payment details         |
+| POST   | /api/v1/enrollments           | Create payment enrollment   |
+| DELETE | /api/v1/enrollments/{id}      | Cancel auto-pay enrollment  |
 
 ### 7.3 Service Status Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/v1/outages | Get all active outages |
-| GET | /api/v1/outages/{id} | Get specific outage details |
-| GET | /api/v1/outages/nearby | Get outages near coordinates |
-| POST | /api/v1/outages/{id}/subscribe | Subscribe to outage notifications |
+| Method | Endpoint                       | Description                       |
+| ------ | ------------------------------ | --------------------------------- |
+| GET    | /api/v1/outages                | Get all active outages            |
+| GET    | /api/v1/outages/{id}           | Get specific outage details       |
+| GET    | /api/v1/outages/nearby         | Get outages near coordinates      |
+| POST   | /api/v1/outages/{id}/subscribe | Subscribe to outage notifications |
 
 ### 7.4 School Enrollment Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/v1/schools | Get list of schools |
-| GET | /api/v1/schools/{id} | Get school details |
-| GET | /api/v1/enrollments | Get user's enrollments |
-| POST | /api/v1/enrollments | Submit new enrollment |
-| GET | /api/v1/enrollments/{id} | Get enrollment details |
-| PUT | /api/v1/enrollments/{id} | Update enrollment (draft only) |
+| Method | Endpoint                 | Description                    |
+| ------ | ------------------------ | ------------------------------ |
+| GET    | /api/v1/schools          | Get list of schools            |
+| GET    | /api/v1/schools/{id}     | Get school details             |
+| GET    | /api/v1/enrollments      | Get user's enrollments         |
+| POST   | /api/v1/enrollments      | Submit new enrollment          |
+| GET    | /api/v1/enrollments/{id} | Get enrollment details         |
+| PUT    | /api/v1/enrollments/{id} | Update enrollment (draft only) |
 | DELETE | /api/v1/enrollments/{id} | Delete enrollment (draft only) |
 
 ### 7.5 Library Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/v1/library/search | Search catalog |
-| GET | /api/v1/library/items/{id} | Get item details |
-| GET | /api/v1/library/my-borrows | Get user's borrowed items |
-| POST | /api/v1/library/borrow | Borrow an item |
-| POST | /api/v1/library/return | Return an item |
-| GET | /api/v1/library/favorites | Get user's favorite items |
+| Method | Endpoint                   | Description               |
+| ------ | -------------------------- | ------------------------- |
+| GET    | /api/v1/library/search     | Search catalog            |
+| GET    | /api/v1/library/items/{id} | Get item details          |
+| GET    | /api/v1/library/my-borrows | Get user's borrowed items |
+| POST   | /api/v1/library/borrow     | Borrow an item            |
+| POST   | /api/v1/library/return     | Return an item            |
+| GET    | /api/v1/library/favorites  | Get user's favorite items |
 
 ### 7.6 Transit Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/v1/transit/routes | Get all routes |
-| GET | /api/v1/transit/routes/{id} | Get route details |
-| GET | /api/v1/transit/stops | Search stops |
-| GET | /api/v1/transit/schedules | Get schedules for stop/route |
-| GET | /api/v1/transit/favorites | Get user's favorite routes/stops |
-| POST | /api/v1/transit/favorites | Add to favorites |
-| DELETE | /api/v1/transit/favorites/{id} | Remove from favorites |
+| Method | Endpoint                       | Description                      |
+| ------ | ------------------------------ | -------------------------------- |
+| GET    | /api/v1/transit/routes         | Get all routes                   |
+| GET    | /api/v1/transit/routes/{id}    | Get route details                |
+| GET    | /api/v1/transit/stops          | Search stops                     |
+| GET    | /api/v1/transit/schedules      | Get schedules for stop/route     |
+| GET    | /api/v1/transit/favorites      | Get user's favorite routes/stops |
+| POST   | /api/v1/transit/favorites      | Add to favorites                 |
+| DELETE | /api/v1/transit/favorites/{id} | Remove from favorites            |
 
 ### 7.7 Notifications Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/v1/notifications | Get user's notifications |
-| PUT | /api/v1/notifications/{id}/read | Mark as read |
-| PUT | /api/v1/notifications/read-all | Mark all as read |
-| DELETE | /api/v1/notifications/{id} | Delete notification |
+| Method | Endpoint                        | Description              |
+| ------ | ------------------------------- | ------------------------ |
+| GET    | /api/v1/notifications           | Get user's notifications |
+| PUT    | /api/v1/notifications/{id}/read | Mark as read             |
+| PUT    | /api/v1/notifications/read-all  | Mark all as read         |
+| DELETE | /api/v1/notifications/{id}      | Delete notification      |
 
 ---
 
@@ -611,37 +635,37 @@ Service Outages: Geographic clustering
 
 ### 8.2 Error Codes
 
-| Code | HTTP Status | Description |
-|------|-------------|-------------|
-| VALIDATION_ERROR | 400 | Input validation failed |
-| UNAUTHORIZED | 401 | Authentication required |
-| FORBIDDEN | 403 | Insufficient permissions |
-| NOT_FOUND | 404 | Resource not found |
-| CONFLICT | 409 | Resource conflict (e.g., duplicate) |
-| RATE_LIMITED | 429 | Too many requests |
-| INTERNAL_ERROR | 500 | Server error |
+| Code             | HTTP Status | Description                         |
+| ---------------- | ----------- | ----------------------------------- |
+| VALIDATION_ERROR | 400         | Input validation failed             |
+| UNAUTHORIZED     | 401         | Authentication required             |
+| FORBIDDEN        | 403         | Insufficient permissions            |
+| NOT_FOUND        | 404         | Resource not found                  |
+| CONFLICT         | 409         | Resource conflict (e.g., duplicate) |
+| RATE_LIMITED     | 429         | Too many requests                   |
+| INTERNAL_ERROR   | 500         | Server error                        |
 
 ### 8.3 Empty States
 
-| Scenario | Display Message | Action |
-|----------|------------------|--------|
-| No utility accounts | "You have no services enrolled. Add a service to get started." | "Add Service" button |
-| No billing history | "No billing records found. Your first bill will appear here." | None |
-| No search results | "No items match your search. Try different keywords or remove filters." | "Clear Filters" button |
-| No enrollments | "No school enrollments yet. Start an enrollment application." | "New Enrollment" button |
-| No borrowed items | "You have no borrowed items. Browse the catalog to borrow." | "Browse Catalog" button |
-| No notifications | "You're all caught up! No new notifications." | None |
+| Scenario            | Display Message                                                         | Action                  |
+| ------------------- | ----------------------------------------------------------------------- | ----------------------- |
+| No utility accounts | "You have no services enrolled. Add a service to get started."          | "Add Service" button    |
+| No billing history  | "No billing records found. Your first bill will appear here."           | None                    |
+| No search results   | "No items match your search. Try different keywords or remove filters." | "Clear Filters" button  |
+| No enrollments      | "No school enrollments yet. Start an enrollment application."           | "New Enrollment" button |
+| No borrowed items   | "You have no borrowed items. Browse the catalog to borrow."             | "Browse Catalog" button |
+| No notifications    | "You're all caught up! No new notifications."                           | None                    |
 
 ### 8.4 User-Facing Error Messages
 
-| Scenario | Message |
-|----------|---------|
-| Login failed | "Incorrect email or password. Please try again." |
-| Payment failed | "Payment could not be processed. Please check your payment method or try again." |
-| Enrollment not found | "This enrollment application could not be found." |
-| Item not available | "This item is currently unavailable. Join the waitlist or try another format." |
-| Session expired | "Your session has expired. Please sign in again." |
-| Network error | "Connection error. Please check your internet connection and try again." |
+| Scenario             | Message                                                                          |
+| -------------------- | -------------------------------------------------------------------------------- |
+| Login failed         | "Incorrect email or password. Please try again."                                 |
+| Payment failed       | "Payment could not be processed. Please check your payment method or try again." |
+| Enrollment not found | "This enrollment application could not be found."                                |
+| Item not available   | "This item is currently unavailable. Join the waitlist or try another format."   |
+| Session expired      | "Your session has expired. Please sign in again."                                |
+| Network error        | "Connection error. Please check your internet connection and try again."         |
 
 ---
 
@@ -673,11 +697,11 @@ Service Outages: Geographic clustering
 
 ### 10.1 Breakpoints
 
-| Name | Width | Description |
-|------|-------|-------------|
-| Mobile | < 768px | Smartphones |
-| Tablet | 768px - 1024px | Tablets |
-| Desktop | > 1024px | Desktop computers |
+| Name    | Width          | Description       |
+| ------- | -------------- | ----------------- |
+| Mobile  | < 768px        | Smartphones       |
+| Tablet  | 768px - 1024px | Tablets           |
+| Desktop | > 1024px       | Desktop computers |
 
 ### 10.2 Mobile-Specific Changes
 
@@ -690,11 +714,11 @@ Service Outages: Geographic clustering
 
 ### 10.3 Heavy Visual Handling
 
-| Feature | Desktop | Mobile |
-|---------|---------|--------|
-| Outage Map | Full map with all markers | Reduced marker density, clustering |
-| Transit Map | Real-time updates | Updates on manual refresh |
-| Library Cover Images | Lazy-loaded high-res | Low-res placeholders until scroll |
+| Feature              | Desktop                   | Mobile                             |
+| -------------------- | ------------------------- | ---------------------------------- |
+| Outage Map           | Full map with all markers | Reduced marker density, clustering |
+| Transit Map          | Real-time updates         | Updates on manual refresh          |
+| Library Cover Images | Lazy-loaded high-res      | Low-res placeholders until scroll  |
 
 ---
 
@@ -702,24 +726,24 @@ Service Outages: Geographic clustering
 
 ### 11.1 Metrics
 
-| Metric | Target |
-|--------|--------|
-| First Contentful Paint | < 1.5s |
-| Time to Interactive | < 3.0s |
-| Largest Contentful Paint | < 2.5s |
-| Page load time | < 3.0s |
-| API response time | < 500ms |
-| Map interaction latency | < 100ms |
+| Metric                   | Target  |
+| ------------------------ | ------- |
+| First Contentful Paint   | < 1.5s  |
+| Time to Interactive      | < 3.0s  |
+| Largest Contentful Paint | < 2.5s  |
+| Page load time           | < 3.0s  |
+| API response time        | < 500ms |
+| Map interaction latency  | < 100ms |
 
 ### 11.2 Asset Budget
 
-| Asset Type | Budget |
-|------------|--------|
-| Initial HTML | < 100KB |
-| CSS (critical) | < 50KB |
-| JavaScript (critical) | < 150KB |
-| Images (per page) | < 500KB total |
-| Fonts | < 200KB |
+| Asset Type            | Budget        |
+| --------------------- | ------------- |
+| Initial HTML          | < 100KB       |
+| CSS (critical)        | < 50KB        |
+| JavaScript (critical) | < 150KB       |
+| Images (per page)     | < 500KB total |
+| Fonts                 | < 200KB       |
 
 ### 11.3 Techniques
 
@@ -745,6 +769,7 @@ Service Outages: Geographic clustering
 ### 12.2 prefers-reduced-motion
 
 When user prefers reduced motion:
+
 - Disable parallax scrolling effects
 - Replace animations with instant transitions
 - Remove auto-playing carousels (static display)
