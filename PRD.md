@@ -670,15 +670,13 @@ Users 1..* ModerationLog (as moderator)
 
 ### Performance Techniques
 
-| Technique | Implementation |
-|-----------|---------------|
-| Lazy loading | Images below fold, comments, infinite scroll items |
-| Code splitting | Route-based, separate chunks for editor, rich text |
-| Image optimization | WebP with JPEG fallback, responsive srcset |
-| Font optimization | Preload critical fonts, font-display: swap |
-| Caching | Service worker for static assets, API response caching |
-| Virtual scrolling | For post/comment lists > 50 items |
-| Debouncing | Search input (300ms), scroll handlers (16ms) |
+- Lazy loading: Images below fold, comments, infinite scroll items
+- Code splitting: Route-based, separate chunks for editor, rich text
+- Image optimization: WebP with JPEG fallback, responsive srcset
+- Font optimization: Preload critical fonts, font-display: swap
+- Caching: Service worker for static assets, API response caching
+- Virtual scrolling: For post/comment lists > 50 items
+- Debouncing: Search input (300ms), scroll handlers (16ms)
 
 ---
 
