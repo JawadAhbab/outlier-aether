@@ -1,239 +1,241 @@
-# PRD - News Portal
+# PRD: News Portal
 
 ## 1. Concept & Vision
 
-A premium news portal delivering breaking stories, in-depth articles, and editorial content across topics like World, Politics, Sports, Business, and Culture. The experience feels authoritative yet modern — like a refined digital version of a broadsheet newspaper. Users consume content through a structured grid-based layout with strong typographic hierarchy, real-time breaking news alerts, and seamless infinite scroll pagination.
-
-Target audience: General news consumers aged 25-55 seeking credible, well-organized journalism. Admin editors publish and manage content through a headless CMS backend.
+A premium news portal delivering breaking stories, investigative journalism, and editorial content across multiple categories. The experience prioritizes readability, fast navigation, and real-time updates. Users feel informed, not overwhelmed. The design evokes trust and authority like NYTimes and The Guardian while delivering a modern, fast digital experience.
 
 ## 2. Visual Identity
 
 ### Typography
-- **Headlines:** Playfair Display (Google Fonts), Bold 700, sizes: H1 48px/H2 36px/H3 28px/H4 22px
-- **Body:** Source Sans 3 (Google Fonts), Regular 400, 18px line-height 1.6
-- **UI/Meta:** Source Sans 3, Medium 500, 14px
-- **Bylines/Dates:** Source Sans 3, Regular 400, 13px, color #6B7280
+- Headlines: Playfair Display, 700 weight, 48px desktop / 32px mobile
+- Subheadlines: Inter, 600 weight, 24px desktop / 20px mobile
+- Body: Inter, 400 weight, 18px, line-height 1.7
+- Metadata: Inter, 400 weight, 14px, uppercase tracking 0.05em
+- Font roles: Headlines for article titles, subheadlines for section headers, body for article content
 
-### Color Palette
-- **Primary:** #1A1A1A (text/headlines)
-- **Secondary:** #374151 (body text)
-- **Accent:** #DC2626 (breaking news, live indicators)
-- **Background:** #FFFFFF (main), #F9FAFB (sections)
-- **Link:** #2563EB
-- **Border:** #E5E7EB
-- **Category Tags:** Politics #1D4ED8, Sports #059669, Business #D97706, Culture #7C3AED, World #6B7280
+### Colors
+- Background: #FAFAFA
+- Surface: #FFFFFF
+- Primary Text: #1A1A1A
+- Secondary Text: #6B7280
+- Accent: #DC2626 (breaking news, CTAs)
+- Accent Hover: #B91C1C
+- Link: #2563EB
+- Link Hover: #1D4ED8
+- Border: #E5E7EB
+- Breaking Banner: #DC2626
 
-### Spacing System
-- Base unit: 8px
-- Section padding: 64px vertical, 24px horizontal
-- Card gap: 24px
-- Content max-width: 1280px
-- Article body max-width: 720px
-
-### Motion
-- Page transitions: Fade 200ms ease-out
-- Card hover lift: translateY(-4px), 150ms ease
-- Breaking news pulse: 2s infinite glow animation
-- Scroll reveal: opacity 0->1, translateY(20px->0), 400ms ease-out, staggered 80ms
+### Spacing
+- Page max-width: 1280px
+- Content max-width: 720px (article body)
+- Grid gap: 24px
+- Section padding: 64px vertical desktop / 40px mobile
+- Card padding: 24px
+- Border radius: 8px (cards), 4px (buttons/inputs)
 
 ## 3. Layout & Structure
 
-### Homepage
-```
-[Breaking News Banner - 48px height, red background, marquee text]
-[Header - Logo left, nav center (World|Politics|Sports|Business|Culture), search right]
-[Hero Section - 2-column: Featured story (65%) + 2 secondary stories (35%)]
-[Category Tabs - horizontal scrollable on mobile]
-[Content Grid - 3-column card layout, 16px gap]
-[Sidebar - Trending stories, Most Read list]
-[Footer - 4-column links, newsletter signup]
-```
+### Header
+- Logo left, primary nav center, search + user menu right
+- Sticky on scroll with subtle shadow
+- Mobile: hamburger menu, logo center
 
-### Article Page
-```
-[Header - same global header]
-[Article Header - Category tag, Headline (H1), Byline, Date, Reading time]
-[Featured Image - full-width, max-height 560px, object-fit cover]
-[Article Body - 720px max-width, centered, 18px Source Sans 3]
-[Share Bar - sticky left sidebar, vertical icons]
-[Related Articles - 3-card grid]
-[Comments Section - thread display, reply form]
-[Footer]
-```
+### Homepage Layout
+1. Breaking news ticker (if active) below header
+2. Hero section: Featured story (large image, headline overlay)
+3. Top Stories: 3-column grid with image cards
+4. Category Sections (repeatable):
+   - Section header with category name + "See All" link
+   - 4-card horizontal row with thumbnails
+5. Opinion/Latest sidebar (desktop only)
+6. Newsletter signup section
 
 ### Category Page
-```
-[Header]
-[Category Hero - colored banner with category name, article count]
-[Filter Bar - Sort (Latest|Popular|Oldest), Date range picker]
-[Article Grid - infinite scroll, 3-column desktop, 2-column tablet, 1-column mobile]
-[Load More button - appears after 3s if no scroll trigger]
-[Footer]
-```
+- Category hero banner with name + description
+- Filter bar: Sort (Latest, Popular), Date range
+- Infinite scroll article grid (3 columns desktop, 2 tablet, 1 mobile)
+- Load more button as fallback
 
-### Search Results Page
-```
-[Search Bar - prominent, pre-filled with query]
-[Results Count - "124 results for 'climate'"]
-[Filters Panel - left sidebar: Category checkboxes, Date slider, Author dropdown]
-[Results Grid - list view with thumbnail, headline, excerpt, date]
-[Pagination - numbered pages, prev/next arrows]
-```
+### Article Page
+- Full-width hero image
+- Article header: Category tag, headline, byline, date, reading time
+- Body content with pull quotes, embedded media
+- Share buttons (floating left sidebar desktop, bottom bar mobile)
+- Related articles grid at bottom
+- Comment section (if enabled)
+
+### Search Results
+- Search bar prominent at top
+- Filters: Category, Date range, Author
+- Results list with highlighted matching text
+
+### Responsive Breakpoints
+- Desktop: 1024px+
+- Tablet: 768px - 1023px
+- Mobile: < 768px
 
 ## 4. Features & Interactions
 
-### Breaking News Banner
-- Scrolling ticker with latest headlines, separated by red bullet
-- Click headline -> opens article in new tab
-- "LIVE" badge pulses with red glow animation
-- Dismiss button (X) saves dismissal to sessionStorage, hides for 30 minutes
-
 ### Navigation
-- Desktop: horizontal nav, category dropdowns on hover (150ms delay)
-- Mobile: hamburger menu, full-screen overlay with slide-in animation (300ms ease-out)
-- Active category highlighted with 3px bottom border in accent color
-- Sticky header on scroll, shrinks from 80px to 60px height, 200ms ease
+- Primary nav: Home, World, Politics, Business, Tech, Sports, Culture, Opinion
+- Dropdown on hover (desktop) / tap to expand (mobile)
+- Active state: underline accent color
 
-### Search
-- Click search icon -> search bar expands from 0 to 320px width, 250ms ease
-- Real-time suggestions appear after 300ms debounce, max 8 results
-- Keyboard navigation: arrow keys cycle suggestions, Enter selects, Escape closes
-- Empty state: "Start typing to search articles..." in gray text
-- No results: "No articles found for '[query]'. Try different keywords."
+### Breaking News Banner
+- Red background, white text, "BREAKING" label
+- Auto-scrolls headlines if multiple
+- Dismiss button (X) stores preference for session
 
 ### Article Cards
-- Thumbnail image (16:9 ratio), lazy-loaded with blur placeholder
-- Category tag (colored badge), headline, excerpt (2 lines clamped), byline, date
-- Hover: card lifts 4px, shadow deepens, image scales to 1.05
-- Click anywhere -> navigates to article
+- Hover: image scale 1.03, shadow lift, 300ms ease-out
+- Click: navigate to article
+- Category tag clickable to category page
 
-### Article Page
-- Reading progress bar: fixed top, 3px height, accent color fill
-- Estimated reading time calculated: words / 200 wpm
-- Share buttons: Twitter, Facebook, LinkedIn, Copy Link (toast confirmation)
-- Bookmark icon: hollow -> filled on click, saves to localStorage
-- "Back to [Category]" breadcrumb link
+### Search
+- Click search icon: modal overlay appears
+- Input auto-focuses
+- Debounced search (300ms) shows live results
+- Escape or click outside closes modal
 
-### Comments
-- Threaded replies (max 2 levels deep)
-- "Reply" button expands inline reply form
-- Character limit: 2000, counter shows remaining
-- Submit disabled until 10+ characters
-- Success: comment fades in, form clears
-- Error: red border, error message below field
+### Newsletter Signup
+- Email input + "Subscribe" button
+- Validation: valid email format required
+- Success: input replaced with confirmation message
+- Error: red border, error message below
 
-### Newsletter Signup (Footer)
-- Email input + "Subscribe" button, inline layout
-- Validation: email format check
-- Submit: button shows spinner, text changes to "Subscribing..."
-- Success: input clears, green checkmark, "Thanks for subscribing!" message
-- Error: red border, "Please enter a valid email" message
+### Article Sharing
+- Platforms: Twitter, Facebook, LinkedIn, Copy Link
+- Copy shows toast notification "Link copied"
 
-### Admin Panel (Backend)
-- Protected by JWT auth, role-based access (admin, editor)
-- CRUD operations for articles, categories, authors
-- Media uploader with drag-drop, progress bar
-- Draft/Publish workflow with preview
-- Article scheduling with date-time picker
+### User Authentication
+- Login/Signup modal
+- Methods: Email + Password, Google OAuth
+- Form validation inline
+- Login success: modal closes, header updates to show user avatar
+- Protected actions (bookmarks, comments): prompt login if not authenticated
+
+### Bookmarks
+- Click bookmark icon on article card/article page
+- Saves to user profile
+- Bookmarks page shows saved articles in grid
+
+### Comments (if enabled)
+- Text area for new comment
+- Submit: requires authentication
+- Comments displayed newest first
+- Reply threads nested 1 level
+
+### Error States
+- 404: "Page not found" with search bar and popular articles
+- Network error: "Connection failed" with retry button
+- Empty search: "No results for [query]" with suggestions
 
 ## 5. Component Inventory
 
-### Breaking News Banner
-- States: visible (default), dismissed (hidden for 30min), minimized (single line)
+### Breaking Banner
+- States: visible (red bg, scrolling text), dismissed (hidden)
+- Animation: fade in 200ms
 
-### Global Header
-- States: expanded (top), shrunk (scrolled), mobile-menu-open
+### Article Card (Standard)
+- Elements: image, category tag, headline, excerpt, byline, date
+- States: default, hover (scale + shadow), loading (skeleton)
+
+### Article Card (Featured)
+- Larger image, bigger headline
+- States: same as standard
 
 ### Navigation Link
-- States: default, hover (underline animation), active (bottom border)
-
-### Article Card
-- States: default, hover (lifted), loading (skeleton shimmer)
-- Variants: featured (larger), standard (grid), compact (list/sidebar)
-
-### Search Bar
-- States: collapsed, expanded, loading (spinner), has-results, no-results
-
-### Category Tag
-- States: default, hover (darken 10%)
-- Each category has assigned color
-
-### Share Button
-- States: default, hover (scale 1.1), active (pressed), copied (checkmark, 2s)
-
-### Bookmark Button
-- States: unbookmarked (outline), bookmarked (filled), loading
-
-### Comment
-- States: default, editing, deleting (confirm modal), replied
-
-### Newsletter Form
-- States: default, loading, success, error (validation)
+- States: default (secondary text), hover (primary text + underline), active (accent underline)
 
 ### Button
-- States: default, hover, active, disabled, loading
-- Variants: primary (accent bg), secondary (outline), ghost (text only)
+- Primary: accent bg, white text
+- Secondary: transparent bg, accent text, accent border
+- States: default, hover (darken 10%), active (darken 15%), disabled (50% opacity)
 
-### Input Field
-- States: default, focused (blue border), error (red border + message), disabled
+### Search Modal
+- Overlay: rgba(0,0,0,0.5)
+- Modal: white bg, 90% width max 600px
+- States: entering (fade + scale from 0.95), visible, exiting (fade out)
 
-## 6. Technical Approach
+### Toast Notification
+- Position: bottom right
+- Auto-dismiss: 3 seconds
+- Types: success (green accent), error (red accent), info (blue accent)
 
-### Frontend Stack
-- Framework: Next.js 14 (App Router)
-- Styling: Tailwind CSS 3.4
-- Animation: Framer Motion 11
-- State: Zustand for global state (bookmarks, user session)
-- Data Fetching: React Query for server state
-- Icons: Lucide React
+### Skeleton Loader
+- Animated gradient shimmer
+- Matches layout of content being loaded
 
-### Backend (Headless CMS)
-- CMS: Sanity.io or Contentful
-- GraphQL API for content delivery
-- CDN: Cloudflare for asset delivery
-- Image CDN: Shopify CDN or Cloudinary
+## 6. Technical Requirements
 
-### Authentication
-- JWT tokens stored in httpOnly cookies
-- OAuth providers: Google, Apple (optional)
-- Session refresh on app load
+### Libraries
+- React 18 for UI components
+- Next.js 14 for routing and SSR
+- Tailwind CSS for styling
+- Zustand for client state (bookmarks, user session)
+- Lucide React for icons
+- Date-fns for date formatting
+
+### API Design
+- GET /api/articles - list with pagination, filters
+- GET /api/articles/:slug - single article
+- GET /api/categories - all categories
+- GET /api/search?q= - search articles
+- POST /api/auth/login - email login
+- POST /api/auth/register - email registration
+- POST /api/auth/google - Google OAuth
+- GET /api/user/bookmarks - user bookmarks
+- POST /api/articles/:id/bookmark - toggle bookmark
 
 ### Data Model
 
 | Entity | Fields |
 |--------|--------|
-| User | id, email, name, avatar, role (guest/editor/admin), createdAt |
-| Article | id, title, slug, excerpt, body (rich text), featuredImage, categoryId, authorId, publishedAt, status (draft/published/scheduled), readingTime, viewCount |
-| Category | id, name, slug, color, description, articleCount |
-| Author | id, name, bio, avatar, socialLinks |
-| Comment | id, articleId, userId, parentId, body, createdAt |
-| Bookmark | id, userId, articleId, createdAt |
+| User | id, email, name, avatar_url, created_at, role |
+| Article | id, slug, title, excerpt, content, featured_image, category_id, author_id, published_at, reading_time, is_breaking |
+| Category | id, name, slug, description |
+| Author | id, name, bio, avatar_url |
+| Comment | id, article_id, user_id, content, created_at, parent_id |
+| Bookmark | user_id, article_id, created_at |
 
-### API Endpoints
+## 7. Animation Specifications
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/articles | List articles (paginated, filterable) |
-| GET | /api/articles/:slug | Single article with full body |
-| GET | /api/categories | List all categories |
-| GET | /api/search?q=&category=&dateFrom=&dateTo= | Search articles |
-| POST | /api/comments | Create comment |
-| POST | /api/bookmarks | Add bookmark |
-| DELETE | /api/bookmarks/:articleId | Remove bookmark |
-| POST | /api/newsletter | Subscribe email |
+### Page Load
+- Content fades in: opacity 0->1, translateY 20px->0, 400ms ease-out, staggered 50ms
 
-### Performance
-- Target: 90+ Lighthouse score
-- LCP: < 2.5s
-- CLS: < 0.1
-- Images: WebP format, srcset for responsive sizes, lazy loading
-- Code splitting: per route with dynamic imports
-- Caching: ISR with 60s revalidation for articles
+### Cards
+- Hover scale: transform scale(1.03), 300ms ease-out
+- Hover shadow: box-shadow increase, 300ms ease-out
+
+### Modal
+- Enter: opacity 0->1, scale 0.95->1, 200ms ease-out
+- Exit: opacity 1->0, 150ms ease-in
+
+### Breaking Banner
+- Slide down from top: translateY -100%->0, 300ms ease-out
+- Dismiss: translateY 0->-100%, 200ms ease-in
+
+### Toast
+- Enter: opacity 0->1, translateX 100%->0, 200ms ease-out
+- Exit: opacity 1->0, 150ms ease-in
+
+## 8. Performance & Accessibility
+
+### Metrics
+- LCP target: under 2.5s
+- FID target: under 100ms
+- CLS target: under 0.1
+- Image lazy loading for below-fold images
+
+### Techniques
+- Next.js Image component for optimized images
+- Code splitting per route
+- Service worker for caching (optional)
 
 ### Accessibility
-- Semantic HTML throughout
+- Semantic HTML: article, nav, main, header, footer
 - ARIA labels on interactive elements
-- Keyboard navigation for all features
-- Focus visible outlines (2px blue offset)
-- prefers-reduced-motion: disables all animations, uses instant transitions
-- Color contrast: AA compliance (4.5:1 for text)
+- Focus visible outlines
+- Keyboard navigation for all interactions
+- prefers-reduced-motion: disable animations, keep essential transitions only (150ms max)
+- Color contrast: minimum 4.5:1 for body text, 3:1 for large text
