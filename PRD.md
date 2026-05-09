@@ -368,129 +368,53 @@ Home
 
 ### 6.1 Product Browsing Flow
 
-```
-[User lands on PLP]
-       |
-       v
-[Load products from API: GET /api/products?page=1&limit=24]
-       |
-       v
-[Display product grid with skeleton loaders during fetch]
-       |
-       v
-[User applies filters]
-       |
-       v
-[Update URL params, debounce 300ms, fetch filtered results]
-       |
-       v
-[User clicks product card]
-       |
-       v
-[Navigate to PDP: GET /api/products/{slug}]
-       |
-       v
-[Load product details, variants, reviews]
-```
+1. User lands on PLP
+2. Load products from API: GET /api/products?page=1&limit=24
+3. Display product grid with skeleton loaders during fetch
+4. User applies filters
+5. Update URL params, debounce 300ms, fetch filtered results
+6. User clicks product card
+7. Navigate to PDP: GET /api/products/{slug}
+8. Load product details, variants, reviews
 
 ### 6.2 Cart Management Flow
 
-```
-[User clicks Add to Cart]
-       |
-       v
-[Validate variant selection (if applicable)]
-       |
-       v (if invalid)
-[Show error toast: "Please select size/color"]
-       |
-       v (if valid)
-[POST /api/cart/add]
-       |
-       v
-[Update cart state in store]
-       |
-       v
-[Show success toast: "Added to cart"]
-       |
-       v
-[Update cart icon badge count]
-       |
-       v
-[Persist to localStorage (guest) or server (user)]
-```
+1. User clicks Add to Cart
+2. Validate variant selection (if applicable)
+3. If invalid: Show error toast: "Please select size/color"
+4. If valid: POST /api/cart/add
+5. Update cart state in store
+6. Show success toast: "Added to cart"
+7. Update cart icon badge count
+8. Persist to localStorage (guest) or server (user)
 
 ### 6.3 Checkout Flow
 
-```
-[User clicks Checkout]
-       |
-       v
-[Check if logged in]
-       |          |
-No     |          | Yes
-       v          v
-[Redirect to login] [Load saved addresses]
-       |          |
-       +----------+
-       |
-       v
-[Display shipping form]
-       |
-       v
-[User fills and submits shipping]
-       |
-       v
-[POST /api/checkout/validate-shipping]
-       |
-       v
-[Display payment step]
-       |
-       v
-[User selects payment method]
-       |
-       v (Credit Card selected)
-[Validate card with Stripe Elements]
-       |
-       v
-[Display order review]
-       |
-       v
-[User clicks Place Order]
-       |
-       v
-[POST /api/checkout/complete]
-       |
-       v
-[Create order, charge payment, send confirmation email]
-       |
-       v
-[Redirect to confirmation page: /order-confirmation/{orderId}]
-```
+1. User clicks Checkout
+2. Check if logged in
+3. If no: Redirect to login
+4. If yes: Load saved addresses
+5. Display shipping form
+6. User fills and submits shipping
+7. POST /api/checkout/validate-shipping
+8. Display payment step
+9. User selects payment method
+10. If Credit Card selected: Validate card with Stripe Elements
+11. Display order review
+12. User clicks Place Order
+13. POST /api/checkout/complete
+14. Create order, charge payment, send confirmation email
+15. Redirect to confirmation page: /order-confirmation/{orderId}
 
 ### 6.4 Search Functionality
 
-```
-[User types in search input]
-       |
-       v
-[Debounce 300ms]
-       |
-       v
-[Show loading indicator]
-       |
-       v
-[GET /api/search?q={query}&type={product|collection}]
-       |
-       v
-[Display dropdown with categories, products, suggestions]
-       |
-       v
-[User presses Enter or clicks result]
-       |
-       v
-[Navigate to result or PLP with search params]
-```
+1. User types in search input
+2. Debounce 300ms
+3. Show loading indicator
+4. GET /api/search?q={query}&type={product|collection}
+5. Display dropdown with categories, products, suggestions
+6. User presses Enter or clicks result
+7. Navigate to result or PLP with search params
 
 ---
 
