@@ -894,34 +894,28 @@ PromoCodes
 
 ### Frontend
 
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| React | 18.2+ | UI framework |
-| Next.js | 14+ | SSR, routing |
-| TypeScript | 5.0+ | Type safety |
-| Tailwind CSS | 3.4+ | Utility-first styling |
-| Zustand | 4.5+ | State management |
-| React Query | 5.0+ | Server state, caching |
-| Stripe Elements | 13.0+ | Payment UI |
+- React: 18.2+ - UI framework
+- Next.js: 14+ - SSR, routing
+- TypeScript: 5.0+ - Type safety
+- Tailwind CSS: 3.4+ - Utility-first styling
+- Zustand: 4.5+ - State management
+- React Query: 5.0+ - Server state, caching
+- Stripe Elements: 13.0+ - Payment UI
 
 ### Backend
 
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| Node.js | 20 LTS | Runtime |
-| Express | 4.18+ | API framework |
-| PostgreSQL | 15+ | Primary database |
-| Redis | 7+ | Caching, sessions |
-| Stripe | 13.0+ | Payment processing |
-| SendGrid | 4.7+ | Transactional email |
+- Node.js: 20 LTS - Runtime
+- Express: 4.18+ - API framework
+- PostgreSQL: 15+ - Primary database
+- Redis: 7+ - Caching, sessions
+- Stripe: 13.0+ - Payment processing
+- SendGrid: 4.7+ - Transactional email
 
 ### Infrastructure
 
-| Technology | Purpose |
-|-----------|---------|
-| Vercel | Frontend hosting |
-| Railway | Backend hosting |
-| AWS S3 | Image storage |
-| Cloudflare | CDN, DDoS protection |
-| Sentry | Error tracking |
-| Datadog | Performance monitoring |
+- Vercel: Frontend hosting
+- Railway: Backend hosting
+- AWS S3: Image storage
+- Cloudflare: CDN, DDoS protection
+- Sentry: Error tracking
+- Datadog: Performance monitoring
