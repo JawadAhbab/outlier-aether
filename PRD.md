@@ -422,168 +422,208 @@ Home
 
 ### Entities and Relationships
 
-```
 Users
-├── id (UUID, PK)
-├── email (String, unique)
-├── password_hash (String)
-├── first_name (String)
-├── last_name (String)
-├── phone (String, nullable)
-├── created_at (Timestamp)
-├── updated_at (Timestamp)
-└── role (Enum: guest, user, admin)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| email | String | unique |
+| password_hash | String | |
+| first_name | String | |
+| last_name | String | |
+| phone | String | nullable |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
+| role | Enum | guest, user, admin |
 
 Addresses
-├── id (UUID, PK)
-├── user_id (UUID, FK -> Users)
-├── first_name (String)
-├── last_name (String)
-├── street_address (String)
-├── apartment (String, nullable)
-├── city (String)
-├── state (String)
-├── postal_code (String)
-├── country (String)
-├── phone (String)
-├── is_default (Boolean)
-├── created_at (Timestamp)
-└── updated_at (Timestamp)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| user_id | UUID | FK -> Users |
+| first_name | String | |
+| last_name | String | |
+| street_address | String | |
+| apartment | String | nullable |
+| city | String | |
+| state | String | |
+| postal_code | String | |
+| country | String | |
+| phone | String | |
+| is_default | Boolean | |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
 
 Categories
-├── id (UUID, PK)
-├── name (String)
-├── slug (String, unique)
-├── description (Text)
-├── parent_id (UUID, FK -> Categories, nullable)
-├── image_url (String, nullable)
-├── sort_order (Integer)
-└── is_active (Boolean)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| name | String | |
+| slug | String | unique |
+| description | Text | |
+| parent_id | UUID | FK -> Categories, nullable |
+| image_url | String | nullable |
+| sort_order | Integer | |
+| is_active | Boolean | |
 
 Products
-├── id (UUID, PK)
-├── name (String)
-├── slug (String, unique)
-├── description (Text)
-├── price (Decimal)
-├── compare_at_price (Decimal, nullable)
-├── cost_price (Decimal, nullable)
-├── sku (String, unique)
-├── barcode (String, nullable)
-├── inventory_quantity (Integer)
-├── category_id (UUID, FK -> Categories)
-├── images (JSON Array)
-├── metadata (JSON)
-├── is_active (Boolean)
-├── created_at (Timestamp)
-└── updated_at (Timestamp)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| name | String | |
+| slug | String | unique |
+| description | Text | |
+| price | Decimal | |
+| compare_at_price | Decimal | nullable |
+| cost_price | Decimal | nullable |
+| sku | String | unique |
+| barcode | String | nullable |
+| inventory_quantity | Integer | |
+| category_id | UUID | FK -> Categories |
+| images | JSON Array | |
+| metadata | JSON | |
+| is_active | Boolean | |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
 
 ProductVariants
-├── id (UUID, PK)
-├── product_id (UUID, FK -> Products)
-├── name (String)
-├── sku (String, unique)
-├── price (Decimal)
-├── compare_at_price (Decimal, nullable)
-├── inventory_quantity (Integer)
-├── option1 (String, nullable)
-├── option2 (String, nullable)
-├── option3 (String, nullable)
-└── is_active (Boolean)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| product_id | UUID | FK -> Products |
+| name | String | |
+| sku | String | unique |
+| price | Decimal | |
+| compare_at_price | Decimal | nullable |
+| inventory_quantity | Integer | |
+| option1 | String | nullable |
+| option2 | String | nullable |
+| option3 | String | nullable |
+| is_active | Boolean | |
 
 ProductOptions
-├── id (UUID, PK)
-├── product_id (UUID, FK -> Products)
-├── name (String)
-├── position (Integer)
-└── values (JSON Array)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| product_id | UUID | FK -> Products |
+| name | String | |
+| position | Integer | |
+| values | JSON Array | |
 
 Reviews
-├── id (UUID, PK)
-├── product_id (UUID, FK -> Products)
-├── user_id (UUID, FK -> Users)
-├── rating (Integer, 1-5)
-├── title (String, nullable)
-├── body (Text)
-├── is_verified (Boolean)
-├── created_at (Timestamp)
-└── updated_at (Timestamp)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| product_id | UUID | FK -> Products |
+| user_id | UUID | FK -> Users |
+| rating | Integer | 1-5 |
+| title | String | nullable |
+| body | Text | |
+| is_verified | Boolean | |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
 
 Orders
-├── id (UUID, PK)
-├── order_number (String, unique)
-├── user_id (UUID, FK -> Users, nullable for guest)
-├── email (String)
-├── status (Enum: pending, processing, shipped, delivered, cancelled, refunded)
-├── subtotal (Decimal)
-├── shipping_cost (Decimal)
-├── tax (Decimal)
-├── discount_amount (Decimal)
-├── total (Decimal)
-├── shipping_address (JSON)
-├── billing_address (JSON)
-├── shipping_method (String)
-├── payment_method (String)
-├── payment_status (Enum: pending, paid, failed, refunded)
-├── stripe_payment_intent_id (String, nullable)
-├── created_at (Timestamp)
-└── updated_at (Timestamp)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| order_number | String | unique |
+| user_id | UUID | FK -> Users, nullable for guest |
+| email | String | |
+| status | Enum | pending, processing, shipped, delivered, cancelled, refunded |
+| subtotal | Decimal | |
+| shipping_cost | Decimal | |
+| tax | Decimal | |
+| discount_amount | Decimal | |
+| total | Decimal | |
+| shipping_address | JSON | |
+| billing_address | JSON | |
+| shipping_method | String | |
+| payment_method | String | |
+| payment_status | Enum | pending, paid, failed, refunded |
+| stripe_payment_intent_id | String | nullable |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
 
 OrderItems
-├── id (UUID, PK)
-├── order_id (UUID, FK -> Orders)
-├── product_id (UUID, FK -> Products)
-├── variant_id (UUID, FK -> ProductVariants, nullable)
-├── quantity (Integer)
-├── unit_price (Decimal)
-├── total_price (Decimal)
-└── product_snapshot (JSON)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| order_id | UUID | FK -> Orders |
+| product_id | UUID | FK -> Products |
+| variant_id | UUID | FK -> ProductVariants, nullable |
+| quantity | Integer | |
+| unit_price | Decimal | |
+| total_price | Decimal | |
+| product_snapshot | JSON | |
 
 Cart
-├── id (UUID, PK)
-├── user_id (UUID, FK -> Users, nullable)
-├── session_id (String, for guest)
-├── created_at (Timestamp)
-└── updated_at (Timestamp)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| user_id | UUID | FK -> Users, nullable |
+| session_id | String | for guest |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
 
 CartItems
-├── id (UUID, PK)
-├── cart_id (UUID, FK -> Cart)
-├── product_id (UUID, FK -> Products)
-├── variant_id (UUID, FK -> ProductVariants, nullable)
-├── quantity (Integer)
-├── created_at (Timestamp)
-└── updated_at (Timestamp)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| cart_id | UUID | FK -> Cart |
+| product_id | UUID | FK -> Products |
+| variant_id | UUID | FK -> ProductVariants, nullable |
+| quantity | Integer | |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
 
 Wishlists
-├── id (UUID, PK)
-├── user_id (UUID, FK -> Users)
-├── name (String)
-├── is_public (Boolean)
-├── created_at (Timestamp)
-└── updated_at (Timestamp)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| user_id | UUID | FK -> Users |
+| name | String | |
+| is_public | Boolean | |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
 
 WishlistItems
-├── id (UUID, PK)
-├── wishlist_id (UUID, FK -> Wishlists)
-├── product_id (UUID, FK -> Products)
-├── variant_id (UUID, FK -> ProductVariants, nullable)
-├── created_at (Timestamp)
-└── updated_at (Timestamp)
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| wishlist_id | UUID | FK -> Wishlists |
+| product_id | UUID | FK -> Products |
+| variant_id | UUID | FK -> ProductVariants, nullable |
+| created_at | Timestamp | |
+| updated_at | Timestamp | |
 
 PromoCodes
-├── id (UUID, PK)
-├── code (String, unique)
-├── type (Enum: percentage, fixed_amount, free_shipping)
-├── value (Decimal)
-├── min_order_amount (Decimal, nullable)
-├── max_uses (Integer, nullable)
-├── used_count (Integer)
-├── starts_at (Timestamp)
-├── expires_at (Timestamp, nullable)
-├── is_active (Boolean)
-└── created_at (Timestamp)
-```
+
+| Field | Type | Constraints |
+|-------|------|-------------|
+| id | UUID | PK |
+| code | String | unique |
+| type | Enum | percentage, fixed_amount, free_shipping |
+| value | Decimal | |
+| min_order_amount | Decimal | nullable |
+| max_uses | Integer | nullable |
+| used_count | Integer | |
+| starts_at | Timestamp | |
+| expires_at | Timestamp | nullable |
+| is_active | Boolean | |
+| created_at | Timestamp | |
 
 ---
 
