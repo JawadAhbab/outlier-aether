@@ -51,23 +51,19 @@ Desktop browsers (primary), tablet and mobile browsers (responsive)
 
 ### Spacing System
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| xs | 4px | Tight gaps, inline spacing |
-| sm | 8px | Between related elements |
-| md | 16px | Standard padding, gaps |
-| lg | 24px | Section spacing |
-| xl | 32px | Major section breaks |
-| 2xl | 48px | Page section separation |
+- xs: 4px (Tight gaps, inline spacing)
+- sm: 8px (Between related elements)
+- md: 16px (Standard padding, gaps)
+- lg: 24px (Section spacing)
+- xl: 32px (Major section breaks)
+- 2xl: 48px (Page section separation)
 
 ### Border Radius
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| sm | 4px | Badges, small elements |
-| md | 8px | Buttons, inputs, cards |
-| lg | 12px | Large cards, modals |
-| full | 9999px | Avatars, pills |
+- sm: 4px (Badges, small elements)
+- md: 8px (Buttons, inputs, cards)
+- lg: 12px (Large cards, modals)
+- full: 9999px (Avatars, pills)
 
 ---
 
