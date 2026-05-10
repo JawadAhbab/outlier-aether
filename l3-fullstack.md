@@ -1,9 +1,9 @@
 > Read the source file, you will get directions, follow the rules and complete the task
 
-- Title:
-- Description:
+- Title: Vertical Markets
+- Description: Specialized marketplaces for specific domains like travel, real estate, or vehicles with search, booking, and detailed listings
 - Words limit: 5000 [VERY IMPORTANT]
-- Think of sites like:
+- Think of sites like: Airbnb, Booking.com, Zillow
 
 **You have to write a Write a comprehensive Product Requirements Document (~6,500 tokens). Describe user roles, auth flows, core features as user flows, data model, API design, and error handling. Be as detailed as possible — thorough PRDs produce better results.**
 
@@ -20,7 +20,12 @@
 - Error handling, empty states, notifications
 - Real-time features, payments, admin tools
 
-###
+### For Vertical Markets specifically:
+
+- Listing cards with location/price/availability
+- Map view alongside list view
+- Booking flow with date pickers
+- Reviews per listing, host/seller profiles
 
 ### Quick tips
 
