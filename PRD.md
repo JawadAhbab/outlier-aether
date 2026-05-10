@@ -11,22 +11,22 @@
 
 ### Color Palette
 
-- Primary Background, Color: Deep Void Black, Hex: #050508
-- Secondary Background, Color: Cosmic Navy, Hex: #0a0e1a
-- Accent Primary, Color: Electric Cyan, Hex: #00f5d4
-- Accent Secondary, Color: Neon Magenta, Hex: #f72585
-- Accent Tertiary, Color: Warm Gold, Hex: #ffd60a
-- Text Primary, Color: Pure White, Hex: #ffffff
-- Text Secondary, Color: Muted Silver, Hex: #a0a0b0
-- Glow Effect, Color: Soft Cyan, Hex: #00f5d480
+- Primary Background, Color: Deep Void Black, Hex: #050508, Usage: Main canvas, body background
+- Secondary Background, Color: Cosmic Navy, Hex: #0a0e1a, Usage: Section backgrounds, card backgrounds
+- Accent Primary, Color: Electric Cyan, Hex: #00f5d4, Usage: Interactive elements, portal glow, links
+- Accent Secondary, Color: Neon Magenta, Hex: #f72585, Usage: Secondary highlights, hover states, error indicators
+- Accent Tertiary, Color: Warm Gold, Hex: #ffd60a, Usage: Success states, achievements, special callouts
+- Text Primary, Color: Pure White, Hex: #ffffff, Usage: Headings, primary body text
+- Text Secondary, Color: Muted Silver, Hex: #a0a0b0, Usage: Captions, placeholders, secondary labels
+- Glow Effect, Color: Soft Cyan, Hex: #00f5d480, Usage: Box shadows, blur effects, ambient lighting
 
 ### Typography
 
-- Headings H1, Font: Space Grotesk, Weight: 700, Size: 4.5rem, Line Height: 1.1
-- Headings H2, Font: Space Grotesk, Weight: 600, Size: 2.5rem, Line Height: 1.2
-- Body Text, Font: Inter, Weight: 400, Size: 1rem, Line Height: 1.6
-- Captions, Font: Inter, Weight: 300, Size: 0.75rem, Line Height: 1.4
-- UI Labels, Font: JetBrains Mono, Weight: 500, Size: 0.875rem, Line Height: 1.2
+- Headings H1, Font: Space Grotesk, Weight: 700, Size: 4.5rem, Line Height: 1.1, Usage: Page titles, hero text
+- Headings H2, Font: Space Grotesk, Weight: 600, Size: 2.5rem, Line Height: 1.2, Usage: Section headers, chamber titles
+- Body Text, Font: Inter, Weight: 400, Size: 1rem, Line Height: 1.6, Usage: General content, descriptions
+- Captions, Font: Inter, Weight: 300, Size: 0.75rem, Line Height: 1.4, Usage: Image captions, footnotes
+- UI Labels, Font: JetBrains Mono, Weight: 500, Size: 0.875rem, Line Height: 1.2, Usage: Buttons, form inputs, navigation items
 
 ### Spacing System
 
@@ -77,10 +77,11 @@
 
 ### Navigation
 
-- Fixed HUD overlay with 4 chamber indicators
-- Active chamber highlighted with accent glow
-- ESC key returns to Entry Chamber
-- Mobile: swipe gestures for chamber switching
+- Fixed HUD overlay with 4 chamber indicators positioned at viewport edges
+- Active chamber highlighted with accent glow (cyan pulse animation)
+- ESC key returns to Entry Chamber from any location
+- Mobile: swipe left/right gestures for chamber switching
+- HUD fades to 30% opacity after 3s of inactivity, returns on touch/mouse movement
 
 ## Animation & Motion Specifications
 
@@ -133,12 +134,12 @@
 - Position: (0, 0, 8) default
 - Controls: Custom orbit with damping (factor: 0.05)
 
-**Lighting:**
+### Lighting
 
-- Light: Ambient, Type: AmbientLight, Color: #404060, Intensity: 0.4, Position: N/A
-- Light: Key, Type: DirectionalLight, Color: #ffffff, Intensity: 1.2, Position: (5, 5, 5)
-- Light: Fill, Type: DirectionalLight, Color: #00f5d4, Intensity: 0.3, Position: (-3, 2, 4)
-- Light: Accent, Type: PointLight, Color: #f72585, Intensity: 0.8, Position: (0, -2, 3)
+- Light: Ambient, Type: AmbientLight, Color: #404060, Intensity: 0.4, Position: N/A, Purpose: Base illumination, prevents absolute black
+- Light: Key, Type: DirectionalLight, Color: #ffffff, Intensity: 1.2, Position: (5, 5, 5), Purpose: Main light source, defines shadows
+- Light: Fill, Type: DirectionalLight, Color: #00f5d4, Intensity: 0.3, Position: (-3, 2, 4), Purpose: Fills shadows, adds cyan tint
+- Light: Accent, Type: PointLight, Color: #f72585, Intensity: 0.8, Position: (0, -2, 3), Purpose: Accent highlights, creates magenta rim
 
 ### Materials & Shaders
 
@@ -193,37 +194,36 @@
 
 **Flow 1: Chamber Navigation**
 
-1. User enters site
-2. Entry Chamber loads with central orb animation
-3. User clicks portal anchor
-4. System disables current controls
-5. Camera animates along arc path (1500ms)
-6. New chamber elements fade in (staggered, 200ms intervals)
-7. New chamber controls enable
-8. HUD updates active indicator
+1. User enters site - black screen fades in over 2000ms revealing Entry Chamber
+2. Entry Chamber loads with central orb animation - orb begins rotation and shader activates
+3. User clicks portal anchor - controls disabled, radial particle burst triggers
+4. Camera animates along arc path (1500ms) - smooth ease-out curve to target chamber
+5. New chamber elements fade in - staggered 200ms intervals per element group
+6. New chamber controls enable - orbit and zoom controls become active
+7. HUD updates active indicator - current chamber glows cyan, others dim
 
 **Flow 2: Gallery Interaction**
 
-1. User enters Gallery Chamber
-2. 6 sculptural pieces render in 2x3 grid
+1. User enters Gallery Chamber - 6 sculptural pieces fade in with stagger effect
+2. 6 sculptural pieces render in 2x3 grid - each positioned with 3 unit spacing
 3. User hovers over piece
-   - Scale increases to 1.05 (200ms)
-   - Emissive intensity increases
-   - Cursor changes to pointer
+   - Scale increases to 1.05 (200ms ease-out) - piece lifts forward slightly
+   - Emissive intensity increases by 50% - glow intensifies around edges
+   - Cursor changes to pointer - indicates clickability
 4. User clicks piece
-   - Camera zooms to focus position (800ms)
-   - Detail modal slides in from right (400ms)
-   - Background blur applies
+   - Camera zooms to focus position (800ms spring animation) - smooth approach with overshoot
+   - Detail modal slides in from right (400ms ease-out) - 400px width, full height
+   - Background blur applies (8px gaussian) - creates depth separation
 5. User closes modal (X button or click outside)
-   - Modal slides out (300ms)
-   - Camera returns to default (600ms)
+   - Modal slides out to right (300ms ease-in) - slides behind camera view
+   - Camera returns to default (600ms ease-in-out) - settles at original position
 
 ### Error Handling
 
-- Scenario: WebGL not supported, Handling: Show fallback 2D version with CSS animations
-- Scenario: Shader compilation error, Handling: Fallback to MeshStandardMaterial
-- Scenario: Asset load failure, Handling: Retry 3 times, then show placeholder
-- Scenario: Mobile performance drop, Handling: Auto-reduce particle count to 500
+- Scenario: WebGL not supported, Handling: Detect via WebGLRenderer context loss, display static fallback page with CSS keyframe animations replacing 3D orb
+- Scenario: Shader compilation error, Handling: Catch shader program compile errors in try-catch, fall back to MeshStandardMaterial with same color/emissive properties
+- Scenario: Asset load failure (textures/models), Handling: Retry 3 times with exponential backoff (1s, 2s, 4s), then display geometric placeholder in muted gray
+- Scenario: Mobile performance drop (FPS < 30), Handling: Monitor via requestAnimationFrame timing, auto-reduce particle count to 500, disable post-processing
 
 ## 7. Responsive
 
@@ -252,12 +252,12 @@
 
 ## Performance
 
-- **Geometry Instancing:** For repeated elements (particles, portals)
-- **Texture Compression:** KTX2 format for textures where applicable
-- **Level of Detail (LOD):** Reduced poly models for distant objects
-- **Frustum Culling:** Automatic via Three.js renderer
-- **Dispose Pattern:** Proper cleanup on chamber exit
-- **Lazy Loading:** Chamber assets loaded on first visit
+- **Geometry Instancing:** Use InstancedMesh for particles and portal rings - reduces draw calls from 2004 to ~10 total
+- **Texture Compression:** KTX2 format with basis_universal - reduces memory by 60% vs uncompressed formats
+- **Level of Detail (LOD):** Three-tier LOD for sculptural pieces - full detail within 5 units, 50% poly at 10 units, placeholder beyond 20 units
+- **Frustum Culling:** Automatic via Three.js WebGLRenderer - skips rendering objects outside camera frustum
+- **Dispose Pattern:** Call geometry.dispose() and material.dispose() on chamber unload - prevents GPU memory leaks
+- **Lazy Loading:** Dynamic import() for chamber assets on first visit - keeps initial JS bundle under 200KB
 
 ## Accessibility
 
