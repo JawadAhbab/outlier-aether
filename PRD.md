@@ -1,37 +1,32 @@
 # Product Requirements Document: 3D Interactive Experience
 
-## 1. Project Overview
+## Project Overview
 
-**Project Name:** Void Walker - Interactive 3D Portfolio Experience
+- **Project Name:** Void Walker - Interactive 3D Portfolio Experience
+- **Type:** 3D & WebGL / Game
+- **Core Functionality:** An immersive 3D portfolio experience where users navigate through a floating cosmic void containing interactive sculptural elements. Users explore interconnected chambers by clicking on portal anchors, triggering smooth camera transitions and revealing hidden content pieces.
+- **Target Users:** Creative professionals, potential clients, design enthusiasts seeking memorable web experiences.
 
-**Type:** 3D & WebGL / Game
-
-**Core Functionality:** An immersive 3D portfolio experience where users navigate through a floating cosmic void containing interactive sculptural elements. Users explore interconnected chambers by clicking on portal anchors, triggering smooth camera transitions and revealing hidden content pieces.
-
-**Target Users:** Creative professionals, potential clients, design enthusiasts seeking memorable web experiences.
-
----
-
-## 2. Visual Identity
+## Visual Identity
 
 ### Color Palette
 
-- Role: Primary Background, Color: Deep Void Black, Hex: #050508
-- Role: Secondary Background, Color: Cosmic Navy, Hex: #0a0e1a
-- Role: Accent Primary, Color: Electric Cyan, Hex: #00f5d4
-- Role: Accent Secondary, Color: Neon Magenta, Hex: #f72585
-- Role: Accent Tertiary, Color: Warm Gold, Hex: #ffd60a
-- Role: Text Primary, Color: Pure White, Hex: #ffffff
-- Role: Text Secondary, Color: Muted Silver, Hex: #a0a0b0
-- Role: Glow Effect, Color: Soft Cyan, Hex: #00f5d480
+- Primary Background, Color: Deep Void Black, Hex: #050508
+- Secondary Background, Color: Cosmic Navy, Hex: #0a0e1a
+- Accent Primary, Color: Electric Cyan, Hex: #00f5d4
+- Accent Secondary, Color: Neon Magenta, Hex: #f72585
+- Accent Tertiary, Color: Warm Gold, Hex: #ffd60a
+- Text Primary, Color: Pure White, Hex: #ffffff
+- Text Secondary, Color: Muted Silver, Hex: #a0a0b0
+- Glow Effect, Color: Soft Cyan, Hex: #00f5d480
 
 ### Typography
 
-- Element: Headings H1, Font: Space Grotesk, Weight: 700, Size: 4.5rem, Line Height: 1.1
-- Element: Headings H2, Font: Space Grotesk, Weight: 600, Size: 2.5rem, Line Height: 1.2
-- Element: Body Text, Font: Inter, Weight: 400, Size: 1rem, Line Height: 1.6
-- Element: Captions, Font: Inter, Weight: 300, Size: 0.75rem, Line Height: 1.4
-- Element: UI Labels, Font: JetBrains Mono, Weight: 500, Size: 0.875rem, Line Height: 1.2
+- Headings H1, Font: Space Grotesk, Weight: 700, Size: 4.5rem, Line Height: 1.1
+- Headings H2, Font: Space Grotesk, Weight: 600, Size: 2.5rem, Line Height: 1.2
+- Body Text, Font: Inter, Weight: 400, Size: 1rem, Line Height: 1.6
+- Captions, Font: Inter, Weight: 300, Size: 0.75rem, Line Height: 1.4
+- UI Labels, Font: JetBrains Mono, Weight: 500, Size: 0.875rem, Line Height: 1.2
 
 ### Spacing System
 
@@ -44,9 +39,7 @@
 - Border radius (buttons): 8px
 - Content max-width: 1200px
 
----
-
-## 3. Layout & Structure
+## Layout & Structure
 
 ### Main Sections
 
@@ -89,9 +82,7 @@
 - ESC key returns to Entry Chamber
 - Mobile: swipe gestures for chamber switching
 
----
-
-## 4. Animation & Motion Specifications
+## Animation & Motion Specifications
 
 ### Camera Transitions
 
@@ -126,9 +117,7 @@
 - Parallax depth: foreground 1.0x scroll speed, midground 0.6x, background 0.2x
 - Scroll momentum: Smooth deceleration with rubber-band effect at boundaries
 
----
-
-## 5. Technical Requirements
+## Technical Requirements
 
 ### Three.js Scene Configuration
 
@@ -204,43 +193,6 @@
 
 **Particle Physics:** Simplified Verlet integration for burst effects
 
----
-
-## 6. Application Logic
-
-### Data Model
-
-**User (Session):**
-
-- Field: id, Type: UUID, Description: Unique session identifier
-- Field: visitedChambers, Type: Array[String], Description: List of visited chamber IDs
-- Field: lastPosition, Type: Vector3, Description: Camera position on exit
-- Field: preferences, Type: Object, Description: Motion preference (reduced/preferred)
-
-**Gallery Item:**
-
-- Field: id, Type: String, Description: Unique identifier
-- Field: title, Type: String, Description: Display name
-- Field: description, Type: String, Description: Detail text
-- Field: geometry, Type: String, Description: Three.js geometry type
-- Field: materialProps, Type: Object, Description: Material configuration
-- Field: position, Type: Vector3, Description: World position
-- Field: rotation, Type: Vector3, Description: Initial rotation
-
-**Timeline Milestone:**
-
-- Field: id, Type: String, Description: Unique identifier
-- Field: year, Type: Number, Description: Year value
-- Field: title, Type: String, Description: Milestone title
-- Field: description, Type: String, Description: Detail description
-- Field: position, Type: Number, Description: Z-axis position
-
-### Authentication Flow
-
-- No user authentication required for MVP
-- Session state stored in localStorage
-- Future: OAuth integration (Google, GitHub)
-
 ### Core Feature Flows
 
 **Flow 1: Chamber Navigation**
@@ -270,21 +222,6 @@
    - Modal slides out (300ms)
    - Camera returns to default (600ms)
 
-### State Management
-
-**Global State (Zustand):**
-
-```javascript
-{
-  currentChamber: 'entry' | 'gallery' | 'timeline' | 'contact',
-  cameraTarget: Vector3,
-  isTransitioning: boolean,
-  selectedItem: GalleryItem | null,
-  reducedMotion: boolean,
-  audioEnabled: boolean
-}
-```
-
 ### Error Handling
 
 - Scenario: WebGL not supported, Handling: Show fallback 2D version with CSS animations
@@ -292,9 +229,7 @@
 - Scenario: Asset load failure, Handling: Retry 3 times, then show placeholder
 - Scenario: Mobile performance drop, Handling: Auto-reduce particle count to 500
 
----
-
-## 7. Responsive Behavior
+## 7. Responsive
 
 ### Breakpoints
 
@@ -319,19 +254,7 @@
 - Element: Shadows, Desktop: Enabled, Mobile: Disabled
 - Element: Post-processing, Desktop: Full, Mobile: Bloom only
 
----
-
-## 8. Performance & Accessibility
-
-### Performance Metrics
-
-- Metric: Frame Rate, Target: 60 FPS, Measurement: requestAnimationFrame timing
-- Metric: First Contentful Paint, Target: < 1.5s, Measurement: Lighthouse
-- Metric: Largest Contentful Paint, Target: < 2.5s, Measurement: Lighthouse
-- Metric: Total Bundle Size, Target: < 500KB, Measurement: Build output (excluding textures)
-- Metric: Memory Usage, Target: < 200MB, Measurement: Chrome DevTools
-
-### Performance Techniques
+## Performance
 
 - **Geometry Instancing:** For repeated elements (particles, portals)
 - **Texture Compression:** KTX2 format for textures where applicable
@@ -340,7 +263,7 @@
 - **Dispose Pattern:** Proper cleanup on chamber exit
 - **Lazy Loading:** Chamber assets loaded on first visit
 
-### Accessibility
+## Accessibility
 
 **Keyboard Navigation:**
 
@@ -369,9 +292,7 @@
 - Interactive elements have visible focus states
 - Glow effects do not reduce text readability
 
----
-
-## 9. Audio (Optional Enhancement)
+## Audio Enhancement
 
 - Sound: Ambient drone, Trigger: Page load, Duration: Loop, Volume: 0.15
 - Sound: Portal activation, Trigger: Click portal, Duration: 800ms, Volume: 0.4
@@ -381,24 +302,7 @@
 
 Audio disabled by default, toggle in HUD.
 
----
-
-## 10. Implementation Notes
-
-### Required Dependencies
-
-```json
-{
-  "three": "^0.160.0",
-  "zustand": "^4.5.0",
-  "@react-three/fiber": "^8.15.0",
-  "@react-three/drei": "^9.92.0",
-  "@react-three/postprocessing": "^2.16.0",
-  "gsap": "^3.12.0"
-}
-```
-
-### Browser Support
+## Browser Support
 
 - Chrome 90+
 - Firefox 88+
@@ -406,9 +310,3 @@ Audio disabled by default, toggle in HUD.
 - Edge 90+
 - Mobile Safari iOS 15+
 - Chrome Android 90+
-
----
-
-_Document Version: 1.0_
-_Last Updated: 2026-05-10_
-_Author: WebDev PRD Generator_
