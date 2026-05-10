@@ -18,6 +18,67 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 
 ---
 
+## Visual Identity
+
+### Typography
+
+- Font Family (Headings): Inter (Google Fonts), weight 600-700
+- Font Family (Body): Inter (Google Fonts), weight 400-500
+- Font Family (Accent): Playfair Display (Google Fonts), weight 400-600 (used for quotes and special callouts)
+- Base Font Size: 16px
+- Heading 1: 48px on desktop, 32px on mobile
+- Heading 2: 36px on desktop, 24px on mobile
+- Heading 3: 24px on desktop, 20px on mobile
+- Body: 16px
+- Small Text: 14px
+- Line Height (headings): 1.2
+- Line Height (body): 1.6
+
+### Color Palette
+
+- Primary: #FF5A5F (Coral Red - brand color, CTAs, highlights)
+- Primary Dark: #E5454A (Hover state for primary)
+- Secondary: #00A699 (Teal - success states, badges)
+- Secondary Dark: #008A7A (Hover state for secondary)
+- Accent: #FFB400 (Amber - ratings, stars, featured)
+- Background: #FFFFFF (White - main background)
+- Background Secondary: #F7F7F7 (Light gray - cards, sections)
+- Background Dark: #222222 (Dark - footer, contrast sections)
+- Text Primary: #222222 (Near black - headings)
+- Text Secondary: #717171 (Gray - body text, captions)
+- Text Tertiary: #B0B0B0 (Light gray - placeholders)
+- Border: #DDDBD7 (Warm gray - dividers, borders)
+- Error: #C13515 (Red - error states)
+- Overlay: rgba(0, 0, 0, 0.5) (Modal overlays)
+
+### Spacing System
+
+- Base Unit: 4px
+- XS: 4px
+- SM: 8px
+- MD: 16px
+- LG: 24px
+- XL: 32px
+- XXL: 48px
+- XXXL: 64px
+- Section Padding: 80px vertical on desktop, 48px on mobile
+- Card Padding: 24px
+- Border Radius (Small): 4px (buttons, inputs)
+- Border Radius (Medium): 8px (cards)
+- Border Radius (Large): 16px (modals, large containers)
+- Border Radius (Full): 9999px (avatars, pills)
+
+### Component Styles
+
+- Buttons: Primary (coral red bg, white text), Secondary (white bg, dark border), Ghost (transparent, text only)
+- Button Padding: 12px vertical, 24px horizontal
+- Input Height: 48px
+- Card Shadow: 0 2px 8px rgba(0, 0, 0, 0.08)
+- Card Shadow Hover: 0 4px 16px rgba(0, 0, 0, 0.12)
+- Focus Ring: 2px solid #FF5A5F with 2px offset
+
+---
+
 ## 2. User Roles and Authentication
 
 ### User Roles & Permissions
