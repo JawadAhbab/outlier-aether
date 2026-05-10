@@ -45,35 +45,47 @@
 
 **Entry Chamber (Home)**
 
-- Central floating orb (radius: 2 units) with reactive surface shader
-- Four portal anchors positioned at cardinal directions
-- Portal anchors: Torus geometry (radius: 0.5, tube: 0.08), animated ring pulse
-- Ambient particle field (count: 2000 particles)
-- Entry title text floating above orb
+- Central floating orb (radius: 2 units) with reactive surface shader using Simplex noise displacement
+- Orb material: MeshPhysicalMaterial with transmission 0.6, roughness 0.15, creating glass-like appearance
+- Four portal anchors positioned at cardinal directions (north, south, east, west) at distance 4 units from center
+- Portal anchors: Torus geometry (radius: 0.5, tube: 0.08), emissive pulse glow oscillating between cyan and magenta
+- Ambient particle field (count: 2000 particles) drifting via Perlin noise, size range 0.02-0.08 units
+- Entry title "VOID WALKER" text floating 1.5 units above orb, Space Grotesk 700 weight, 3rem size
+- Background: Deep void gradient from #050508 to #0a0e1a creating depth perception
 
 **Gallery Chamber**
 
-- Grid of 6 sculptural pieces arranged in 2x3 layout
+- Grid of 6 sculptural pieces arranged in 2x3 layout with 3 unit spacing between pieces
 - Each piece: 1.5 unit scale, unique geometry (torus knot, icosahedron, octahedron, dodecahedron, cone, cylinder)
-- Interactive hover states with glow intensification
-- Click reveals expanded detail modal
-- Detail modal contains: title, description, tech specs list, close button
+- Piece materials: Glass-like with interior glow, cyan accent rim lighting at 0.3 intensity
+- Float bob animation: Y position oscillates +/- 0.2 units, 4000ms duration per piece with offset timing
+- Interactive hover: Scale 1.05, emissive +50%, cursor pointer, 200ms ease-out transition
+- Click reveals expanded detail modal (400px width, right-side slide-in)
+- Detail modal contains: title (H2), description paragraph, tech specs unordered list, close button (top-right X)
+- Background: Same cosmic void gradient, particles reduce to 500 for performance
 
 **Timeline Chamber**
 
-- Linear arrangement of 5 milestone spheres along z-axis
-- Each sphere: 0.8 unit radius, glass-like material with interior glow
-- Connecting line with animated energy flow (dashed line, moving pattern)
-- Scrolling triggers sequential illumination
-- Year labels floating beside each sphere
+- Linear arrangement of 5 milestone spheres along z-axis, 3 unit spacing between spheres
+- Each sphere: 0.8 unit radius, glass-like MeshPhysicalMaterial with interior point light
+- Interior glow color: Warm Gold (#ffd60a) at 0.6 intensity, creates beacon effect
+- Connecting line: Dashed line (dash 0.5, gap 0.3) with animated energy flow pattern moving along z-axis
+- Scroll triggers sequential illumination - each sphere scales to 1.15 and activates emissive when centered
+- Year labels: Floating 0.5 units beside each sphere, JetBrains Mono 500, 1rem size
+- Milestones chronologically ordered: 2019, 2021, 2022, 2023, 2025 representing career journey
+- Progress indicator: Vertical bar on right side, fills proportionally as user scrolls through timeline
 
 **Contact Chamber**
 
-- Central pedestal with contact form
-- Form fields: Name (text), Email (email), Message (textarea)
-- Floating label inputs with 3D depth effect (labels animate upward on focus)
-- Submit button with particle burst on click
-- Success state: confetti particle effect, thank you message
+- Central pedestal: Cylinder geometry (radius 1, height 0.3) positioned at origin with subtle glow
+- Contact form: Floating card design (width 400px, max-width 90vw) centered on pedestal
+- Form fields: Name (text input), Email (email input with validation), Message (textarea 4 rows)
+- Floating labels: Animate upward 12px on focus, transition 300ms ease-out, cyan border glow
+- Input styling: Transparent background, bottom border only, white text on dark background
+- Submit button: Full width, cyan background (#00f5d4), white text, 48px height, 8px border-radius
+- Click triggers: Button dissolve (600ms), particle burst (100 particles, radial explosion)
+- Success state: Confetti particle effect (gold and cyan particles), thank you message fades in
+- Form validation: Required fields, email format check, error messages in magenta (#f72585)
 
 ### Navigation
 
