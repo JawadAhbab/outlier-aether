@@ -51,23 +51,27 @@
 ### Main Sections
 
 **3.1 Entry Chamber (Home)**
+
 - Central floating orb (radius: 2 units) with reactive surface shader
 - Four portal anchors positioned at cardinal directions
 - Ambient particle field (count: 2000 particles)
 - Entry title text floating above orb
 
 **3.2 Gallery Chamber**
+
 - Grid of 6 sculptural pieces arranged in 2x3 layout
 - Each piece: 1.5 unit scale, unique geometry
 - Interactive hover states with glow intensification
 - Click reveals expanded detail modal
 
 **3.3 Timeline Chamber**
+
 - Linear arrangement of 5 milestone spheres along z-axis
 - Connecting line with animated energy flow
 - Scrolling triggers sequential illumination
 
 **3.4 Contact Chamber**
+
 - Central pedestal with contact form
 - Floating label inputs with 3D depth effect
 - Submit button with particle burst on click
@@ -118,11 +122,13 @@
 ### Three.js Scene Configuration
 
 **Renderer:**
+
 - WebGLRenderer with antialias: true
 - alpha: true, powerPreference: "high-performance"
 - Pixel ratio: Math.min(window.devicePixelRatio, 2)
 
 **Camera:**
+
 - PerspectiveCamera, FOV: 50, near: 0.1, far: 1000
 - Position: (0, 0, 8) default
 - Controls: Custom orbit with damping (factor: 0.05)
@@ -137,6 +143,7 @@
 ### Materials & Shaders
 
 **Central Orb Material (Custom Shader):**
+
 ```
 - Base: MeshPhysicalMaterial
 - Roughness: 0.15, Metalness: 0.3
@@ -146,6 +153,7 @@
 ```
 
 **Portal Anchor Material:**
+
 ```
 - Emissive material with animated intensity
 - Glow radius: 0.5 units
@@ -153,6 +161,7 @@
 ```
 
 **Particle System:**
+
 ```
 - Count: 2000 particles
 - Size: 0.02 - 0.08 units (random)
@@ -172,11 +181,13 @@
 **Gravity:** None (floating environment)
 **Collision:** Raycasting for click detection only
 **Spring System:** For camera zoom and element focus
+
 ```
 - stiffness: 0.08
 - damping: 0.7
 - mass: 1.0
 ```
+
 **Particle Physics:** Simplified Verlet integration for burst effects
 
 ---
@@ -322,12 +333,14 @@
 ### Accessibility
 
 **Keyboard Navigation:**
+
 - Tab: Navigate between interactive elements
 - Enter/Space: Activate focused element
 - Escape: Close modals, return to Entry Chamber
 - Arrow keys: Navigate gallery items
 
 **Screen Reader Support:**
+
 - ARIA labels on all interactive 3D elements
 - Live region announcements for chamber transitions
 - Alt text for all visual content in modals
@@ -341,6 +354,7 @@
 - Change: Bloom effect, Standard: Enabled, Reduced: Disabled
 
 **Color Contrast:**
+
 - All text meets WCAG AA standard (4.5:1 minimum)
 - Interactive elements have visible focus states
 - Glow effects do not reduce text readability
@@ -385,6 +399,6 @@ Audio disabled by default, toggle in HUD.
 
 ---
 
-*Document Version: 1.0*
-*Last Updated: 2026-05-10*
-*Author: WebDev PRD Generator*
+_Document Version: 1.0_
+_Last Updated: 2026-05-10_
+_Author: WebDev PRD Generator_
