@@ -481,32 +481,26 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 
 ### Breakpoints
 
-| Name | Width | Description |
-|------|-------|-------------|
-| Mobile | 0 - 767px | Single column, bottom sheet interactions |
-| Tablet | 768px - 1023px | Two columns, collapsible sidebar |
-| Desktop | 1024px - 1439px | Full layout, side-by-side map/list |
-| Large | 1440px+ | Extended width, larger imagery |
+- Mobile: 0 - 767px (Single column, bottom sheet interactions)
+- Tablet: 768px - 1023px (Two columns, collapsible sidebar)
+- Desktop: 1024px - 1439px (Full layout, side-by-side map/list)
+- Large: 1440px+ (Extended width, larger imagery)
 
 ### Mobile-Specific Behaviors
 
-| Feature | Desktop | Mobile |
-|---------|---------|--------|
-| Search bar | Top center, expanded | Hamburger menu, expandable overlay |
-| Map view | Right side 50% | Full width, collapsible drawer |
-| Listing cards | Horizontal list, large images | Vertical stack, swipeable images |
-| Booking widget | Right sidebar, sticky | Bottom fixed bar, expandable sheet |
-| Navigation | Top horizontal menu | Hamburger with slide-out drawer |
-| Filters | Left sidebar | Bottom sheet with apply button |
+- Search bar: Top center, expanded on desktop | Hamburger menu, expandable overlay on mobile
+- Map view: Right side 50% on desktop | Full width, collapsible drawer on mobile
+- Listing cards: Horizontal list, large images on desktop | Vertical stack, swipeable images on mobile
+- Booking widget: Right sidebar, sticky on desktop | Bottom fixed bar, expandable sheet on mobile
+- Navigation: Top horizontal menu on desktop | Hamburger with slide-out drawer on mobile
+- Filters: Left sidebar on desktop | Bottom sheet with apply button on mobile
 
 ### Image Handling
 
-| Breakpoint | Image Width | Quality | Format |
-|------------|-------------|---------|--------|
-| Mobile | 750px | 80% | WebP with JPEG fallback |
-| Tablet | 1200px | 85% | WebP |
-| Desktop | 1920px | 90% | WebP |
-| High-DPI | 2x resolution | 85% | WebP |
+- Mobile: 750px width, 80% quality, WebP with JPEG fallback
+- Tablet: 1200px width, 85% quality, WebP
+- Desktop: 1920px width, 90% quality, WebP
+- High-DPI: 2x resolution, 85% quality, WebP
 
 ---
 
@@ -514,36 +508,30 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 
 ### Key Metrics
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Page Load Time (LCP) | < 2.5s | Lighthouse |
-| First Contentful Paint | < 1.8s | Lighthouse |
-| Time to Interactive | < 3.8s | Lighthouse |
-| Search Results Display | < 1s | Real user monitoring |
-| Image Loading | Lazy load + progressive | Intersection Observer |
-| API Response Time | < 200ms (p95) | Server monitoring |
+- Page Load Time (LCP): < 2.5s (Lighthouse)
+- First Contentful Paint: < 1.8s (Lighthouse)
+- Time to Interactive: < 3.8s (Lighthouse)
+- Search Results Display: < 1s (Real user monitoring)
+- Image Loading: Lazy load + progressive (Intersection Observer)
+- API Response Time: < 200ms (p95) (Server monitoring)
 
 ### Performance Techniques
 
-| Technique | Implementation |
-|-----------|----------------|
-| Image optimization | WebP format, responsive srcset, lazy loading |
-| Code splitting | Route-based splitting with React.lazy |
-| Caching | SWR for API caching, 5-minute stale time |
-| CDN | Static assets served from CDN edge |
-| Compression | Gzip/Brotli for text assets |
-| Prefetching | Prefetch search results on focus |
-| Database indexes | Composite indexes on search fields |
-| Query optimization | Pagination, cursor-based for large datasets |
+- Image optimization: WebP format, responsive srcset, lazy loading
+- Code splitting: Route-based splitting with React.lazy
+- Caching: SWR for API caching, 5-minute stale time
+- CDN: Static assets served from CDN edge
+- Compression: Gzip/Brotli for text assets
+- Prefetching: Prefetch search results on focus
+- Database indexes: Composite indexes on search fields
+- Query optimization: Pagination, cursor-based for large datasets
 
 ### Asset Budgets
 
-| Asset Type | Budget | Enforcement |
-|------------|--------|-------------|
-| Initial JS bundle | 200KB gzipped | Build-time check |
-| Initial CSS | 50KB gzipped | Build-time check |
-| Largest image (LCP) | 150KB | Build-time check |
-| Total page weight | 3MB | Performance budget |
+- Initial JS bundle: 200KB gzipped (Build-time check)
+- Initial CSS: 50KB gzipped (Build-time check)
+- Largest image (LCP): 150KB (Build-time check)
+- Total page weight: 3MB (Performance budget)
 
 ---
 
@@ -562,13 +550,11 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 
 ### Reduced Motion
 
-| Animation | Standard | Reduced Motion |
-|-----------|---------|----------------|
-| Page transitions | Slide + fade (300ms) | Instant |
-| Scroll reveals | Fade up (400ms ease-out) | None |
-| Image galleries | Slide (250ms) | Instant swap |
-| Micro-interactions | Scale on hover (150ms) | None |
-| Loading spinners | Rotate (1s infinite) | Static indicator |
+- Page transitions: Slide + fade (300ms) on standard | Instant on reduced motion
+- Scroll reveals: Fade up (400ms ease-out) on standard | None on reduced motion
+- Image galleries: Slide (250ms) on standard | Instant swap on reduced motion
+- Micro-interactions: Scale on hover (150ms) on standard | None on reduced motion
+- Loading spinners: Rotate (1s infinite) on standard | Static indicator on reduced motion
 
 ### Accessibility Features
 
