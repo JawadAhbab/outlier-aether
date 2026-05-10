@@ -20,40 +20,53 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 
 ## 2. User Roles and Authentication
 
-### User Roles
+### User Roles & Permissions
 
-| Role | Description | Permissions |
-|------|-------------|-------------|
-| Guest | Unauthenticated browsing user | Browse listings, view public content |
-| User | Registered member seeking accommodations | Search, book, review, manage profile |
-| Host | Property owner listing spaces | Create listings, manage bookings, set pricing |
-| Admin | Platform administrator | Manage users, listings, disputes, analytics |
+- Guest: Unauthenticated browsing user (Browse listings, view public content)
+- User: Registered member seeking accommodations (Search, book, review, manage profile)
+- Host: Property owner listing spaces (Create listings, manage bookings, set pricing)
+- Admin: Platform administrator (Manage users, listings, disputes, analytics)
 
-### Authentication Methods
+### SignUp Page
 
-| Method | Description | Use Case |
-|--------|-------------|----------|
-| Email/Password | Traditional credential-based auth | Primary signup/login |
-| Google OAuth | Third-party authentication | Social login option |
-| Apple Sign-In | iOS-native authentication | iOS users convenience |
-| Magic Link | Passwordless email authentication | Quick login without password |
+- Email/password input fields
+- First name and last name fields
+- Google OAuth button
+- Apple Sign-In button
+- Terms of service checkbox
+- "Create Account" button
+- Link to sign-in page
 
-### Auth Flow
+### SignUp Flow
 
-```
-1. User visits StayNest
-2. System checks for existing session (localStorage token)
-3. If no session:
-   a. User clicks "Sign In"
-   b. User enters email OR uses OAuth provider
-   c. System validates credentials or OAuth token
-   d. System generates JWT token (24h expiry)
-   e. Token stored in localStorage
-   f. User redirected to previous page or dashboard
-4. Protected routes check token validity via API
-5. Token refresh attempted if expired (7-day sliding window)
-6. Failed refresh triggers re-authentication
-```
+1. User clicks "Sign Up" button
+2. User enters email, password, first name, last name OR selects OAuth provider
+3. System validates input (email format, password strength 8+ chars)
+4. System checks if email already exists
+5. If valid: System creates user record, generates JWT token
+6. Token stored in localStorage
+7. User redirected to onboarding or dashboard
+
+### SignIn Page
+
+- Email input field
+- Password input field
+- "Forgot Password" link
+- Google OAuth button
+- Apple Sign-In button
+- Magic link option
+- "Sign In" button
+- Link to sign-up page
+
+### SignIn Flow
+
+1. User enters email and password OR uses OAuth/Magic link
+2. System validates credentials
+3. If valid: System generates JWT token with 24h expiry and refresh token with 7-day sliding window
+4. Tokens stored in localStorage
+5. User redirected to previous page or dashboard
+6. If expired: System attempts token refresh
+7. If refresh fails: User prompted to re-authenticate
 
 ### Session Management
 
@@ -66,178 +79,127 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 
 ## 3. User Flows
 
-### 3.1 Search and Discovery Flow
+### Search and Discovery Page
 
-```
+- Hero section with large background image and search bar
+- Destination input with autocomplete
+- Check-in and check-out date pickers
+- Guest count selector (adults, children, infants)
+- "Search" button
+- Filter panel (collapsible on mobile)
+
+### Search and Discovery Flow
+
 1. User lands on homepage with search bar prominent
 2. User enters destination (city, neighborhood, or zip code)
 3. User selects check-in date (calendar widget, min: today)
 4. User selects check-out date (calendar widget, max: 30 days ahead)
 5. User selects guest count (adults: 1-16, children: 0-10, infants: 0-5)
 6. User clicks "Search" button
-7. System displays results page with:
-   a. Map view (right side, 50% width on desktop)
-   b. List view (left side, scrollable card grid)
-   c. Filter panel (collapsible, top of list view)
-8. User applies filters:
-   a. Price range (slider, $0 - $1000+ per night)
-   b. Property type (checkbox: entire home, private room, shared room)
-   c. Bedrooms (1-10+)
-   d. Bathrooms (1-8+)
-   e. Amenities (multi-select: WiFi, pool, kitchen, AC, etc.)
-   f. Instant booking (toggle)
-   g. Superhost only (toggle)
+7. System displays results page with map view (right side, 50% width on desktop) and list view (left side, scrollable card grid)
+8. User applies filters: price range, property type, bedrooms, bathrooms, amenities, instant booking, superhost only
 9. User adjusts map viewport to refine results
 10. User clicks listing card to view details
-```
 
-### 3.2 Listing Detail Flow
+### Listing Detail Page
 
-```
+- Image gallery with horizontal scroll and thumbnails (5+ photos)
+- Fullscreen lightbox on image click
+- Title, location, rating with review count
+- Host avatar and name with Superhost badge
+- Price per night, cleaning fee, service fee
+- Description section with expandable text
+- Amenities grid with icons
+- Location map (interactive, zoomable)
+- House rules and policies
+- Cancellation policy
+- Reviews section with sorting options
+- Similar listings carousel
+- Sticky booking widget (right sidebar on desktop, bottom fixed on mobile)
+
+### Listing Detail Flow
+
 1. User clicks listing card from search results
 2. Page loads listing detail view (/listing/:id)
-3. Image gallery displays (5+ photos, horizontal scroll with thumbnails)
+3. Image gallery displays with horizontal scroll and thumbnail navigation
 4. User can click main image to open fullscreen lightbox
-5. Key information displayed:
-   a. Title (e.g., "Secluded Mountain Cabin with Hot Tub")
-   b. Location (neighborhood, city)
-   c. Rating (4.92, 147 reviews) - clickable to scroll to reviews
-   d. Host avatar and name (Superhost badge if applicable)
-   e. Price per night ($245)
-   f. Cleaning fee ($75)
-   g. Service fee (calculated, shown at checkout)
-6. Description section with expandable text
-7. Amenities grid with icons
-8. Location map embedded (interactive, zoomable)
-9. House rules and policies
-10. Cancellation policy display
-11. Reviews section with sorting (newest, highest, lowest)
-12. Similar listings carousel at bottom
-13. Sticky booking widget (right side on desktop, bottom fixed on mobile)
-14. User selects dates in booking widget
-15. User clicks "Reserve" button
-16. User redirected to checkout if not logged in, else payment flow
-```
+5. Key information displayed in listing header section
+6. User scrolls to read description, view amenities, check location map
+7. User reviews house rules, cancellation policy, and reviews section
+8. User selects dates in booking widget
+9. User clicks "Reserve" button
+10. User redirected to checkout if not logged in, else continues to payment flow
 
-### 3.3 Booking Flow
+### Booking Page
 
-```
+- Listing thumbnail and title
+- Dates display (check-in, check-out, number of nights)
+- Nightly rate breakdown
+- Cleaning fee display
+- Service fee display
+- Taxes display
+- Total amount
+- Payment method selection (credit card form or saved method)
+- Guest information inputs (adults, children, infants count)
+- Special requests textarea
+- House rules checkbox
+- "Confirm and Pay" button
+
+### Booking Flow
+
 1. User clicks "Reserve" on listing detail
-2. System checks authentication:
-   a. If not logged in: redirect to login page with return URL
-   b. If logged in: continue to payment
-3. Booking summary page displays:
-   a. Listing thumbnail and title
-   b. Dates (check-in: Mar 15, check-out: Mar 20, 2026)
-   c. Number of nights (5)
-   d. Nightly rate ($245 x 5 = $1,225)
-   e. Cleaning fee ($75)
-   f. Service fee ($156)
-   g. Taxes (12% = $175)
-   h. Total ($1,631)
-4. User enters payment method:
-   a. Credit card (Stripe Elements form)
-   b. Saved payment method (if previously added)
-5. User enters guest information:
-   a. Number of adults
-   b. Number of children
-   c. Number of infants
-   d. Special requests (optional textarea)
-6. User reviews house rules checkbox
+2. System checks authentication and redirects to login if needed
+3. Booking summary page displays with price breakdown
+4. User enters payment method via Stripe Elements or selects saved method
+5. User enters guest count and optional special requests
+6. User reviews and accepts house rules
 7. User clicks "Confirm and Pay"
-8. System processes payment via Stripe:
-   a. Payment intent created
-   b. Card tokenized
-   c. Charge authorized
-   d. If successful: capture and create booking
-   e. If failed: display error and retry option
-9. Booking confirmation page displays:
-   a. Success message
-   b. Booking confirmation code (SN-2026-XXXXXX)
-   c. Check-in instructions
-   d. Host contact information
-   e. Calendar invite download (ICS file)
-10. Confirmation email sent to user and host
-```
+8. System processes payment via Stripe with payment intent creation, card tokenization, and charge authorization
+9. On success: Booking created, confirmation page displays with confirmation code and check-in instructions
+10. Confirmation email sent to both user and host
 
-### 3.4 Host Listing Creation Flow
+### Host Listing Creation Page
 
-```
+- Multi-step wizard interface (8 steps)
+- Progress indicator showing current step
+- Location step: Address autocomplete, property type selector, map marker verification
+- Property details step: Bedrooms, bathrooms, max occupancy, square footage inputs
+- Amenities step: Category checkboxes with preset amenities
+- Photos step: Drag-and-drop upload area, reorderable photo gallery, cover photo selector
+- Title and description step: Title input (100 char max), description textarea (100-2000 chars)
+- Pricing step: Base nightly price, weekly/monthly discounts, cleaning fee, extra guest fee, smart pricing suggestion
+- Calendar step: Availability calendar, blocked dates, minimum/maximum stay settings
+- Review step: Full listing preview before publishing
+
+### Host Listing Creation Flow
+
 1. Host logs in and navigates to "Become a Host" from menu
-2. Host clicks "Start your listing"
-3. Step 1 - Location:
-   a. Enter property address (autocomplete enabled)
-   b. Select property type (house, apartment, cabin, villa, etc.)
-   c. Verify map marker position
-   d. Click "Continue"
-4. Step 2 - Property Details:
-   a. Number of bedrooms (dropdown, 1-50)
-   b. Number of bathrooms (dropdown, 1-50)
-   c. Max occupancy (number input, 1-100)
-   d. Square footage (optional)
-   e. Click "Continue"
-5. Step 3 - Amenities:
-   a. Select from preset amenity categories
-   b. Check boxes for included amenities
-   c. Add custom amenity if not in list
-   d. Click "Continue"
-6. Step 4 - Photos:
-   a. Upload minimum 5 photos (drag-and-drop or click)
-   b. Arrange photos in desired order (drag to reorder)
-   c. Set cover photo
-   d. Photo quality validation (min 1024x768, max 20MB each)
-   e. Click "Continue"
-7. Step 5 - Title and Description:
-   a. Enter listing title (max 100 characters)
-   b. Write description (min 100 characters, max 2000)
-   c. Highlight unique features
-   d. Click "Continue"
-8. Step 6 - Pricing:
-   a. Base nightly price ($ required)
-   b. Weekly discount (optional, % off for 7+ nights)
-   c. Monthly discount (optional, % off for 30+ nights)
-   d. Cleaning fee (optional, flat fee)
-   e. Extra guest fee (optional, per guest after limit)
-   f. Smart pricing suggestion (based on similar listings)
-   g. Click "Continue"
-9. Step 7 - Calendar:
-   a. Set availability calendar
-   b. Block specific dates
-   c. Set minimum stay requirement
-   d. Set maximum stay limit
-   e. Click "Continue"
-10. Step 8 - Review:
-    a. Preview listing as it will appear
-    b. Edit any section if needed
-    c. Click "Publish Listing"
-11. System publishes listing with "Pending Review" status
-12. Admin notified for content moderation
-13. Host receives confirmation email
-14. Listing goes live after admin approval
-```
+2. Host clicks "Start your listing" to begin multi-step wizard
+3. Step 1: Location - Enter property address with autocomplete, select property type, verify map marker position
+4. Step 2: Property Details - Enter number of bedrooms, bathrooms, max occupancy, and optional square footage
+5. Step 3: Amenities - Select from preset amenity categories and check included amenities
+6. Step 4: Photos - Upload minimum 5 photos (min 1024x768, max 20MB each), arrange order, set cover photo
+7. Step 5: Title and Description - Enter listing title (max 100 characters) and description (min 100, max 2000 characters)
+8. Step 6: Pricing - Set base nightly price, optional weekly/monthly discounts, cleaning fee, extra guest fee
+9. Step 7: Calendar - Set availability, block specific dates, configure minimum and maximum stay requirements
+10. Step 8: Review - Preview listing as it will appear, make edits if needed, click "Publish Listing"
+11. System publishes listing with "Pending Review" status and notifies admin
+12. Host receives confirmation email
+13. Listing goes live after admin content moderation approval
 
-### 3.5 Review Flow
+### Review Flow
 
-```
-1. After check-out date, system sends review request email
+1. After check-out date, system sends review request email to guest
 2. User visits "Trips" page in dashboard
 3. User sees completed trip with "Write a Review" button
-4. User clicks to write review
-5. User enters overall rating (1-5 stars, required)
-6. User enters review text (min 20 characters, max 5000)
-7. User rates specific categories:
-   a. Cleanliness (1-5 stars)
-   b. Accuracy (1-5 stars)
-   c. Check-in (1-5 stars)
-   d. Communication (1-5 stars)
-   e. Location (1-5 stars)
-   f. Value (1-5 stars)
-8. User optionally uploads photos (max 10, max 10MB each)
-9. User clicks "Submit Review"
-10. System publishes review (visible after both parties submit or 14 days)
-11. Host receives notification and can respond publicly
-12. Listing average rating updates
-```
+4. User clicks to write review and enters overall rating (1-5 stars)
+5. User enters review text (min 20 characters, max 5000 characters)
+6. User rates specific categories: cleanliness, accuracy, check-in, communication, location, value (1-5 stars each)
+7. User optionally uploads up to 10 photos (max 10MB each)
+8. User clicks "Submit Review"
+9. System publishes review (visible after both parties submit or after 14 days grace period)
+10. Host receives notification and can respond publicly
+11. Listing average rating updates based on new review
 
 ---
 
