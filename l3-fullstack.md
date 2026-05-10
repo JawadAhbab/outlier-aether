@@ -1,9 +1,9 @@
 > Read the source file, you will get directions, follow the rules and complete the task
 
-- Title: Retail
-- Description: Online stores where consumers browse products, compare options, filter by category/price, add to cart, and complete purchases
+- Title:
+- Description:
 - Words limit: 5000 [VERY IMPORTANT]
-- Think of sites like: Amazon, Shopify, Etsy, Target
+- Think of sites like:
 
 **You have to write a Write a comprehensive Product Requirements Document (~6,500 tokens). Describe user roles, auth flows, core features as user flows, data model, API design, and error handling. Be as detailed as possible — thorough PRDs produce better results.**
 
@@ -21,11 +21,6 @@
 - Real-time features, payments, admin tools
 
 ### For specifically:
-
-- Product cards (image, price, rating, add-to-cart)
-- Shopping cart with quantity controls
-- Category filters, price range, sort
-- Product detail pages with image galleries
 
 ### Quick tips
 
