@@ -62,6 +62,7 @@ The site consists of 4 main pages:
 ### Home Page
 
 #### Hero Section
+
 - Full viewport height (100vh)
 - Large display text "We craft digital experiences" split into two lines
 - Text reveals character-by-character on load (staggered, 30ms per character)
@@ -69,6 +70,7 @@ The site consists of 4 main pages:
 - Scroll indicator: animated arrow pointing down (bouncing, 2s infinite)
 
 #### Featured Work Grid
+
 - 2-column grid on desktop, 1-column on mobile
 - Cards with 16px gap
 - Each card: project thumbnail (16:10 aspect ratio), title, category tag
@@ -78,11 +80,13 @@ The site consists of 4 main pages:
 ### Work Page
 
 #### Project Listing
+
 - Full-width cards stacked vertically with 32px gap
 - Each card: full-width image (4:1 aspect ratio), project title, year, brief description
 - Horizontal rule between cards: 1px Slate color, animates width from 0% to 100% on scroll-into-view
 
 #### Hover Interaction
+
 - Image parallax: moves at 0.5x scroll rate (slower than page scroll)
 - Title shifts right 8px with color change to Ember
 - View project CTA appears with underline animation (width 0 to 100%, 300ms)
@@ -90,12 +94,14 @@ The site consists of 4 main pages:
 ### About Page
 
 #### Agency Philosophy Section
+
 - Split layout: left side text content, right side floating image stack
 - Three principles displayed as staggered list items
 - Each principle: icon (SVG, 48px), title, description paragraph
 - Scroll-triggered: each item slides in from left, 40px translate, 500ms ease-out
 
 #### Team Grid
+
 - 4-column grid (3 on tablet, 2 on mobile, 1 on small mobile)
 - Team member cards: circular avatar (120px), name, role
 - Cards animate in with scale (0.8 to 1) and opacity on scroll
@@ -103,12 +109,14 @@ The site consists of 4 main pages:
 ### Contact Page
 
 #### Form Section
+
 - Centered layout, max-width 560px
 - Fields: Name, Email, Subject (dropdown), Message (textarea)
 - Labels positioned as floating labels (animate up on focus)
 - Submit button: "Send Message" with ArrowRight icon
 
 #### Form States
+
 - Default: Ivory border, transparent background
 - Focus: Ember border, subtle glow (box-shadow: 0 0 0 4px rgba(232, 93, 4, 0.1))
 - Error: border color changes to #DC2626, error message appears below field
@@ -121,6 +129,7 @@ The site consists of 4 main pages:
 ### Global Transition System
 
 All page transitions use a shared transition framework:
+
 - Exit animation: 400ms, current page fades to black
 - Middle black hold: 200ms (allows preparation for enter)
 - Enter animation: 400ms, new page fades from black
@@ -145,9 +154,10 @@ Timing function for all transitions: cubic-bezier(0.76, 0, 0.24, 1)
 ### Staggered Reveal Sequences
 
 For list items (e.g., team grid, principles list):
+
 1. Calculate total items and viewport position
 2. Each item: translateX(-40px) + opacity 0 to translateX(0) + opacity 1
-3. Stagger delay: index * 100ms
+3. Stagger delay: index \* 100ms
 4. Total sequence should not exceed 800ms
 
 ### Micro-Interactions
@@ -214,6 +224,7 @@ For list items (e.g., team grid, principles list):
 #### Animated Icons
 
 All icons use inline SVG with CSS animations:
+
 - Stroke animation: stroke-dashoffset from length to 0
 - Fill animation: opacity 0 to 1
 - Duration: 400ms
@@ -412,6 +423,7 @@ ContactSubmission {
 #### Reduced Motion
 
 When prefers-reduced-motion is enabled:
+
 - All page transitions: instant (0ms)
 - Scroll animations: disabled
 - Hover effects: color change only, no transform
@@ -422,6 +434,7 @@ When prefers-reduced-motion is enabled:
 #### Color Contrast
 
 All text combinations meet WCAG AA:
+
 - Ivory on Obsidian: 16.1:1 (pass AAA)
 - Ember on Obsidian: 4.6:1 (pass AA)
 - Mist on Obsidian: 8.5:1 (pass AAA)
