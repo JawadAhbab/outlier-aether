@@ -112,11 +112,11 @@
 ### Page Transitions
 
 - Transition: Home to Work, Duration: 800ms, Easing: cubic-bezier(0.77, 0, 0.175, 1), Description: Current page content slides left while fading, new page slides in from right with slight overlap
-- Transition: Home to About, Duration: 600ms, Easing: cubic-bezier(0.4, 0, 0.2, 1), Description: Content fades out (200ms), brief pause (100ms), new content fades in with upward motion
-- Transition: Work to Project Detail, Duration: 700ms, Easing: cubic-bezier(0.65, 0, 0.35, 1), Description: Grid collapses inward to reveal detail view, shared element animation on project image
-- Transition: Any to Contact, Duration: 500ms, Easing: cubic-bezier(0.25, 0.1, 0.25, 1), Description: Content scales down slightly (0.98), blurs (4px), then contact form fades in
+- Transition: Home to About, Duration: 600ms, Easing: cubic-bezier(0.77, 0, 0.175, 1), Description: Content fades out (200ms), brief pause (100ms), new content fades in with upward motion
+- Transition: Work to Project Detail, Duration: 700ms, Easing: cubic-bezier(0.77, 0, 0.175, 1), Description: Grid collapses inward to reveal detail view, shared element animation on project image
+- Transition: Any to Contact, Duration: 500ms, Easing: cubic-bezier(0.77, 0, 0.175, 1), Description: Content scales down slightly (0.98), blurs (4px), then contact form fades in
 - Transition: Modal Open, Duration: 400ms, Easing: cubic-bezier(0.34, 1.56, 0.64, 1), Description: Scale 0.9 to 1.0, opacity 0 to 1, spring overshoot at end
-- Transition: Modal Close, Duration: 250ms, Easing: cubic-bezier(0.4, 0, 1, 1), Description: Scale 1.0 to 0.95, opacity 1 to 0, ease-in curve
+- Transition: Modal Close, Duration: 250ms, Easing: cubic-bezier(0.34, 1.56, 0.64, 1), Description: Scale 1.0 to 0.95, opacity 1 to 0, ease-in curve
 
 ### Scroll-Triggered Animations
 
