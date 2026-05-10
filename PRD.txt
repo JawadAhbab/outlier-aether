@@ -450,17 +450,8 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 
 ---
 
-## 7. Real-Time Features
 
-### WebSocket Events
-
-- message:new (Server to Client, {message}): New message received
-- message:read (Server to Client, {message_id, read_at}): Message marked as read
-- booking:confirmed (Server to Client, {booking}): Booking confirmed
-- booking:cancelled (Server to Client, {booking_id}): Booking cancelled
-- listing:updated (Server to Client, {listing_id}): Listing availability changed
-
-### Notifications
+## Notifications
 
 - Booking confirmation (Payment success, Email + In-app): "Your trip to [City] is confirmed!"
 - Booking reminder (3 days before check-in, Email): "Check-in in 3 days at [Listing]"
@@ -488,11 +479,7 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 ```
 1. Host submits listing for review
 2. Admin receives notification with listing details
-3. Admin reviews:
-   a. Photos (quality, accuracy, appropriate content)
-   b. Description (no false claims, appropriate language)
-   c. Pricing (within reasonable bounds)
-   d. Amenities (accurate representation)
+3. Admin reviews: Photos, Description, Pricing, Amenities
 4. Admin approves or rejects with reason
 5. Host notified of decision via email
 6. If rejected, host can edit and resubmit
@@ -529,15 +516,6 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 
 ## 10. Performance Requirements
 
-### Key Metrics
-
-- Page Load Time (LCP): < 2.5s (Lighthouse)
-- First Contentful Paint: < 1.8s (Lighthouse)
-- Time to Interactive: < 3.8s (Lighthouse)
-- Search Results Display: < 1s (Real user monitoring)
-- Image Loading: Lazy load + progressive (Intersection Observer)
-- API Response Time: < 200ms (p95) (Server monitoring)
-
 ### Performance Techniques
 
 - Image optimization: WebP format, responsive srcset, lazy loading
@@ -571,7 +549,7 @@ StayNest is a peer-to-peer marketplace connecting property owners with travelers
 | Form labels | All inputs have associated labels |
 | Error identification | Errors announced and linked to fields |
 
-### Reduced Motion
+### Reduced Motion `prefers-reduced-motion`
 
 - Page transitions: Slide + fade (300ms) on standard | Instant on reduced motion
 - Scroll reveals: Fade up (400ms ease-out) on standard | None on reduced motion
