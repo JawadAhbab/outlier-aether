@@ -16,26 +16,22 @@
 
 ### Color Palette
 
-| Role | Color | Hex |
-|------|-------|-----|
-| Primary Background | Deep Void Black | #050508 |
-| Secondary Background | Cosmic Navy | #0a0e1a |
-| Accent Primary | Electric Cyan | #00f5d4 |
-| Accent Secondary | Neon Magenta | #f72585 |
-| Accent Tertiary | Warm Gold | #ffd60a |
-| Text Primary | Pure White | #ffffff |
-| Text Secondary | Muted Silver | #a0a0b0 |
-| Glow Effect | Soft Cyan | #00f5d480 |
+- Role: Primary Background, Color: Deep Void Black, Hex: #050508
+- Role: Secondary Background, Color: Cosmic Navy, Hex: #0a0e1a
+- Role: Accent Primary, Color: Electric Cyan, Hex: #00f5d4
+- Role: Accent Secondary, Color: Neon Magenta, Hex: #f72585
+- Role: Accent Tertiary, Color: Warm Gold, Hex: #ffd60a
+- Role: Text Primary, Color: Pure White, Hex: #ffffff
+- Role: Text Secondary, Color: Muted Silver, Hex: #a0a0b0
+- Role: Glow Effect, Color: Soft Cyan, Hex: #00f5d480
 
 ### Typography
 
-| Element | Font | Weight | Size | Line Height |
-|---------|------|--------|------|-------------|
-| Headings H1 | Space Grotesk | 700 | 4.5rem | 1.1 |
-| Headings H2 | Space Grotesk | 600 | 2.5rem | 1.2 |
-| Body Text | Inter | 400 | 1rem | 1.6 |
-| Captions | Inter | 300 | 0.75rem | 1.4 |
-| UI Labels | JetBrains Mono | 500 | 0.875rem | 1.2 |
+- Element: Headings H1, Font: Space Grotesk, Weight: 700, Size: 4.5rem, Line Height: 1.1
+- Element: Headings H2, Font: Space Grotesk, Weight: 600, Size: 2.5rem, Line Height: 1.2
+- Element: Body Text, Font: Inter, Weight: 400, Size: 1rem, Line Height: 1.6
+- Element: Captions, Font: Inter, Weight: 300, Size: 0.75rem, Line Height: 1.4
+- Element: UI Labels, Font: JetBrains Mono, Weight: 500, Size: 0.875rem, Line Height: 1.2
 
 ### Spacing System
 
@@ -89,31 +85,25 @@
 
 ### Camera Transitions
 
-| Transition | Duration | Easing | Description |
-|------------|----------|--------|-------------|
-| Chamber Entry | 2000ms | cubic-bezier(0.4, 0, 0.2, 1) | Smooth fly-in to default view |
-| Chamber Switch | 1500ms | cubic-bezier(0.76, 0, 0.24, 1) | Arc path with slight zoom |
-| Focus Element | 800ms | cubic-bezier(0.34, 1.56, 0.64, 1) | Spring-like approach |
-| Return Home | 1200ms | cubic-bezier(0.4, 0, 0.6, 1) | Gentle pull to center |
+- Transition: Chamber Entry, Duration: 2000ms, Easing: cubic-bezier(0.4, 0, 0.2, 1), Description: Smooth fly-in to default view
+- Transition: Chamber Switch, Duration: 1500ms, Easing: cubic-bezier(0.76, 0, 0.24, 1), Description: Arc path with slight zoom
+- Transition: Focus Element, Duration: 800ms, Easing: cubic-bezier(0.34, 1.56, 0.64, 1), Description: Spring-like approach
+- Transition: Return Home, Duration: 1200ms, Easing: cubic-bezier(0.4, 0, 0.6, 1), Description: Gentle pull to center
 
 ### Object Animations
 
-| Object | Animation | Duration | Loop | Trigger |
-|--------|-----------|----------|------|---------|
-| Central Orb | Slow rotation | 20000ms | Yes | Auto |
-| Orb Surface | Vertex displacement | 3000ms | Yes | Wave pattern |
-| Portal Anchors | Pulse glow | 2000ms | Yes | Sine wave |
-| Particles | Drift motion | Variable | Yes | Perlin noise |
-| Gallery Pieces | Float bob | 4000ms | Yes | Offset sine |
+- Object: Central Orb, Animation: Slow rotation, Duration: 20000ms, Loop: Yes, Trigger: Auto
+- Object: Orb Surface, Animation: Vertex displacement, Duration: 3000ms, Loop: Yes, Trigger: Wave pattern
+- Object: Portal Anchors, Animation: Pulse glow, Duration: 2000ms, Loop: Yes, Trigger: Sine wave
+- Object: Particles, Animation: Drift motion, Duration: Variable, Loop: Yes, Trigger: Perlin noise
+- Object: Gallery Pieces, Animation: Float bob, Duration: 4000ms, Loop: Yes, Trigger: Offset sine
 
 ### Interaction Feedback
 
-| Interaction | Visual Response | Duration |
-|-------------|-----------------|----------|
-| Hover (3D object) | Emissive intensity +50%, scale 1.05 | 200ms |
-| Click (portal) | Radial burst particles, sound cue | 400ms |
-| Focus (form input) | Border glow animate, label float up | 300ms |
-| Submit | Button dissolve, particle explosion | 600ms |
+- Interaction: Hover (3D object), Visual Response: Emissive intensity +50%, scale 1.05, Duration: 200ms
+- Interaction: Click (portal), Visual Response: Radial burst particles, sound cue, Duration: 400ms
+- Interaction: Focus (form input), Visual Response: Border glow animate, label float up, Duration: 300ms
+- Interaction: Submit, Visual Response: Button dissolve, particle explosion, Duration: 600ms
 
 ### Scroll Animations
 
@@ -139,12 +129,10 @@
 
 **Lighting:**
 
-| Light | Type | Color | Intensity | Position |
-|-------|------|-------|------------|----------|
-| Ambient | AmbientLight | #404060 | 0.4 | N/A |
-| Key | DirectionalLight | #ffffff | 1.2 | (5, 5, 5) |
-| Fill | DirectionalLight | #00f5d4 | 0.3 | (-3, 2, 4) |
-| Accent | PointLight | #f72585 | 0.8 | (0, -2, 3) |
+- Light: Ambient, Type: AmbientLight, Color: #404060, Intensity: 0.4, Position: N/A
+- Light: Key, Type: DirectionalLight, Color: #ffffff, Intensity: 1.2, Position: (5, 5, 5)
+- Light: Fill, Type: DirectionalLight, Color: #00f5d4, Intensity: 0.3, Position: (-3, 2, 4)
+- Light: Accent, Type: PointLight, Color: #f72585, Intensity: 0.8, Position: (0, -2, 3)
 
 ### Materials & Shaders
 
@@ -174,12 +162,10 @@
 
 ### Post-Processing Pipeline
 
-| Effect | Settings | Purpose |
-|--------|----------|---------|
-| Bloom | strength: 1.5, radius: 0.4, threshold: 0.85 | Glow enhancement |
-| Chromatic Aberration | offset: 0.002 | Slight color fringing |
-| Vignette | darkness: 0.5, offset: 0.3 | Edge darkening |
-| Film Grain | intensity: 0.08 | Organic texture |
+- Effect: Bloom, Settings: strength: 1.5, radius: 0.4, threshold: 0.85, Purpose: Glow enhancement
+- Effect: Chromatic Aberration, Settings: offset: 0.002, Purpose: Slight color fringing
+- Effect: Vignette, Settings: darkness: 0.5, offset: 0.3, Purpose: Edge darkening
+- Effect: Film Grain, Settings: intensity: 0.08, Purpose: Organic texture
 
 ### Physics Simulation
 
@@ -201,34 +187,28 @@
 
 **User (Session):**
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | UUID | Unique session identifier |
-| visitedChambers | Array[String] | List of visited chamber IDs |
-| lastPosition | Vector3 | Camera position on exit |
-| preferences | Object | Motion preference (reduced/preferred) |
+- Field: id, Type: UUID, Description: Unique session identifier
+- Field: visitedChambers, Type: Array[String], Description: List of visited chamber IDs
+- Field: lastPosition, Type: Vector3, Description: Camera position on exit
+- Field: preferences, Type: Object, Description: Motion preference (reduced/preferred)
 
 **Gallery Item:**
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | String | Unique identifier |
-| title | String | Display name |
-| description | String | Detail text |
-| geometry | String | Three.js geometry type |
-| materialProps | Object | Material configuration |
-| position | Vector3 | World position |
-| rotation | Vector3 | Initial rotation |
+- Field: id, Type: String, Description: Unique identifier
+- Field: title, Type: String, Description: Display name
+- Field: description, Type: String, Description: Detail text
+- Field: geometry, Type: String, Description: Three.js geometry type
+- Field: materialProps, Type: Object, Description: Material configuration
+- Field: position, Type: Vector3, Description: World position
+- Field: rotation, Type: Vector3, Description: Initial rotation
 
 **Timeline Milestone:**
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | String | Unique identifier |
-| year | Number | Year value |
-| title | String | Milestone title |
-| description | String | Detail description |
-| position | Number | Z-axis position |
+- Field: id, Type: String, Description: Unique identifier
+- Field: year, Type: Number, Description: Year value
+- Field: title, Type: String, Description: Milestone title
+- Field: description, Type: String, Description: Detail description
+- Field: position, Type: Number, Description: Z-axis position
 
 ### Authentication Flow
 
@@ -286,12 +266,10 @@
 
 ### Error Handling
 
-| Scenario | Handling |
-|----------|----------|
-| WebGL not supported | Show fallback 2D version with CSS animations |
-| Shader compilation error | Fallback to MeshStandardMaterial |
-| Asset load failure | Retry 3 times, then show placeholder |
-| Mobile performance drop | Auto-reduce particle count to 500 |
+- Scenario: WebGL not supported, Handling: Show fallback 2D version with CSS animations
+- Scenario: Shader compilation error, Handling: Fallback to MeshStandardMaterial
+- Scenario: Asset load failure, Handling: Retry 3 times, then show placeholder
+- Scenario: Mobile performance drop, Handling: Auto-reduce particle count to 500
 
 ---
 
@@ -299,12 +277,10 @@
 
 ### Breakpoints
 
-| Name | Width | Changes |
-|------|-------|---------|
-| Mobile | < 768px | Single column, simplified 3D, touch controls |
-| Tablet | 768px - 1024px | 2-column gallery, reduced particles |
-| Desktop | 1024px - 1440px | Full experience |
-| Large | > 1440px | Increased FOV to 55, larger typography |
+- Name: Mobile, Width: < 768px, Changes: Single column, simplified 3D, touch controls
+- Name: Tablet, Width: 768px - 1024px, Changes: 2-column gallery, reduced particles
+- Name: Desktop, Width: 1024px - 1440px, Changes: Full experience
+- Name: Large, Width: > 1440px, Changes: Increased FOV to 55, larger typography
 
 ### Mobile Adaptations
 
@@ -317,12 +293,10 @@
 
 ### Heavy Visual Scaling
 
-| Element | Desktop | Mobile |
-|---------|---------|--------|
-| Particles | 2000 | 500 |
-| Bloom | 1.5 | 0.8 |
-| Shadows | Enabled | Disabled |
-| Post-processing | Full | Bloom only |
+- Element: Particles, Desktop: 2000, Mobile: 500
+- Element: Bloom, Desktop: 1.5, Mobile: 0.8
+- Element: Shadows, Desktop: Enabled, Mobile: Disabled
+- Element: Post-processing, Desktop: Full, Mobile: Bloom only
 
 ---
 
@@ -330,13 +304,11 @@
 
 ### Performance Metrics
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Frame Rate | 60 FPS | requestAnimationFrame timing |
-| First Contentful Paint | < 1.5s | Lighthouse |
-| Largest Contentful Paint | < 2.5s | Lighthouse |
-| Total Bundle Size | < 500KB | Build output (excluding textures) |
-| Memory Usage | < 200MB | Chrome DevTools |
+- Metric: Frame Rate, Target: 60 FPS, Measurement: requestAnimationFrame timing
+- Metric: First Contentful Paint, Target: < 1.5s, Measurement: Lighthouse
+- Metric: Largest Contentful Paint, Target: < 2.5s, Measurement: Lighthouse
+- Metric: Total Bundle Size, Target: < 500KB, Measurement: Build output (excluding textures)
+- Metric: Memory Usage, Target: < 200MB, Measurement: Chrome DevTools
 
 ### Performance Techniques
 
@@ -362,13 +334,11 @@
 
 **Reduced Motion (prefers-reduced-motion):**
 
-| Change | Standard | Reduced |
-|--------|----------|---------|
-| Camera transitions | 1500ms animated | Instant |
-| Particle animation | Continuous | Static |
-| Orb rotation | 20000ms loop | Paused |
-| Hover effects | 200ms transition | 0ms (no transition) |
-| Bloom effect | Enabled | Disabled |
+- Change: Camera transitions, Standard: 1500ms animated, Reduced: Instant
+- Change: Particle animation, Standard: Continuous, Reduced: Static
+- Change: Orb rotation, Standard: 20000ms loop, Reduced: Paused
+- Change: Hover effects, Standard: 200ms transition, Reduced: 0ms (no transition)
+- Change: Bloom effect, Standard: Enabled, Reduced: Disabled
 
 **Color Contrast:**
 - All text meets WCAG AA standard (4.5:1 minimum)
@@ -379,13 +349,11 @@
 
 ## 9. Audio (Optional Enhancement)
 
-| Sound | Trigger | Duration | Volume |
-|-------|---------|----------|--------|
-| Ambient drone | Page load | Loop | 0.15 |
-| Portal activation | Click portal | 800ms | 0.4 |
-| Hover chime | Hover interactive | 150ms | 0.2 |
-| Modal open | Gallery item click | 300ms | 0.3 |
-| Chamber arrival | Transition complete | 500ms | 0.25 |
+- Sound: Ambient drone, Trigger: Page load, Duration: Loop, Volume: 0.15
+- Sound: Portal activation, Trigger: Click portal, Duration: 800ms, Volume: 0.4
+- Sound: Hover chime, Trigger: Hover interactive, Duration: 150ms, Volume: 0.2
+- Sound: Modal open, Trigger: Gallery item click, Duration: 300ms, Volume: 0.3
+- Sound: Chamber arrival, Trigger: Transition complete, Duration: 500ms, Volume: 0.25
 
 Audio disabled by default, toggle in HUD.
 
