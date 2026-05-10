@@ -1,4 +1,3 @@
-```markdown
 # PRD: Procurion -- B2B Procurement Platform
 
 ## 1. Overview
@@ -470,4 +469,3 @@ Error codes and HTTP status mapping:
 - File upload scanning: virus scan on upload, file type validation (whitelist), max 10MB per file.
 - Audit logging: all data mutations logged with user, timestamp, before/after values. Logs retained for 7 years.
 - Data residency: tenant data stored in region closest to org headquarters (US, EU, APAC).
-```
