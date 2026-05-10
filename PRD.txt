@@ -1,0 +1,581 @@
+# Product Requirements Document: StayNest - Vacation Rental Marketplace
+
+## 1. Project Overview
+
+### Project Name
+StayNest - Vacation Rental Marketplace
+
+### Project Type
+Vertical market platform for vacation rentals and short-term accommodations
+
+### Core Functionality Summary
+StayNest is a peer-to-peer marketplace connecting property owners with travelers seeking unique accommodation experiences. The platform enables listing management, search with map integration, booking workflows, review systems, and secure payments.
+
+### Target Users
+- Travelers seeking short-term accommodations (primary user base)
+- Property owners and hosts listing their spaces
+- Platform administrators managing content and users
+
+---
+
+## 2. User Roles and Authentication
+
+### User Roles
+
+| Role | Description | Permissions |
+|------|-------------|-------------|
+| Guest | Unauthenticated browsing user | Browse listings, view public content |
+| User | Registered member seeking accommodations | Search, book, review, manage profile |
+| Host | Property owner listing spaces | Create listings, manage bookings, set pricing |
+| Admin | Platform administrator | Manage users, listings, disputes, analytics |
+
+### Authentication Methods
+
+| Method | Description | Use Case |
+|--------|-------------|----------|
+| Email/Password | Traditional credential-based auth | Primary signup/login |
+| Google OAuth | Third-party authentication | Social login option |
+| Apple Sign-In | iOS-native authentication | iOS users convenience |
+| Magic Link | Passwordless email authentication | Quick login without password |
+
+### Auth Flow
+
+```
+1. User visits StayNest
+2. System checks for existing session (localStorage token)
+3. If no session:
+   a. User clicks "Sign In"
+   b. User enters email OR uses OAuth provider
+   c. System validates credentials or OAuth token
+   d. System generates JWT token (24h expiry)
+   e. Token stored in localStorage
+   f. User redirected to previous page or dashboard
+4. Protected routes check token validity via API
+5. Token refresh attempted if expired (7-day sliding window)
+6. Failed refresh triggers re-authentication
+```
+
+### Session Management
+
+- JWT tokens stored in localStorage with 24-hour expiry
+- Refresh tokens with 7-day sliding window expiration
+- Automatic logout on token expiration
+- Session display in header showing user avatar and name
+
+---
+
+## 3. User Flows
+
+### 3.1 Search and Discovery Flow
+
+```
+1. User lands on homepage with search bar prominent
+2. User enters destination (city, neighborhood, or zip code)
+3. User selects check-in date (calendar widget, min: today)
+4. User selects check-out date (calendar widget, max: 30 days ahead)
+5. User selects guest count (adults: 1-16, children: 0-10, infants: 0-5)
+6. User clicks "Search" button
+7. System displays results page with:
+   a. Map view (right side, 50% width on desktop)
+   b. List view (left side, scrollable card grid)
+   c. Filter panel (collapsible, top of list view)
+8. User applies filters:
+   a. Price range (slider, $0 - $1000+ per night)
+   b. Property type (checkbox: entire home, private room, shared room)
+   c. Bedrooms (1-10+)
+   d. Bathrooms (1-8+)
+   e. Amenities (multi-select: WiFi, pool, kitchen, AC, etc.)
+   f. Instant booking (toggle)
+   g. Superhost only (toggle)
+9. User adjusts map viewport to refine results
+10. User clicks listing card to view details
+```
+
+### 3.2 Listing Detail Flow
+
+```
+1. User clicks listing card from search results
+2. Page loads listing detail view (/listing/:id)
+3. Image gallery displays (5+ photos, horizontal scroll with thumbnails)
+4. User can click main image to open fullscreen lightbox
+5. Key information displayed:
+   a. Title (e.g., "Secluded Mountain Cabin with Hot Tub")
+   b. Location (neighborhood, city)
+   c. Rating (4.92, 147 reviews) - clickable to scroll to reviews
+   d. Host avatar and name (Superhost badge if applicable)
+   e. Price per night ($245)
+   f. Cleaning fee ($75)
+   g. Service fee (calculated, shown at checkout)
+6. Description section with expandable text
+7. Amenities grid with icons
+8. Location map embedded (interactive, zoomable)
+9. House rules and policies
+10. Cancellation policy display
+11. Reviews section with sorting (newest, highest, lowest)
+12. Similar listings carousel at bottom
+13. Sticky booking widget (right side on desktop, bottom fixed on mobile)
+14. User selects dates in booking widget
+15. User clicks "Reserve" button
+16. User redirected to checkout if not logged in, else payment flow
+```
+
+### 3.3 Booking Flow
+
+```
+1. User clicks "Reserve" on listing detail
+2. System checks authentication:
+   a. If not logged in: redirect to login page with return URL
+   b. If logged in: continue to payment
+3. Booking summary page displays:
+   a. Listing thumbnail and title
+   b. Dates (check-in: Mar 15, check-out: Mar 20, 2026)
+   c. Number of nights (5)
+   d. Nightly rate ($245 x 5 = $1,225)
+   e. Cleaning fee ($75)
+   f. Service fee ($156)
+   g. Taxes (12% = $175)
+   h. Total ($1,631)
+4. User enters payment method:
+   a. Credit card (Stripe Elements form)
+   b. Saved payment method (if previously added)
+5. User enters guest information:
+   a. Number of adults
+   b. Number of children
+   c. Number of infants
+   d. Special requests (optional textarea)
+6. User reviews house rules checkbox
+7. User clicks "Confirm and Pay"
+8. System processes payment via Stripe:
+   a. Payment intent created
+   b. Card tokenized
+   c. Charge authorized
+   d. If successful: capture and create booking
+   e. If failed: display error and retry option
+9. Booking confirmation page displays:
+   a. Success message
+   b. Booking confirmation code (SN-2026-XXXXXX)
+   c. Check-in instructions
+   d. Host contact information
+   e. Calendar invite download (ICS file)
+10. Confirmation email sent to user and host
+```
+
+### 3.4 Host Listing Creation Flow
+
+```
+1. Host logs in and navigates to "Become a Host" from menu
+2. Host clicks "Start your listing"
+3. Step 1 - Location:
+   a. Enter property address (autocomplete enabled)
+   b. Select property type (house, apartment, cabin, villa, etc.)
+   c. Verify map marker position
+   d. Click "Continue"
+4. Step 2 - Property Details:
+   a. Number of bedrooms (dropdown, 1-50)
+   b. Number of bathrooms (dropdown, 1-50)
+   c. Max occupancy (number input, 1-100)
+   d. Square footage (optional)
+   e. Click "Continue"
+5. Step 3 - Amenities:
+   a. Select from preset amenity categories
+   b. Check boxes for included amenities
+   c. Add custom amenity if not in list
+   d. Click "Continue"
+6. Step 4 - Photos:
+   a. Upload minimum 5 photos (drag-and-drop or click)
+   b. Arrange photos in desired order (drag to reorder)
+   c. Set cover photo
+   d. Photo quality validation (min 1024x768, max 20MB each)
+   e. Click "Continue"
+7. Step 5 - Title and Description:
+   a. Enter listing title (max 100 characters)
+   b. Write description (min 100 characters, max 2000)
+   c. Highlight unique features
+   d. Click "Continue"
+8. Step 6 - Pricing:
+   a. Base nightly price ($ required)
+   b. Weekly discount (optional, % off for 7+ nights)
+   c. Monthly discount (optional, % off for 30+ nights)
+   d. Cleaning fee (optional, flat fee)
+   e. Extra guest fee (optional, per guest after limit)
+   f. Smart pricing suggestion (based on similar listings)
+   g. Click "Continue"
+9. Step 7 - Calendar:
+   a. Set availability calendar
+   b. Block specific dates
+   c. Set minimum stay requirement
+   d. Set maximum stay limit
+   e. Click "Continue"
+10. Step 8 - Review:
+    a. Preview listing as it will appear
+    b. Edit any section if needed
+    c. Click "Publish Listing"
+11. System publishes listing with "Pending Review" status
+12. Admin notified for content moderation
+13. Host receives confirmation email
+14. Listing goes live after admin approval
+```
+
+### 3.5 Review Flow
+
+```
+1. After check-out date, system sends review request email
+2. User visits "Trips" page in dashboard
+3. User sees completed trip with "Write a Review" button
+4. User clicks to write review
+5. User enters overall rating (1-5 stars, required)
+6. User enters review text (min 20 characters, max 5000)
+7. User rates specific categories:
+   a. Cleanliness (1-5 stars)
+   b. Accuracy (1-5 stars)
+   c. Check-in (1-5 stars)
+   d. Communication (1-5 stars)
+   e. Location (1-5 stars)
+   f. Value (1-5 stars)
+8. User optionally uploads photos (max 10, max 10MB each)
+9. User clicks "Submit Review"
+10. System publishes review (visible after both parties submit or 14 days)
+11. Host receives notification and can respond publicly
+12. Listing average rating updates
+```
+
+---
+
+## 4. Data Model
+
+### Users Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique user identifier |
+| email | VARCHAR(255) | UNIQUE, NOT NULL | User email address |
+| password_hash | VARCHAR(255) | NOT NULL | Bcrypt hashed password |
+| first_name | VARCHAR(100) | NOT NULL | User first name |
+| last_name | VARCHAR(100) | NOT NULL | User last name |
+| avatar_url | VARCHAR(500) | NULLABLE | Profile photo URL |
+| phone | VARCHAR(20) | NULLABLE | Contact phone number |
+| bio | TEXT | NULLABLE | User biography |
+| is_host | BOOLEAN | DEFAULT FALSE | Host eligibility flag |
+| is_admin | BOOLEAN | DEFAULT FALSE | Admin privileges |
+| created_at | TIMESTAMP | DEFAULT NOW | Account creation time |
+| updated_at | TIMESTAMP | DEFAULT NOW | Last profile update |
+
+### Listings Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique listing identifier |
+| host_id | UUID | FOREIGN KEY (users.id) | Owner reference |
+| title | VARCHAR(100) | NOT NULL | Listing headline |
+| description | TEXT | NOT NULL | Full description |
+| property_type | VARCHAR(50) | NOT NULL | Type classification |
+| room_type | VARCHAR(50) | NOT NULL | Entire/private/shared |
+| address | VARCHAR(500) | NOT NULL | Street address |
+| city | VARCHAR(100) | NOT NULL | City name |
+| state | VARCHAR(100) | NOT NULL | State/province |
+| country | VARCHAR(100) | NOT NULL | Country code |
+| zip_code | VARCHAR(20) | NOT NULL | Postal code |
+| latitude | DECIMAL(10,8) | NOT NULL | GPS latitude |
+| longitude | DECIMAL(11,8) | NOT NULL | GPS longitude |
+| bedrooms | INTEGER | NOT NULL | Bedroom count |
+| bathrooms | INTEGER | NOT NULL | Bathroom count |
+| max_occupancy | INTEGER | NOT NULL | Maximum guests |
+| square_feet | INTEGER | NULLABLE | Property size |
+| instant_book | BOOLEAN | DEFAULT FALSE | Instant booking enabled |
+| status | VARCHAR(20) | DEFAULT 'pending' | active/pending/removed |
+| created_at | TIMESTAMP | DEFAULT NOW | Creation time |
+| updated_at | TIMESTAMP | DEFAULT NOW | Last update time |
+
+### Amenities Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique amenity identifier |
+| name | VARCHAR(100) | NOT NULL | Amenity name |
+| icon | VARCHAR(50) | NULLABLE | Icon identifier |
+| category | VARCHAR(50) | NOT NULL | Amenity category |
+
+### Listing_Amenities Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| listing_id | UUID | FOREIGN KEY (listings.id) | Listing reference |
+| amenity_id | UUID | FOREIGN KEY (amenities.id) | Amenity reference |
+| PRIMARY KEY (listing_id, amenity_id) | | | |
+
+### Listing_Images Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique image identifier |
+| listing_id | UUID | FOREIGN KEY (listings.id) | Parent listing |
+| url | VARCHAR(500) | NOT NULL | Image URL |
+| caption | VARCHAR(255) | NULLABLE | Image description |
+| is_cover | BOOLEAN | DEFAULT FALSE | Cover photo flag |
+| sort_order | INTEGER | DEFAULT 0 | Display order |
+
+### Bookings Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique booking identifier |
+| confirmation_code | VARCHAR(20) | UNIQUE, NOT NULL | Public booking code |
+| listing_id | UUID | FOREIGN KEY (listings.id) | Property reference |
+| guest_id | UUID | FOREIGN KEY (users.id) | Guest reference |
+| check_in | DATE | NOT NULL | Arrival date |
+| check_out | DATE | NOT NULL | Departure date |
+| adults | INTEGER | NOT NULL | Adult count |
+| children | INTEGER | DEFAULT 0 | Child count |
+| infants | INTEGER | DEFAULT 0 | Infant count |
+| nightly_rate | DECIMAL(10,2) | NOT NULL | Price per night |
+| cleaning_fee | DECIMAL(10,2) | DEFAULT 0 | Cleaning cost |
+| service_fee | DECIMAL(10,2) | NOT NULL | Platform fee |
+| taxes | DECIMAL(10,2) | NOT NULL | Tax amount |
+| total_amount | DECIMAL(10,2) | NOT NULL | Total charge |
+| status | VARCHAR(20) | DEFAULT 'pending' | pending/confirmed/cancelled/completed |
+| special_requests | TEXT | NULLABLE | Guest notes |
+| created_at | TIMESTAMP | DEFAULT NOW | Booking time |
+| updated_at | TIMESTAMP | DEFAULT NOW | Last update |
+
+### Reviews Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique review identifier |
+| booking_id | UUID | FOREIGN KEY (bookings.id) | Associated booking |
+| listing_id | UUID | FOREIGN KEY (listings.id) | Reviewed listing |
+| reviewer_id | UUID | FOREIGN KEY (users.id) | Review author |
+| overall_rating | INTEGER | NOT NULL | 1-5 stars |
+| cleanliness | INTEGER | NULLABLE | 1-5 stars |
+| accuracy | INTEGER | NULLABLE | 1-5 stars |
+| check_in | INTEGER | NULLABLE | 1-5 stars |
+| communication | INTEGER | NULLABLE | 1-5 stars |
+| location | INTEGER | NULLABLE | 1-5 stars |
+| value | INTEGER | NULLABLE | 1-5 stars |
+| text | TEXT | NOT NULL | Review content |
+| host_response | TEXT | NULLABLE | Host reply |
+| created_at | TIMESTAMP | DEFAULT NOW | Review time |
+
+### Review_Images Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique image identifier |
+| review_id | UUID | FOREIGN KEY (reviews.id) | Parent review |
+| url | VARCHAR(500) | NOT NULL | Image URL |
+
+### Saved_Listings Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique save identifier |
+| user_id | UUID | FOREIGN KEY (users.id) | User reference |
+| listing_id | UUID | FOREIGN KEY (listings.id) | Saved listing |
+| created_at | TIMESTAMP | DEFAULT NOW | Save time |
+| UNIQUE (user_id, listing_id) | | | |
+
+### Messages Table
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| id | UUID | PRIMARY KEY | Unique message identifier |
+| sender_id | UUID | FOREIGN KEY (users.id) | Sender reference |
+| receiver_id | UUID | FOREIGN KEY (users.id) | Receiver reference |
+| listing_id | UUID | FOREIGN KEY (listings.id) | Context listing |
+| content | TEXT | NOT NULL | Message text |
+| read_at | TIMESTAMP | NULLABLE | Read timestamp |
+| created_at | TIMESTAMP | DEFAULT NOW | Sent time |
+
+
+## 6. Error Handling
+
+### Error Codes
+
+- VALIDATION_ERROR (400): Invalid input data
+- UNAUTHORIZED (401): Authentication required
+- FORBIDDEN (403): Insufficient permissions
+- NOT_FOUND (404): Resource not found
+- CONFLICT (409): Resource conflict (e.g., email taken)
+- PAYMENT_FAILED (402): Payment processing error
+- RATE_LIMITED (429): Too many requests
+- INTERNAL_ERROR (500): Server error
+
+### User-Facing Error Messages
+
+- Invalid login: "Incorrect email or password. Please try again."
+- Email taken: "An account with this email already exists."
+- Payment declined: "Your payment could not be processed. Please try a different payment method."
+- Listing unavailable: "This listing is no longer available for the selected dates."
+- Booking conflict: "These dates are no longer available. Please select different dates."
+- Network error: "Connection lost. Please check your internet and try again."
+- Session expired: "Your session has expired. Please sign in again."
+
+### Empty States
+
+- No search results: "No listings found for your search. Try adjusting your filters or dates." (Show reset filters button)
+- No bookings: "You have no trips yet. Start exploring!" (Show search button)
+- No reviews: "This listing has no reviews yet. Be the first to stay!"
+- No saved listings: "You haven't saved any listings yet." (Show explore button)
+- No messages: "No messages yet. Start a conversation with a host." (Show browse listings button)
+
+### Loading States
+
+- Search results: Skeleton cards (6 items) with pulsing animation
+- Listing detail: Full-page skeleton with image carousel placeholder
+- User profile: Avatar circle with text placeholder lines
+- Booking form: Disabled form with spinner overlay on submit button
+
+---
+
+## 7. Real-Time Features
+
+### WebSocket Events
+
+- message:new (Server to Client, {message}): New message received
+- message:read (Server to Client, {message_id, read_at}): Message marked as read
+- booking:confirmed (Server to Client, {booking}): Booking confirmed
+- booking:cancelled (Server to Client, {booking_id}): Booking cancelled
+- listing:updated (Server to Client, {listing_id}): Listing availability changed
+
+### Notifications
+
+- Booking confirmation (Payment success, Email + In-app): "Your trip to [City] is confirmed!"
+- Booking reminder (3 days before check-in, Email): "Check-in in 3 days at [Listing]"
+- New message (Message received, Email + In-app): "You have a new message from [Name]"
+- Review request (After check-out, Email): "How was your stay? Write a review."
+- Price drop (Matching listing price reduced, In-app): "Price dropped for [Listing]"
+- Listing approved (Admin approval, Email + In-app): "Your listing is now live!"
+
+---
+
+## 8. Admin Tools
+
+### Admin Dashboard Features
+
+- User management: Search, view, suspend, delete users
+- Listing moderation: Review pending listings, approve/reject
+- Content flagging: Review reported listings/reviews
+- Booking management: View all bookings, process refunds
+- Dispute resolution: Handle payment disputes, guest/host conflicts
+- Analytics: Platform metrics, revenue reports, user growth
+- Pricing oversight: Review pricing anomalies, discount compliance
+
+### Moderation Workflow
+
+```
+1. Host submits listing for review
+2. Admin receives notification with listing details
+3. Admin reviews:
+   a. Photos (quality, accuracy, appropriate content)
+   b. Description (no false claims, appropriate language)
+   c. Pricing (within reasonable bounds)
+   d. Amenities (accurate representation)
+4. Admin approves or rejects with reason
+5. Host notified of decision via email
+6. If rejected, host can edit and resubmit
+```
+
+---
+
+## 9. Responsive Behavior
+
+### Breakpoints
+
+| Name | Width | Description |
+|------|-------|-------------|
+| Mobile | 0 - 767px | Single column, bottom sheet interactions |
+| Tablet | 768px - 1023px | Two columns, collapsible sidebar |
+| Desktop | 1024px - 1439px | Full layout, side-by-side map/list |
+| Large | 1440px+ | Extended width, larger imagery |
+
+### Mobile-Specific Behaviors
+
+| Feature | Desktop | Mobile |
+|---------|---------|--------|
+| Search bar | Top center, expanded | Hamburger menu, expandable overlay |
+| Map view | Right side 50% | Full width, collapsible drawer |
+| Listing cards | Horizontal list, large images | Vertical stack, swipeable images |
+| Booking widget | Right sidebar, sticky | Bottom fixed bar, expandable sheet |
+| Navigation | Top horizontal menu | Hamburger with slide-out drawer |
+| Filters | Left sidebar | Bottom sheet with apply button |
+
+### Image Handling
+
+| Breakpoint | Image Width | Quality | Format |
+|------------|-------------|---------|--------|
+| Mobile | 750px | 80% | WebP with JPEG fallback |
+| Tablet | 1200px | 85% | WebP |
+| Desktop | 1920px | 90% | WebP |
+| High-DPI | 2x resolution | 85% | WebP |
+
+---
+
+## 10. Performance Requirements
+
+### Key Metrics
+
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| Page Load Time (LCP) | < 2.5s | Lighthouse |
+| First Contentful Paint | < 1.8s | Lighthouse |
+| Time to Interactive | < 3.8s | Lighthouse |
+| Search Results Display | < 1s | Real user monitoring |
+| Image Loading | Lazy load + progressive | Intersection Observer |
+| API Response Time | < 200ms (p95) | Server monitoring |
+
+### Performance Techniques
+
+| Technique | Implementation |
+|-----------|----------------|
+| Image optimization | WebP format, responsive srcset, lazy loading |
+| Code splitting | Route-based splitting with React.lazy |
+| Caching | SWR for API caching, 5-minute stale time |
+| CDN | Static assets served from CDN edge |
+| Compression | Gzip/Brotli for text assets |
+| Prefetching | Prefetch search results on focus |
+| Database indexes | Composite indexes on search fields |
+| Query optimization | Pagination, cursor-based for large datasets |
+
+### Asset Budgets
+
+| Asset Type | Budget | Enforcement |
+|------------|--------|-------------|
+| Initial JS bundle | 200KB gzipped | Build-time check |
+| Initial CSS | 50KB gzipped | Build-time check |
+| Largest image (LCP) | 150KB | Build-time check |
+| Total page weight | 3MB | Performance budget |
+
+---
+
+## 11. Accessibility
+
+### WCAG 2.1 AA Compliance
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Color contrast | 4.5:1 for text, 3:1 for UI components |
+| Keyboard navigation | Full site navigable via keyboard |
+| Focus indicators | Visible focus rings on all interactive elements |
+| Screen reader | Semantic HTML, ARIA labels for complex widgets |
+| Form labels | All inputs have associated labels |
+| Error identification | Errors announced and linked to fields |
+
+### Reduced Motion
+
+| Animation | Standard | Reduced Motion |
+|-----------|---------|----------------|
+| Page transitions | Slide + fade (300ms) | Instant |
+| Scroll reveals | Fade up (400ms ease-out) | None |
+| Image galleries | Slide (250ms) | Instant swap |
+| Micro-interactions | Scale on hover (150ms) | None |
+| Loading spinners | Rotate (1s infinite) | Static indicator |
+
+### Accessibility Features
+
+- Skip navigation link at page top
+- Breadcrumb navigation for listing pages
+- Landmark regions (header, main, footer, nav)
+- Heading hierarchy (h1 for page title, h2 for sections)
+- Alt text for all images
+- Focus trap in modal dialogs
+- Escape key closes modals
