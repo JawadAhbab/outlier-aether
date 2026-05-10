@@ -43,7 +43,7 @@
 
 ### Main Sections
 
-**3.1 Entry Chamber (Home)**
+**Entry Chamber (Home)**
 
 - Central floating orb (radius: 2 units) with reactive surface shader
 - Four portal anchors positioned at cardinal directions
@@ -51,7 +51,7 @@
 - Ambient particle field (count: 2000 particles)
 - Entry title text floating above orb
 
-**3.2 Gallery Chamber**
+**Gallery Chamber**
 
 - Grid of 6 sculptural pieces arranged in 2x3 layout
 - Each piece: 1.5 unit scale, unique geometry (torus knot, icosahedron, octahedron, dodecahedron, cone, cylinder)
@@ -59,7 +59,7 @@
 - Click reveals expanded detail modal
 - Detail modal contains: title, description, tech specs list, close button
 
-**3.3 Timeline Chamber**
+**Timeline Chamber**
 
 - Linear arrangement of 5 milestone spheres along z-axis
 - Each sphere: 0.8 unit radius, glass-like material with interior glow
@@ -67,7 +67,7 @@
 - Scrolling triggers sequential illumination
 - Year labels floating beside each sphere
 
-**3.4 Contact Chamber**
+**Contact Chamber**
 
 - Central pedestal with contact form
 - Form fields: Name (text), Email (email), Message (textarea)
@@ -169,10 +169,6 @@
 - Particle glow: Soft billboard sprites with alpha fade at edges
 - Rim lighting on sculptural pieces: 0.3 intensity, cyan tint
 - Emissive pulse synchronized to ambient audio beats
-- Count: 2000 particles
-- Size: 0.02 - 0.08 units (random)
-- Shape: Point geometry with circular texture
-- Movement: Perlin noise field (speed: 0.5, scale: 0.3)
 
 ### Post-Processing Pipeline
 
