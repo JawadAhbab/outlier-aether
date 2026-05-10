@@ -12,47 +12,39 @@ Reference sites: Shopify Editions (scroll-triggered reveals), Dave Holloway (cin
 
 ### Color Palette
 
-| Color Name | Hex Value | Purpose |
-|------------|-----------|---------|
-| Obsidian | #0D0D0D | Primary background |
-| Ivory | #FAFAF8 | Primary text |
-| Ember | #E85D04 | Accent / CTA hover state |
-| Slate | #3D3D3D | Secondary surfaces, borders |
-| Mist | #A3A3A3 | Tertiary text, disabled states |
+- Obsidian: #0D0D0D — Primary background
+- Ivory: #FAFAF8 — Primary text
+- Ember: #E85D04 — Accent / CTA hover state
+- Slate: #3D3D3D — Secondary surfaces, borders
+- Mist: #A3A3A3 — Tertiary text, disabled states
 
 ### Typography
 
-| Role | Font | Weight | Size | Line Height |
-|------|------|--------|------|-------------|
-| Display | Space Grotesk | 700 | 80px / 48px (mobile) | 0.95 |
-| H1 | Space Grotesk | 600 | 56px / 32px (mobile) | 1.1 |
-| H2 | Space Grotesk | 600 | 40px / 24px (mobile) | 1.15 |
-| H3 | Space Grotesk | 500 | 24px / 20px (mobile) | 1.3 |
-| Body | Instrument Sans | 400 | 18px / 16px (mobile) | 1.6 |
-| Caption | Instrument Sans | 400 | 14px / 12px (mobile) | 1.4 |
-| Mono | JetBrains Mono | 400 | 14px | 1.5 |
+- Display: Space Grotesk, 700, 80px / 48px (mobile), line height 0.95
+- H1: Space Grotesk, 600, 56px / 32px (mobile), line height 1.1
+- H2: Space Grotesk, 600, 40px / 24px (mobile), line height 1.15
+- H3: Space Grotesk, 500, 24px / 20px (mobile), line height 1.3
+- Body: Instrument Sans, 400, 18px / 16px (mobile), line height 1.6
+- Caption: Instrument Sans, 400, 14px / 12px (mobile), line height 1.4
+- Mono: JetBrains Mono, 400, 14px, line height 1.5
 
 ### Spacing System
 
 Base unit: 8px
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| xs | 8px | Tight element gaps |
-| sm | 16px | Component internal spacing |
-| md | 24px | Section element spacing |
-| lg | 48px | Section padding |
-| xl | 80px | Page section gaps |
-| 2xl | 120px | Major section dividers |
+- xs: 8px — Tight element gaps
+- sm: 16px — Component internal spacing
+- md: 24px — Section element spacing
+- lg: 48px — Section padding
+- xl: 80px — Page section gaps
+- 2xl: 120px — Major section dividers
 
 ### Border Radius
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| sm | 4px | Badges, small tags |
-| md | 8px | Buttons, inputs |
-| lg | 16px | Cards, containers |
-| full | 9999px | Pills, avatars |
+- sm: 4px — Badges, small tags
+- md: 8px — Buttons, inputs
+- lg: 16px — Cards, containers
+- full: 9999px — Pills, avatars
 
 ---
 
@@ -137,22 +129,18 @@ Timing function for all transitions: cubic-bezier(0.76, 0, 0.24, 1)
 
 ### Page-to-Page Transitions
 
-| Transition Type | Duration | Easing | Effect |
-|-----------------|----------|--------|--------|
-| Fade to Black | 400ms | cubic-bezier(0.76, 0, 0.24, 1) | Page opacity 1 to 0, black overlay opacity 0 to 1 |
-| Black Hold | 200ms | linear | Brief black screen |
-| Fade from Black | 400ms | cubic-bezier(0.76, 0, 0.24, 1) | Black overlay opacity 1 to 0, new page opacity 0 to 1 |
+- Fade to Black: 400ms, cubic-bezier(0.76, 0, 0.24, 1) — page opacity 1 to 0, black overlay opacity 0 to 1
+- Black Hold: 200ms, linear — brief black screen
+- Fade from Black: 400ms, cubic-bezier(0.76, 0, 0.24, 1) — black overlay opacity 1 to 0, new page opacity 0 to 1
 
 ### Scroll-Triggered Animations
 
-| Element | Animation | Duration | Delay | Easing |
-|---------|-----------|----------|-------|--------|
-| Hero Text | Character reveal | 30ms per char | 200ms initial | ease-out |
-| Section Headings | Fade + translateY(40px) | 600ms | 0ms | ease-out |
-| Project Cards | Fade + translateY(60px) + scale(0.95) | 500ms | 0ms stagger 100ms | ease-out |
-| Team Cards | Scale(0.8) to Scale(1) + opacity | 400ms | stagger 75ms | ease-out |
-| Horizontal Rules | Width 0% to 100% | 800ms | 0ms | ease-in-out |
-| Floating Images | translateY oscillation | 3000ms | 0ms | ease-in-out infinite |
+- Hero Text: character reveal, 30ms per char, 200ms initial delay, ease-out
+- Section Headings: fade + translateY(40px), 600ms, ease-out
+- Project Cards: fade + translateY(60px) + scale(0.95), 500ms, stagger 100ms, ease-out
+- Team Cards: scale(0.8) to scale(1) + opacity, 400ms, stagger 75ms, ease-out
+- Horizontal Rules: width 0% to 100%, 800ms, ease-in-out
+- Floating Images: translateY oscillation, 3000ms, ease-in-out infinite
 
 ### Staggered Reveal Sequences
 
@@ -166,13 +154,11 @@ For list items (e.g., team grid, principles list):
 
 #### Button States
 
-| State | Background | Text Color | Transform | Box Shadow |
-|-------|-------------|------------|-----------|-----------|
-| Default | transparent | Ivory | - | - |
-| Hover | Ember | #0D0D0D | scale(1.02) | 0 4px 20px rgba(232, 93, 4, 0.3) |
-| Active | #C44D03 | #0D0D0D | scale(0.98) | - |
-| Disabled | Slate | Mist | - | - |
-| Loading | Ember | transparent | - | pulse animation |
+- Default: transparent background, Ivory text
+- Hover: Ember background, #0D0D0D text, scale(1.02), box-shadow 0 4px 20px rgba(232, 93, 4, 0.3)
+- Active: #C44D03 background, #0D0D0D text, scale(0.98)
+- Disabled: Slate background, Mist text
+- Loading: Ember background, transparent text, pulse animation
 
 #### Card Hover
 
@@ -198,15 +184,13 @@ For list items (e.g., team grid, principles list):
 
 ### Framework & Libraries
 
-| Library | Version | Purpose |
-|---------|---------|---------|
-| Next.js | 14.2 | Framework with App Router |
-| React | 18.3 | UI components |
-| GSAP | 3.12 | Animation engine (ScrollTrigger, timeline) |
-| Lenis | 1.1 | Smooth scrolling |
-| Three.js | 0.162 | 3D background effects |
-| @react-three/fiber | 8.16 | React Three.js integration |
-| @react-three/drei | 9.105 | R3F helpers |
+- Next.js 14.2 — Framework with App Router
+- React 18.3 — UI components
+- GSAP 3.12 — Animation engine (ScrollTrigger, timeline)
+- Lenis 1.1 — Smooth scrolling
+- Three.js 0.162 — 3D background effects
+- @react-three/fiber 8.16 — React Three.js integration
+- @react-three/drei 9.105 — R3F helpers
 
 ### Three.js Implementation
 
@@ -243,13 +227,11 @@ All icons use inline SVG with CSS animations:
 
 ### Asset Specifications
 
-| Asset Type | Format | Optimization |
-|------------|--------|--------------|
-| Hero Images | WebP | max 400KB per image |
-| Thumbnails | WebP | max 100KB per image |
-| Team Avatars | WebP, 2x | max 50KB per image |
-| Background Textures | WebP | max 200KB, tiling |
-| Fonts | WOFF2 | subset to used characters |
+- Hero Images: WebP format, max 400KB per image
+- Thumbnails: WebP format, max 100KB per image
+- Team Avatars: WebP format, 2x, max 50KB per image
+- Background Textures: WebP format, max 200KB, tiling
+- Fonts: WOFF2 format, subset to used characters
 
 ---
 
@@ -333,12 +315,10 @@ ContactSubmission {
 
 #### Validation Rules
 
-| Field | Rules |
-|-------|-------|
-| name | required, min 2 chars, max 100 chars |
-| email | required, valid email format |
-| subject | required, one of predefined options |
-| message | required, min 10 chars, max 2000 chars |
+- name: required, min 2 chars, max 100 chars
+- email: required, valid email format
+- subject: required, one of predefined options
+- message: required, min 10 chars, max 2000 chars
 
 ---
 
@@ -346,10 +326,8 @@ ContactSubmission {
 
 ### User Roles
 
-| Role | Permissions |
-|------|-------------|
-| Visitor | View all public pages, submit contact form |
-| Admin | Access dashboard, manage projects, view submissions |
+- Visitor: View all public pages, submit contact form
+- Admin: Access dashboard, manage projects, view submissions
 
 ### Auth Flow (Admin)
 
@@ -375,44 +353,36 @@ ContactSubmission {
 
 ### Breakpoints
 
-| Name | Min Width | Max Width | Description |
-|------|----------|----------|-------------|
-| mobile | 0px | 639px | Small phones |
-| tablet | 640px | 1023px | Tablets, large phones |
-| desktop | 1024px | 1439px | Standard laptops |
-| wide | 1440px | - | Large monitors |
+- mobile: 0px to 639px — Small phones
+- tablet: 640px to 1023px — Tablets, large phones
+- desktop: 1024px to 1439px — Standard laptops
+- wide: 1440px and above — Large monitors
 
 ### Responsive Changes
 
 #### Typography Scale
 
-| Element | Desktop | Tablet | Mobile |
-|---------|---------|--------|--------|
-| Display | 80px | 56px | 48px |
-| H1 | 56px | 40px | 32px |
-| H2 | 40px | 32px | 24px |
-| H3 | 24px | 20px | 20px |
-| Body | 18px | 16px | 16px |
+- Display: 80px (desktop), 56px (tablet), 48px (mobile)
+- H1: 56px (desktop), 40px (tablet), 32px (mobile)
+- H2: 40px (desktop), 32px (tablet), 24px (mobile)
+- H3: 24px (desktop), 20px (tablet), 20px (mobile)
+- Body: 18px (desktop), 16px (tablet), 16px (mobile)
 
 #### Layout Adjustments
 
-| Section | Desktop | Tablet | Mobile |
-|---------|---------|--------|--------|
-| Hero Grid | 2 columns | 1 column | 1 column |
-| Work Cards | Full width stacked | Full width stacked | Full width stacked |
-| Team Grid | 4 columns | 3 columns | 2 columns / 1 column |
-| About Split | 60/40 | 50/50 | stacked |
-| Contact Form | 560px max | 100% - 48px padding | 100% - 32px padding |
+- Hero Grid: 2 columns (desktop), 1 column (tablet/mobile)
+- Work Cards: Full width stacked (all breakpoints)
+- Team Grid: 4 columns (desktop), 3 columns (tablet), 2/1 columns (mobile)
+- About Split: 60/40 (desktop), 50/50 (tablet), stacked (mobile)
+- Contact Form: 560px max (desktop), 100% - 48px padding (tablet), 100% - 32px padding (mobile)
 
 ### Performance Scaling
 
-| Feature | Desktop | Tablet | Mobile |
-|---------|---------|--------|--------|
-| Particle Count | 5000 | 2000 | 500 |
-| Image Quality | 2x retina | 1.5x | 1x |
-| Transition Duration | 400ms | 300ms | 250ms |
-| Scroll Velocity | 1x | 0.8x | 0.6x |
-| Parallax Intensity | 20px | 15px | 10px |
+- Particle Count: 5000 (desktop), 2000 (tablet), 500 (mobile)
+- Image Quality: 2x retina (desktop), 1.5x (tablet), 1x (mobile)
+- Transition Duration: 400ms (desktop), 300ms (tablet), 250ms (mobile)
+- Scroll Velocity: 1x (desktop), 0.8x (tablet), 0.6x (mobile)
+- Parallax Intensity: 20px (desktop), 15px (tablet), 10px (mobile)
 
 ---
 
@@ -420,26 +390,22 @@ ContactSubmission {
 
 ### Performance Metrics
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Lighthouse Score | 90+ | Performance, Accessibility |
-| First Contentful Paint | < 1.5s | Lighthouse |
-| Largest Contentful Paint | < 2.5s | Lighthouse |
-| Total Blocking Time | < 200ms | Lighthouse |
-| Cumulative Layout Shift | < 0.1 | Lighthouse |
-| Animation FPS | 60fps | DevTools Performance |
-| Time to Interactive | < 3s | Lighthouse |
+- Lighthouse Score: 90+ (Performance, Accessibility)
+- First Contentful Paint: < 1.5s
+- Largest Contentful Paint: < 2.5s
+- Total Blocking Time: < 200ms
+- Cumulative Layout Shift: < 0.1
+- Animation FPS: 60fps
+- Time to Interactive: < 3s
 
 ### Optimization Techniques
 
-| Technique | Implementation |
-|-----------|----------------|
-| Image Optimization | Next.js Image component, WebP format, responsive srcset |
-| Code Splitting | Dynamic imports for heavy components (Three.js, GSAP) |
-| Lazy Loading | Intersection Observer for below-fold images |
-| Font Optimization | next/font with subset, display: swap |
-| Animation Optimization | will-change, transform/opacity only, GPU acceleration |
-| Bundle Size | Tree shaking, noUnusedLocals, minimal dependencies |
+- Image Optimization: Next.js Image component, WebP format, responsive srcset
+- Code Splitting: Dynamic imports for heavy components (Three.js, GSAP)
+- Lazy Loading: Intersection Observer for below-fold images
+- Font Optimization: next/font with subset, display: swap
+- Animation Optimization: will-change, transform/opacity only, GPU acceleration
+- Bundle Size: Tree shaking, noUnusedLocals, minimal dependencies
 
 ### Accessibility
 
@@ -463,12 +429,10 @@ All text combinations meet WCAG AA:
 
 #### Keyboard Navigation
 
-| Key | Action |
-|-----|--------|
-| Tab | Navigate focusable elements |
-| Enter | Activate focused element |
-| Escape | Close modals, cancel transitions |
-| Arrow Keys | Navigate within components |
+- Tab: Navigate focusable elements
+- Enter: Activate focused element
+- Escape: Close modals, cancel transitions
+- Arrow Keys: Navigate within components
 
 ---
 
