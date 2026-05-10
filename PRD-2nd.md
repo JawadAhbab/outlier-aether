@@ -49,41 +49,50 @@
 ### Page Structure
 
 **Hero Section**
-- Full viewport height (100vh) with vertically centered content
-- Large typography hero text "WE CREATE DIGITAL EXPERIENCES" in Syne 700, split across 2 lines
-- Subtitle text below: 1.5rem Inter, max-width 600px
-- Single CTA button "View Our Work" with 16px padding horizontal, 56px height
-- Scroll indicator at bottom center: animated chevron bouncing with 2s interval
-- Background: Subtle gradient from #faf9f7 to #f0efed (top to bottom)
+- Full viewport height (100vh) with vertically centered content using flexbox (justify-content: center, align-items: center)
+- Large typography hero text "WE CREATE DIGITAL EXPERIENCES" in Syne 700, 5rem size, split across 2 lines with line-height 1.0
+- Subtitle text below: 1.5rem Inter, max-width 600px, color #737373, line-height 1.6
+- Single CTA button "View Our Work" with 16px horizontal padding, 56px height, border-radius 4px, background #8b5cf6
+- Button hover state: Background darkens to #7c3aed, translateY -2px, shadow appears (0 10px 30px rgba(139, 92, 246, 0.3))
+- Scroll indicator at bottom center: Chevron icon (32px), animated bouncing with 2s interval, opacity 0.6
+- Background: Subtle gradient from #faf9f7 to #f0efed (top to bottom), fixed position for parallax-ready
 
 **Selected Work Section**
-- Dark background (#1a1a1a) for visual contrast
-- Section title "SELECTED WORK" positioned top-left, Syne 600, 2.5rem
-- 3 featured project cards in asymmetric grid (2 columns: 60% + 40%)
-- First card spans full height, second card split into 2 stacked items
-- Each card shows: project thumbnail (aspect 4:3), title overlay, category tag
-- Cards trigger page transition on click
+- Dark background (#1a1a1a) for visual contrast, full-width section with 64px vertical padding
+- Section title "SELECTED WORK" positioned top-left, Syne 600, 2.5rem, color #ffffff with 0.9 opacity
+- 3 featured project cards in asymmetric grid (2 columns: 60% left large card, 40% right stacked cards)
+- First card: 60% width, full height (500px), positioned left with 24px gap from right column
+- Second column: Contains 2 stacked cards (250px each), each 40% width, gap 24px between them
+- Each card: project thumbnail (aspect 4:3, object-fit: cover), title overlay (bottom-left, white text), category tag (top-right pill badge)
+- Card hover: Overlay darkens (opacity 0.6 to 0.8), title slides up 10px, scale 1.02
+- Cards trigger page transition on click with shared element animation
 
 **About Section**
-- Light background (#faf9f7)
-- Two-column layout: left side text content, right side portrait image
-- Text column: section tag "ABOUT", heading "We are Motion Collective", 3 paragraphs of text
-- Image: Rounded corners (24px), slight shadow, 60% container width
-- Stats row below image: 4 items (Years, Projects, Clients, Awards) with large numbers
+- Light background (#faf9f7), two-column layout with max-width 1200px container
+- Left column (55% width): Contains section tag "ABOUT" (Inter 500, 0.875rem, #8b5cf6), heading "We are Motion Collective" (Syne 600, 3rem), 3 paragraphs of body text (Inter 400, 1.125rem, line-height 1.7, color #1a1a1a)
+- Right column (45% width): Portrait image with rounded corners (24px), subtle shadow (0 20px 60px rgba(0,0,0,0.1)), object-fit: cover
+- Stats row below image: 4 items in horizontal layout (Years: 12, Projects: 200+, Clients: 85+, Awards: 24), each with large number (Syne 700, 2.5rem, #0a0a0a) and label below (Inter 400, 0.875rem, #737373)
+- Stats animate on scroll entry: numbers count up from 0 over 2000ms with ease-out
 
 **Services Section**
-- Dark background section
-- Horizontal scrolling service cards (3 cards visible, drag/scroll to see more)
-- Each card: 400px width, 500px height, dark card (#262626)
-- Card content: Icon (64px), service title (Syne 600), description (Inter), "Learn More" link
-- Services: Brand Identity, Web Experiences, Motion Design, Creative Direction
+- Dark background section (#1a1a1a), section heading "WHAT WE DO" centered, Syne 600, 2rem, white
+- Horizontal scrolling service cards container with scroll-snap-type: x mandatory
+- 3 cards visible initially on desktop (100vw - 160px padding), each card 400px width, 500px height
+- Card styling: background #262626, border-radius 16px, 32px padding, subtle border (1px solid #404040)
+- Card content: Icon (64px, SVG or component), service title (Syne 600, 1.5rem, white), description (Inter 400, 1rem, #a0a0a0, line-height 1.6), "Learn More" link (color #8b5cf6, hover underline)
+- Services list: Brand Identity, Web Experiences, Motion Design, Creative Direction
+- Scroll arrows: Left/right chevron buttons (48px circles, #262626 background) appear on hover, positioned at container edges
 
 **Contact Section**
-- Light background with centered content
-- Large heading "Let's Create Something Together"
-- Contact form: Name, Email, Project Type (dropdown), Message (textarea)
-- Submit button: Full width on mobile, 320px on desktop, Electric Violet background
-- Success state: Checkmark animation, "Message Sent" confirmation
+- Light background (#faf9f7) with centered content, 96px vertical padding
+- Large heading "Let's Create Something Together" (Syne 700, 3.5rem, #0a0a0a), centered, max-width 700px
+- Contact form container: max-width 500px, centered, 48px margin top
+- Form fields: Name (text input), Email (email input), Project Type (select dropdown), Message (textarea, 4 rows)
+- Input styling: Full width, 56px height, transparent background, bottom border (1px solid #e5e5e5), transition to #8b5cf6 on focus
+- Floating labels: Start inside input, animate up 20px and scale 0.85 on focus, color #737373 to #8b5cf6 transition
+- Submit button: Width 320px on desktop (full width mobile), 56px height, background #8b5cf6, white text (Inter 500), border-radius 4px
+- Button hover: background #7c3aed, translateY -2px, shadow appears
+- Success state: Form fades out, checkmark animation (circular reveal, 400ms), "Message Sent" text fades in below
 
 ### Navigation
 
