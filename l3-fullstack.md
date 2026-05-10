@@ -1,9 +1,9 @@
 > Read the source file, you will get directions, follow the rules and complete the task
 
-- Title: Procurement
-- Description: B2B purchasing platforms for bulk ordering, supplier discovery, RFQ workflows, and enterprise-scale procurement interfaces
+- Title:
+- Description:
 - Words limit: 5000 [VERY IMPORTANT]
-- Think of sites like: Alibaba B2B, ThomasNet, SAP Ariba
+- Think of sites like:
 
 **You have to write a Write a comprehensive Product Requirements Document (~6,500 tokens). Describe user roles, auth flows, core features as user flows, data model, API design, and error handling. Be as detailed as possible — thorough PRDs produce better results.**
 
@@ -21,11 +21,6 @@
 - Real-time features, payments, admin tools
 
 ### For specifically:
-
-- Bulk catalog with SKU, MOQ, pricing tiers
-- RFQ workflow with multi-step forms
-- Supplier profiles, certifications
-- Order tracking, purchase order tables
 
 ### Quick tips
 
