@@ -51,6 +51,7 @@
 ### Main Sections
 
 **3.1 Entry Chamber (Home)**
+
 - Central floating orb (radius: 2 units) with reactive surface shader
 - Four portal anchors positioned at cardinal directions
 - Portal anchors: Torus geometry (radius: 0.5, tube: 0.08), animated ring pulse
@@ -58,6 +59,7 @@
 - Entry title text floating above orb
 
 **3.2 Gallery Chamber**
+
 - Grid of 6 sculptural pieces arranged in 2x3 layout
 - Each piece: 1.5 unit scale, unique geometry (torus knot, icosahedron, octahedron, dodecahedron, cone, cylinder)
 - Interactive hover states with glow intensification
@@ -65,6 +67,7 @@
 - Detail modal contains: title, description, tech specs list, close button
 
 **3.3 Timeline Chamber**
+
 - Linear arrangement of 5 milestone spheres along z-axis
 - Each sphere: 0.8 unit radius, glass-like material with interior glow
 - Connecting line with animated energy flow (dashed line, moving pattern)
@@ -72,6 +75,7 @@
 - Year labels floating beside each sphere
 
 **3.4 Contact Chamber**
+
 - Central pedestal with contact form
 - Form fields: Name (text), Email (email), Message (textarea)
 - Floating label inputs with 3D depth effect (labels animate upward on focus)
@@ -91,31 +95,36 @@
 
 ### Camera Transitions
 
-- Transition: Chamber Entry, Duration: 2000ms, Easing: cubic-bezier(0.4, 0, 0.2, 1), Description: Smooth fly-in to default view
-- Transition: Chamber Switch, Duration: 1500ms, Easing: cubic-bezier(0.76, 0, 0.24, 1), Description: Arc path with slight zoom
-- Transition: Focus Element, Duration: 800ms, Easing: cubic-bezier(0.34, 1.56, 0.64, 1), Description: Spring-like approach
-- Transition: Return Home, Duration: 1200ms, Easing: cubic-bezier(0.4, 0, 0.6, 1), Description: Gentle pull to center
+- Transition: Chamber Entry, Duration: 2000ms, Easing: cubic-bezier(0.4, 0, 0.2, 1), Description: Smooth fly-in to default view from black fade
+- Transition: Chamber Switch, Duration: 1500ms, Easing: cubic-bezier(0.76, 0, 0.24, 1), Description: Arc path with slight zoom, ease-out feel
+- Transition: Focus Element, Duration: 800ms, Easing: cubic-bezier(0.34, 1.56, 0.64, 1), Description: Spring-like overshoot approach
+- Transition: Return Home, Duration: 1200ms, Easing: cubic-bezier(0.4, 0, 0.6, 1), Description: Gentle pull to center, ease-in-out
+- Camera damping: 0.05 factor for smooth deceleration on orbit controls
 
 ### Object Animations
 
-- Object: Central Orb, Animation: Slow rotation, Duration: 20000ms, Loop: Yes, Trigger: Auto
-- Object: Orb Surface, Animation: Vertex displacement, Duration: 3000ms, Loop: Yes, Trigger: Wave pattern
-- Object: Portal Anchors, Animation: Pulse glow, Duration: 2000ms, Loop: Yes, Trigger: Sine wave
-- Object: Particles, Animation: Drift motion, Duration: Variable, Loop: Yes, Trigger: Perlin noise
-- Object: Gallery Pieces, Animation: Float bob, Duration: 4000ms, Loop: Yes, Trigger: Offset sine
+- Object: Central Orb, Animation: Slow rotation on Y-axis, Duration: 20000ms, Loop: Yes, Trigger: Auto, Speed: 0.0003 rad/frame
+- Object: Orb Surface, Animation: Vertex displacement via noise, Duration: 3000ms, Loop: Yes, Trigger: Wave pattern, Amplitude: 0.15
+- Object: Portal Anchors, Animation: Pulse glow (emissive intensity oscillates 0.3 to 1.0), Duration: 2000ms, Loop: Yes, Trigger: Sine wave
+- Object: Particles, Animation: Drift motion via Perlin noise field, Duration: Variable per particle, Loop: Yes, Trigger: Perlin noise, Speed: 0.5, Scale: 0.3
+- Object: Gallery Pieces, Animation: Float bob (Y position oscillates +/- 0.2 units), Duration: 4000ms, Loop: Yes, Trigger: Offset sine per piece
+- Object: Timeline Energy Line, Animation: Dashed pattern moves along path, Duration: 3000ms, Loop: Yes, Trigger: Continuous scroll
 
 ### Interaction Feedback
 
-- Interaction: Hover (3D object), Visual Response: Emissive intensity +50%, scale 1.05, Duration: 200ms
-- Interaction: Click (portal), Visual Response: Radial burst particles, sound cue, Duration: 400ms
-- Interaction: Focus (form input), Visual Response: Border glow animate, label float up, Duration: 300ms
-- Interaction: Submit, Visual Response: Button dissolve, particle explosion, Duration: 600ms
+- Interaction: Hover (3D object), Visual Response: Emissive intensity +50%, scale 1.05, cursor: pointer, Duration: 200ms, Easing: ease-out
+- Interaction: Click (portal), Visual Response: Radial burst particles (50 particles, outward velocity 2.0), sound cue, Duration: 400ms
+- Interaction: Focus (form input), Visual Response: Border glow animate (box-shadow 0 0 8px cyan), label float up 12px, Duration: 300ms, Easing: ease-out
+- Interaction: Submit, Visual Response: Button dissolve (opacity 1 to 0), particle explosion (100 particles), Duration: 600ms
+- Interaction: Modal open, Visual Response: Scale 0.9 to 1.0, opacity 0 to 1, Duration: 400ms, Easing: ease-out
+- Interaction: Chamber indicator click, Visual Response: Ring pulse on HUD element, camera transitions to selected chamber
 
 ### Scroll Animations
 
-- Timeline Chamber: Each milestone sphere illuminates as it enters viewport center
-- Progress indicator fills proportionally to scroll position
-- Parallax depth: foreground 1.0x, midground 0.6x, background 0.2x
+- Timeline Chamber: Each milestone sphere illuminates as it enters viewport center (scale 1.0 to 1.15, emissive activates)
+- Progress indicator fills proportionally to scroll position (linear interpolation)
+- Parallax depth: foreground 1.0x scroll speed, midground 0.6x, background 0.2x
+- Scroll momentum: Smooth deceleration with rubber-band effect at boundaries
 
 ---
 
@@ -146,31 +155,27 @@
 
 **Central Orb Material (Custom Shader):**
 
-```
 - Base: MeshPhysicalMaterial
 - Roughness: 0.15, Metalness: 0.3
 - Transmission: 0.6, Thickness: 2.0
 - Vertex shader: Simplex noise displacement (amplitude: 0.15, frequency: 2.0)
 - Fragment shader: Fresnel rim glow (power: 3.0, color: #00f5d4)
-```
 
 **Portal Anchor Material:**
 
-```
 - Emissive material with animated intensity
 - Glow radius: 0.5 units
 - Color interpolation between #00f5d4 and #f72585
-```
 
 **Particle System:**
-```
+
 - Count: 2000 particles
 - Size: 0.02 - 0.08 units (random)
 - Shape: Point geometry with circular texture
 - Movement: Perlin noise field (speed: 0.5, scale: 0.3)
-```
 
 **Shader Effects (Glow & Particles):**
+
 - Glow effect: Additive blending with radial gradient falloff
 - Particle glow: Soft billboard sprites with alpha fade at edges
 - Rim lighting on sculptural pieces: 0.3 intensity, cyan tint
@@ -179,7 +184,6 @@
 - Size: 0.02 - 0.08 units (random)
 - Shape: Point geometry with circular texture
 - Movement: Perlin noise field (speed: 0.5, scale: 0.3)
-```
 
 ### Post-Processing Pipeline
 
@@ -194,11 +198,9 @@
 **Collision:** Raycasting for click detection only
 **Spring System:** For camera zoom and element focus
 
-```
 - stiffness: 0.08
 - damping: 0.7
 - mass: 1.0
-```
 
 **Particle Physics:** Simplified Verlet integration for burst effects
 
@@ -243,7 +245,6 @@
 
 **Flow 1: Chamber Navigation**
 
-```
 1. User enters site
 2. Entry Chamber loads with central orb animation
 3. User clicks portal anchor
@@ -252,11 +253,9 @@
 6. New chamber elements fade in (staggered, 200ms intervals)
 7. New chamber controls enable
 8. HUD updates active indicator
-```
 
 **Flow 2: Gallery Interaction**
 
-```
 1. User enters Gallery Chamber
 2. 6 sculptural pieces render in 2x3 grid
 3. User hovers over piece
@@ -270,7 +269,6 @@
 5. User closes modal (X button or click outside)
    - Modal slides out (300ms)
    - Camera returns to default (600ms)
-```
 
 ### State Management
 
