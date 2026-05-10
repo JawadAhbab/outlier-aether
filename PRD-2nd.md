@@ -49,6 +49,7 @@
 ### Page Structure
 
 **Hero Section**
+
 - Full viewport height (100vh) with vertically centered content using flexbox (justify-content: center, align-items: center)
 - Large typography hero text "WE CREATE DIGITAL EXPERIENCES" in Syne 700, 5rem size, split across 2 lines with line-height 1.0
 - Subtitle text below: 1.5rem Inter, max-width 600px, color #737373, line-height 1.6
@@ -58,6 +59,7 @@
 - Background: Subtle gradient from #faf9f7 to #f0efed (top to bottom), fixed position for parallax-ready
 
 **Selected Work Section**
+
 - Dark background (#1a1a1a) for visual contrast, full-width section with 64px vertical padding
 - Section title "SELECTED WORK" positioned top-left, Syne 600, 2.5rem, color #ffffff with 0.9 opacity
 - 3 featured project cards in asymmetric grid (2 columns: 60% left large card, 40% right stacked cards)
@@ -68,6 +70,7 @@
 - Cards trigger page transition on click with shared element animation
 
 **About Section**
+
 - Light background (#faf9f7), two-column layout with max-width 1200px container
 - Left column (55% width): Contains section tag "ABOUT" (Inter 500, 0.875rem, #8b5cf6), heading "We are Motion Collective" (Syne 600, 3rem), 3 paragraphs of body text (Inter 400, 1.125rem, line-height 1.7, color #1a1a1a)
 - Right column (45% width): Portrait image with rounded corners (24px), subtle shadow (0 20px 60px rgba(0,0,0,0.1)), object-fit: cover
@@ -75,6 +78,7 @@
 - Stats animate on scroll entry: numbers count up from 0 over 2000ms with ease-out
 
 **Services Section**
+
 - Dark background section (#1a1a1a), section heading "WHAT WE DO" centered, Syne 600, 2rem, white
 - Horizontal scrolling service cards container with scroll-snap-type: x mandatory
 - 3 cards visible initially on desktop (100vw - 160px padding), each card 400px width, 500px height
@@ -84,6 +88,7 @@
 - Scroll arrows: Left/right chevron buttons (48px circles, #262626 background) appear on hover, positioned at container edges
 
 **Contact Section**
+
 - Light background (#faf9f7) with centered content, 96px vertical padding
 - Large heading "Let's Create Something Together" (Syne 700, 3.5rem, #0a0a0a), centered, max-width 700px
 - Contact form container: max-width 500px, centered, 48px margin top
@@ -119,7 +124,7 @@
 - Animation: Image Parallax, Trigger: Scroll position, Description: Images move at 0.6x scroll speed creating depth illusion, translateY calculated per element
 - Animation: Card Stagger Reveal, Trigger: 80% viewport entry, Description: Cards animate in with 150ms stagger, translateY 60px to 0, opacity 0 to 1, rotation -2deg to 0deg
 - Animation: Stats Counter, Trigger: 50% viewport entry, Description: Numbers count up from 0 to target value over 2000ms, easing: ease-out
-- Animation: Progress Bar Fill, Trigger: Scroll position, Description: Width percentage = (scrollY / (documentHeight - viewportHeight)) * 100
+- Animation: Progress Bar Fill, Trigger: Scroll position, Description: Width percentage = (scrollY / (documentHeight - viewportHeight)) \* 100
 
 ### Staggered Reveal Sequences
 
