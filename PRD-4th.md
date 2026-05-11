@@ -202,44 +202,6 @@
 - Particle physics: Simple velocity-based sand falling simulation
 - Collision: None (navigational space, no physical collisions)
 
-## Data Model
-
-**Artifact:**
-
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique artifact identifier |
-| name | string | Display name |
-| era | string | Era category (ancient, medieval, renaissance) |
-| origin | string | Geographic origin |
-| year | number | Approximate year BCE/CE |
-| description | string | Historical description |
-| geometry | string | Three.js geometry type |
-| material | string | Material configuration name |
-| pedestalPosition | Vector3 | World position on platform |
-| unlocked | boolean | Player discovery status |
-
-**Era:**
-
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Era identifier |
-| name | string | Display name |
-| color | string | Accent color hex |
-| startYear | number | Starting year BCE/CE |
-| endYear | number | Ending year BCE/CE |
-| platformPosition | Vector3 | Platform world position |
-| artifactIds | Array[string] | List of artifact IDs in this era |
-
-**PlayerProgress:**
-
-| Field | Type | Description |
-|-------|------|-------------|
-| discoveredArtifacts | Array[string] | List of unlocked artifact IDs |
-| visitedEras | Array[string] | List of visited era IDs |
-| totalTime | number | Seconds spent in museum |
-| lastVisit | Date | Timestamp of last visit |
-
 ## Core Feature Flows
 
 **Flow 1: Museum Exploration**
@@ -373,9 +335,3 @@ All audio off by default, toggle in pause menu settings.
 - Edge 90+
 - Mobile Safari iOS 15+
 - Chrome Android 90+
-
----
-
-*Document Version: 1.0*
-*Last Updated: 2026-05-11*
-*Author: WebDev PRD Generator*
